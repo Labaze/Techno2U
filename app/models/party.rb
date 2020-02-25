@@ -10,8 +10,8 @@ class Party < ApplicationRecord
   private
 
   def end_after_begin
-    if :end >= :start
-      errors.add(:end, "Must be later than begin")
+    if :end_time >= :start_time
+      errors.add(:end_time, "Must be later than starting time")
     end
   end
 
