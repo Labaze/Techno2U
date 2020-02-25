@@ -65,6 +65,18 @@
   left: calc(50% - 60px);
 }
 
+.infos {
+  position: absolute;
+  top: 150px;
+  left: 0px;
+  padding: 20px;
+  // left: calc(50% - 60px);
+
+  li {
+    list-style:none;
+  }
+}
+
 .stroke {
   stroke: white;
   stroke-dasharray: 360;
