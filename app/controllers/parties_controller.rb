@@ -56,6 +56,6 @@ class PartiesController < ApplicationController
   end
 
   def restaurant_params
-    params.require(:party).permit(:name, :begin, :end, :venue_type, :venue_location, :genre_id)
+    params.require(:party).permit(:name, :start_time, :end_time, :venue_type, :venue_location, :genre_id)
   end
 end
