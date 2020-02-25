@@ -1,5 +1,5 @@
 class Party < ApplicationRecord
-  has_one :genre
+  belongs_to :genre
   has_many :users, through: :attendings
   has_many :artists, through: :lineups
 

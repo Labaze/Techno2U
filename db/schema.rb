@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_25_114613) do
+ActiveRecord::Schema.define(version: 2020_02_25_133222) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,24 +40,24 @@ ActiveRecord::Schema.define(version: 2020_02_25_114613) do
   end
 
   create_table "lineups", force: :cascade do |t|
-    t.bigint "artist_id"
-    t.bigint "party_id"
+    t.bigint   "artist_id"
+    t.bigint   "party_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["artist_id"], name: "index_lineups_on_artist_id"
-    t.index ["party_id"], name: "index_lineups_on_party_id"
+    t.index    ["artist_id"], name: "index_lineups_on_artist_id"
+    t.index    ["party_id"], name: "index_lineups_on_party_id"
   end
 
   create_table "parties", force: :cascade do |t|
-    t.string "name"
+    t.string   "name"
     t.datetime "begin"
     t.datetime "end"
-    t.string "venue_location"
-    t.string "venue_type"
-    t.bigint "genre_id"
+    t.string   "venue_location"
+    t.string   "venue_type"
+    t.bigint   "genre_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["genre_id"], name: "index_parties_on_genre_id"
+    t.index    ["genre_id"], name: "index_parties_on_genre_id"
   end
 
   create_table "preferences", force: :cascade do |t|

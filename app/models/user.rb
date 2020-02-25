@@ -6,6 +6,5 @@ class User < ApplicationRecord
 
   has_many :preferences
   has_many :parties, through: :attendings
-
-  validates :name, presence: true
+  has_many :genres, through: :preferences
 end

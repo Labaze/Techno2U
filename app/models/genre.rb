@@ -1,8 +1,8 @@
 class Genre < ApplicationRecord
   has_many :users, through: :preferences
 
-  belongs_to :artist
-  belongs_to :party
+  has_many :artist
+  has_many :party
 
   validates :name, presence: true, uniqueness: true
 end
