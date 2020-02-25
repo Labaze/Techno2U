@@ -1,0 +1,7 @@
+.home-footer {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-content: space-between;
+  align-item: center;
+  width: 100%;
+}
