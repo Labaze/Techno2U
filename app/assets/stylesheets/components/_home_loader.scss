@@ -7,22 +7,18 @@ $speed: 2.5s;
 }
 
 .home-loader {
-  top: 0px;
-  bottom: 0px;
-  left: 0px;
-  right: 0px;
   margin: auto;
-  width: 175px;
+  width:  175px;
   height: 100px;
   span {
-    display: block;
-    background: #ccc;
-    width: 7px;
-    height: 10%;
+    display:       block;
+    background:    #ccc;
+    width:         7px;
+    height:        10%;
     border-radius: 14px;
-    margin-right: 5px;
-    float: left;
-    margin-top: 25%;
+    margin-right:  5px;
+    float:         left;
+    margin-top:    25%;
 
     &:last-child {
       margin-right: 0px;
