@@ -1,10 +1,6 @@
 // Specific CSS for your home-page
 .home-cards {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 10px;
-  // justify-content: center;
-
-  height: 50vh;
-
+  display:flex;
+  justify-content: space-around;
+  margin-bottom: 200px;
 }
