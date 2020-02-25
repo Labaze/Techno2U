@@ -1,5 +1,14 @@
 Rails.application.routes.draw do
-  devise_for :users
   root to: 'pages#home'
+
+  devise_for :users do
+    resources :preferences, except: [ :show, :index]
+  end
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  resources :parties, except: [ :new, :create ] do
+    resources :attendings, only: [ :new, :create, :destroy ]
+    resources :lineups, only: [ :new, :create, :destroy ]
+  end
+  resources :artists, only: [ :index, :show ]
 end
