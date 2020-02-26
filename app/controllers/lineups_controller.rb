@@ -20,7 +20,7 @@ class LineupsController < ApplicationController
       redirect_to party_path(@lineup.party)
     else
       redirect_to party_path(params[:attending_id]), :alert => "This artist is already playing at this party, you fat fuck!"
-    endLineup
+    end
   end
 
   def destroy
