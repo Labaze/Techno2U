@@ -1,0 +1,30 @@
+h1, h2, h3, p, i {
+  color: white;
+}
+
+i {
+  font-size: 30px;
+}
+
+.artists-lineup {
+  display: flex;
+  align-items: center;
+}
+
+.artists-lineup-infos {
+  margin-left: 30px;
+}
+
+.date-and-place {
+  display: flex;
+  align-items: center;
+
+}
+
+.date-and-place-infos {
+  margin-left: 30px;
+}
+
+.listen-and-social-medias {
+  display: flex;
+}
