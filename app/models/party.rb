@@ -1,10 +1,9 @@
 class Party < ApplicationRecord
-  belongs_to :genre
+  has_one :genre
   has_many :users, through: :attendings
   has_many :artists, through: :lineups
 
   validates :name, presence: true
-  validates :venue_type, presence: true
   validates :venue_location, presence: true
 
   private
