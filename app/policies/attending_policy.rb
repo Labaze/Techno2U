@@ -6,11 +6,13 @@ class AttendingPolicy < ApplicationPolicy
   end
 
   def new?
-    record.user == user
+    create?
+    # record.user == user
   end
 
   def create?
-    record.user == user
+    true
+    # record.user == user
   end
 
   def destroy?
