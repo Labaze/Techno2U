@@ -2,14 +2,14 @@ class AttendingsController < ApplicationController
 
   def new
     @attending = Attending.new
-    @party = Party.find(:party_id)
+    @party = Party.find(params[:party_id])
     authorize @party
     authorize @attending
   end
 
   def create
     @attending = Attending.new(attending_params)
-    @party = Party.find(:party_id)
+    @party = Party.find(params[:party_id])
     @attending.party = @party
     @attending.user = current.user
     authorize @attending
