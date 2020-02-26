@@ -1,31 +1,34 @@
 <%= render 'shared/party_banner' %>
 
-<h1> <%= @party.name %> </h1>
+<div class="container-party-show">
+  <h1> <%= @party.name %> </h1>
 
-<div class="artists-lineup">
-  <i class="far fa-user text-light"></i>
-  <div class="artists-lineup-infos">
-    <h2> Mettre la liste des artistes </h2>
+  <div class="artists-lineup">
+    <i class="far fa-user text-light"></i>
+    <div class="artists-lineup-infos">
+      <h2> Mettre la liste des artistes </h2>
+    </div>
   </div>
-</div>
 
-<div class="date-and-place">
-  <i class="far fa-calendar-alt text-light"></i>
-  <div class="date-and-place-infos">
-    <h3> <%= @party.start_time %> - <%= @party.end_time %> </h3>
-    <p> <%= @party.venue_location %> </p>
+  <div class="date-and-place">
+    <i class="far fa-calendar-alt text-light"></i>
+    <div class="date-and-place-infos">
+      <h3> <%= @party.start_time %> - <%= @party.end_time %> </h3>
+      <p> <%= @party.venue_location %> </p>
+    </div>
   </div>
-</div>
 
-<div class="listen-and-social-medias">
-  <div class="soundcloud-player">
+  <div class="listen-and-social-medias">
+    <div class="soundcloud-player">
+
+    </div>
+    <div class="social-media-card">
+      <a href="">Send on Facebook</a>
+      <a href="">Share on Facebook</a>
+    </div>
+  </div>
+
+  <div class="map"  id="map" style="width: 100%; height: 300px;" data-markers="<%= @markers.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
 
   </div>
-  <div class="social-media-card">
-
-  </div>
-</div>
-
-<div class="map">
-
 </div>
