@@ -2,17 +2,15 @@ class LineupsController < ApplicationController
 
   def new
     @lineup = Lineup.new
-    @party = Party.find(:party_id)
-    @artist = Artist.find(:artist_id)
+    @party = Party.find(params[:party_id])
     authorize @lineup
-    authorize @artist
     authorize @party
   end
 
   def create
     @lineup = Lineup.new(lineup_params)
-    @party = Party.find(:party_id)
-    @artist = Artist.find(:artist_id)
+    @party = Party.find(params[:party_id])
+    @artist = Artist.find(params[:artist_id])
     @lineup.party = @party
     @lineup.artist = @artist
     authorize @lineup

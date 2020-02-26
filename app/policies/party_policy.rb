@@ -22,4 +22,8 @@ class PartyPolicy < ApplicationPolicy
   def destroy?
     user.admin?
   end
+
+  def new?
+    true
+  end
 end
