@@ -1,4 +1,7 @@
 class Party < ApplicationRecord
+  geocoded_by :address
+  after_validation :geocode, if: :will_save_change_to_address?
+
   belongs_to :genre
   has_many :users, through: :attendings
   has_many :artists, through: :lineups
