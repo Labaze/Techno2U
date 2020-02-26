@@ -1,4 +1,3 @@
-    redirect_to request.referrer
 class PartiesController < ApplicationController
   before_action :set_party, only: %i[show edit update destroy]
 
