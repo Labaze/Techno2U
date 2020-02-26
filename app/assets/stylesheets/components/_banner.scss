@@ -1,0 +1,15 @@
+.banner {
+  height: 100vh;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  h1 {
+    font-size: 100px;
+  }
+  h3 {
+    margin-top: 24px;
+  }
+}
