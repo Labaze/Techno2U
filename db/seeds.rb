@@ -12,7 +12,6 @@ require 'CSV'
 
 puts 'Destroy all the database'
 
-Party.destroy_all
 User.destroy_all
 Attending.destroy_all
 Artist.destroy_all
@@ -28,8 +27,8 @@ puts 'Creating genres'
 url = "https://en.wikipedia.org/wiki/List_of_electronic_music_genres"
 list_file = open(url).read
 list_doc = Nokogiri::HTML(list_file)
-
-list_doc.search
-Genre.create(name: 'House')
+list_doc.search('.mw-redirect').each do |style|
+  puts style.text.strip
+end
 
 puts 'Genres created'
