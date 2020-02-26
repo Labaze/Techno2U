@@ -71,8 +71,8 @@ ActiveRecord::Schema.define(version: 2020_02_25_152731) do
 
   create_table "parties", force: :cascade do |t|
     t.string "name"
-    t.datetime "begin"
-    t.datetime "end"
+    t.datetime "start_time"
+    t.datetime "end_time"
     t.string "venue_location"
     t.string "venue_type"
     t.bigint "genre_id"
