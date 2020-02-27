@@ -1,0 +1,44 @@
+.star-button-audio-quizz {
+    cursor: pointer;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    left: calc(100% - 100px);
+    top: 10px;
+
+  &:hover {
+    transform: scale(0.9);
+    box-shadow: inset 3px 3px 15px #CCD3DA, inset -2px -2px 3px #BBC1C7;
+  }
+
+  &:active {
+    transform: scale(0.8);
+    box-shadow: inset 3px 3px 20px #CCD3DA;
+  }
+}
+
+.border-circle {
+  display: inline-block;
+  border-radius: 50%;
+  padding: 5px;
+  background: white;
+  box-shadow: 3px 3px 3px #CCD3DA, -3px -3px 3px #BBC1C7;
+}
+
+#star-audio-quizz {
+  display: inline-block;
+  border-radius: 50%;
+  border: 3px solid #848F9B;
+  padding-left: 5.5px;
+  padding-right: 5.5px;
+  padding-top: 7.5px;
+  padding-bottom: 7.5px;
+  box-shadow: 0px 0px 2px #848F9B;
+  text-justify: center;
+  text-align: center;
+  font-size: 20px;
+  border-radius:50%;
+  background: white;
+  color: #848F9B;
+}

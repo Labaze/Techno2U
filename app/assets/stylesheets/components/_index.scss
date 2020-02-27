@@ -1,5 +1,6 @@
 // Import your components CSS files here.
 @import "alert";
+@import "audio_quizz_card";
 @import "avatar";
 @import "background_color"; // CHECK COMMENT ON PEUT LE METTRE AILLEURS POUR QUE CE SOIT PLUS PROPRE
 @import "banner";
@@ -8,9 +9,11 @@
 @import "home_card";
 @import "home_footer";
 @import "home_loader";
-@import "like_button";
 @import "navbar";
 @import "search_form";
 @import "sidenav";
 @import "social_tiles";
+@import "star_button";
+@import "star_button_audio_quizz";
+@import "remove_button";
 @import "party_banner";

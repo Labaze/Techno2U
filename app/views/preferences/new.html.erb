@@ -1,0 +1,27 @@
+<div class="container audio-quizz">
+  <div class="quizz-row">
+    <div class="indications">
+      <h3>Listen to some tracks</h3>
+      <h5>we will find the best music events for you</h5>
+    </div>
+    <div id="stacked-cards-block" class="stackedcards stackedcards--animatable init">
+      <div class="stackedcards-container">
+        <div><%= render 'shared/audio_quizz_card', class: "card-item" %></div>
+        <div><%= render 'shared/audio_quizz_card', class: "card-item" %></div>
+        <div><%= render 'shared/audio_quizz_card', class: "card-item" %></div>
+        <div><%= render 'shared/audio_quizz_card', class: "card-item" %></div>
+        <div><%= render 'shared/audio_quizz_card', class: "card-item" %></div>
+        <div><%= render 'shared/audio_quizz_card', class: "card-item" %></div>
+        <div><%= render 'shared/audio_quizz_card', class: "card-item" %></div>
+      </div>
+      <div class="stackedcards--animatable stackedcards-overlay top"></div>
+      <div class="stackedcards--animatable stackedcards-overlay right"><i class="fas fa-star" id="star"></i></div>
+      <div class="stackedcards--animatable stackedcards-overlay left"><i class="fas fa-times" id="ban"></i></div>
+
+      <!-- <div class="global-actions"> -->
+        <div class="left-action"><%= render 'shared/remove_button' %></div>
+        <div class="right-action"><%= render 'shared/audio_quizz_star_button.html' %></div>
+      <!-- </div> -->
+    </div>
+  </div>
+</div>
