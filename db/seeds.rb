@@ -65,7 +65,7 @@ puts 'Parties created from RA list (scrapping)'
 
 
 
-puts 'Creating somes users'
+puts 'Creating users'
 
 marc     = User.create!(name:'MarcoFullStack',  email:'marc.combarel@edhec.com',   password:'azerty')
 augustin = User.create!(name:'Dourtealacreme',  email:'augustin.dortu@edhec.com',  password:'azerty')
