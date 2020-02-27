@@ -10,8 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_25_152731) do
-
+ActiveRecord::Schema.define(version: 2020_02_27_150605) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -71,13 +70,23 @@ ActiveRecord::Schema.define(version: 2020_02_25_152731) do
 
   create_table "parties", force: :cascade do |t|
     t.string "name"
-    t.datetime "start_time"
-    t.datetime "end_time"
+    t.string "start_time"
+    t.string "end_time"
     t.string "venue_location"
     t.string "venue_type"
     t.bigint "genre_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "url"
+    t.string "venue_name"
+    t.text "image_url"
+    t.date "start_date"
+    t.date "end_date"
+    t.text "description"
+    t.text "facebook_link"
+    t.float "latitude"
+    t.float "longitude"
+    t.string "address"
     t.index ["genre_id"], name: "index_parties_on_genre_id"
   end
 

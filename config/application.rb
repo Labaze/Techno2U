@@ -17,6 +17,7 @@ module Techno2U
     config.load_defaults 5.2
 
     # Allow services to work
+
         config.autoloader = :classic
 
     # Settings in config/environments/* take precedence over those specified here.
