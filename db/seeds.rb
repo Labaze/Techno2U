@@ -59,7 +59,7 @@ puts 'Artists created from RA top 1000 (scrapping)'
 
 puts 'Creating Parties in Berlin, with associated lineups and artists'
 
-ResidentAdvisor.scrapping_parties('berlin', 'week', '2020-03-02')
+ResidentAdvisor.scrapping_parties('berlin', 'month', '2020-03-01')
 
 puts 'Parties created from RA list (scrapping)'
 

@@ -12,13 +12,13 @@ class PartiesController < ApplicationController
     @attending = Attending.new
     authorize @party
 
-    # @party = Party.geocoded #returns parties with coordinates
-    @markers = [
-      {
-        lat: @party.latitude,
-        lng: @party.longitude
-      }
-    ]
+    # # @party = Party.geocoded #returns parties with coordinates
+    # @markers = [
+    #   {
+    #     lat: @party.latitude,
+    #     lng: @party.longitude
+    #   }
+    # ]
   end
 
   # UPDATE

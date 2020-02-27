@@ -16,6 +16,7 @@ gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
 gem 'pundit'
+# gem 'geocoder'
 
 
 group :development do
@@ -32,4 +33,3 @@ group :development, :test do
   gem 'dotenv-rails'
 end
 
-gem 'geocoder'

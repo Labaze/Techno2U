@@ -1,8 +1,8 @@
 class Party < ApplicationRecord
-  geocoded_by :venue_location
-  after_validation :geocode, if: :will_save_change_to_venue_location?
+  # geocoded_by :venue_location
+  # after_validation :geocode, if: :will_save_change_to_venue_location?
 
-  belongs_to :genre
+  has_one :genre
   has_many :lineups
   has_many :users, through: :attendings
   has_many :lineups, dependent: :destroy
