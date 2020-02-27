@@ -1,0 +1,126 @@
+.quizz-row{
+  display:flex;
+  align-items: center;
+  justify-content: space-around;
+  height: 100vh;
+  margin-top: 50px;
+
+  .indications{
+    color: white;
+    overflow-wrap: break-word;
+    top:0px;
+  }
+}
+
+.no-transition {
+  -webkit-transition: none ! important;
+  -o-transition: none ! important;
+  transition: none ! important;
+}
+
+.stackedcards-overflow {
+    overflow-y: hidden !important;
+}
+
+.stackedcards.init {
+    opacity: 0;/* set the opacity to 0 if you want a fade-in effect to stacked cards on page load */
+}
+
+.stackedcards {
+    position: relative;
+    margin-bottom: 200px;
+    margin-top: 50px;
+
+    .left-action,
+    .right-action {
+      position:absolute;
+      bottom: 250px;
+      z-index: 10;
+
+      i {
+        font-size: 40px;
+      }
+    }
+
+    .right-action {
+      right:10px;
+    }
+
+    .left-action {
+      left:150px;
+    }
+}
+
+.stackedcards * {
+    -webkit-user-select: none;
+            -moz-user-select: none;
+             -ms-user-select: none;
+         user-select: none;
+}
+
+.stackedcards--animatable {
+    -webkit-transition: all 400ms ease;
+            -o-transition: all 400ms ease;
+            transition: all 400ms ease;
+}
+
+.stackedcards .stackedcards-container > *,
+.stackedcards-overlay {
+    position: absolute;
+    will-change: transform, opacity;
+    top: 0;
+    border-radius: 10px;
+}
+
+.stackedcards-overlay.left,
+.stackedcards-overlay.right {
+      left: 20px;
+      top: 20px;
+      opacity: 0;
+  }
+
+.stackedcards-overlay.right {
+  #star{
+    color: $warning;
+    font-size: 50px;
+  }
+}
+
+.stackedcards-overlay.left {
+  #ban{
+    color: $danger;
+    font-size: 50px;
+  }
+}
+
+.stackedcards-overlay.left:empty,
+.stackedcards-overlay.right:empty {
+  display: none !important;
+}
+
+.stackedcards-overlay-hidden {
+    display: none;
+}
+
+.stackedcards-origin-bottom {
+    -webkit-transform-origin: bottom;
+            -ms-transform-origin: bottom;
+        transform-origin: bottom;
+}
+
+.stackedcards-origin-top {
+    -webkit-transform-origin: top;
+            -ms-transform-origin: top;
+        transform-origin: top;
+}
+
+.stackedcards-bottom,
+.stackedcards-top,
+.stackedcards-none {
+    height: 100%;
+}
+
+.stackedcards .stackedcards-container > :nth-child(1) {
+    position: relative;
+    display: block;
+}
