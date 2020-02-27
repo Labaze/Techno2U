@@ -1,6 +1,8 @@
 class Party < ApplicationRecord
   has_one :genre
   has_many :users, through: :attendings
+  has_many :lineups, dependent: :destroy
+  has_many :attendings, dependent: :destroy
   has_many :artists, through: :lineups
 
   validates :name, presence: true
