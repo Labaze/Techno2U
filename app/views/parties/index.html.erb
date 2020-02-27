@@ -1,34 +1,35 @@
-<div class="sidenav-party-index">
-  <i class="fas fa-bars text-light"></i>
+<div class="index-page">
+  <div class="sidenav-party-index">
+    <i class="fas fa-bars text-light"></i>
+    <ul class="sidenav-party-index-filters">
+      <li>
+        <form>
+          <div class="form-group">
+            <input type="country" class="form-control" id="county" placeholder="Country">
+          </div>
+          <div class="form-group">
+            <input type="region" class="form-control" id="county" placeholder="Region">
+          </div>
+          <div class="form-group">
+            <input type="city" class="form-control" id="county" placeholder="City">
+          </div>
+        </form>
+      </li>
+      <li>
+        <%= render 'shared/checkboxes' %>
+      </li>
+      <li class='price-range'>
+        <form>
+          <label for="formControlRange">Price</label>
+          <input type="range" class="form-control-range" id="formControlRange">
+        </form>
+      </li>
+      <li>
+        <%= render 'shared/calendar' %>
+      </li>
+    </ul>
+    <div class='container'>
 
-  <ul class="sidenav-party-index-filters">
-    <li>
-      <form>
-        <div class="form-group">
-          <input type="country" class="form-control" id="county" placeholder="Country">
-        </div>
-        <div class="form-group">
-          <input type="region" class="form-control" id="county" placeholder="Region">
-        </div>
-        <div class="form-group">
-          <input type="city" class="form-control" id="county" placeholder="City">
-        </div>
-      </form>
-    </li>
-    <li>
-      <%= render 'shared/checkboxes' %>
-    </li>
-    <li class='price-range'>
-      <form>
-        <label for="formControlRange">Price</label>
-        <input type="range" class="form-control-range" id="formControlRange">
-      </form>
-    </li>
-    <li>
-      <%= render 'shared/calendar' %>
-    </li>
-  </ul>
-</div>
-
-<div class="container">
+    </div>
+  </div>
 </div>
