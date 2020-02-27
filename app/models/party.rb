@@ -3,6 +3,7 @@ class Party < ApplicationRecord
   after_validation :geocode, if: :will_save_change_to_address?
 
   belongs_to :genre
+  has_many :lineups
   has_many :users, through: :attendings
   has_many :artists, through: :lineups
 
