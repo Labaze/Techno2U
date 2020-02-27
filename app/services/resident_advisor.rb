@@ -23,7 +23,7 @@ class ResidentAdvisor
     end
     artists.slice(start_list, 1022).each do |artist_name|
       if Artist.find_by(name: artist_name).nil?
-        artist = Artist.create!(name: artist_name)
+        artist = Artist.create(name: artist_name)
       end
     end
   end
@@ -54,11 +54,11 @@ class ResidentAdvisor
       artists                 = scrapping_artists(doc)
       artists.each do |artist_name|
         if Artist.find_by(name: artist_name).nil?
-          artist = Artist.create!(name: artist_name)
+          artist = Artist.create(name: artist_name)
         else
           artist = Artist.find_by(name: artist_name)
         end
-        Lineup.create!(artist: artist, party: party)
+        Lineup.create(artist: artist, party: party)
       end
     end
   end
