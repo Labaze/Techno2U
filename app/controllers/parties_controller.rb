@@ -11,6 +11,14 @@ class PartiesController < ApplicationController
   def show
     @attending = Attending.new
     authorize @party
+
+    # @party = Party.geocoded #returns parties with coordinates
+    @markers = [
+      {
+        lat: @party.latitude,
+        lng: @party.longitude
+      }
+    ]
   end
 
   # UPDATE

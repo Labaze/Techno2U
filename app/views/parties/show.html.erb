@@ -1,0 +1,44 @@
+<%= render 'shared/party_banner' %>
+
+<div class="container container-party-show">
+  <h1> <%= @party.name %> </h1>
+
+  <div class="artists-lineup">
+    <i class="far fa-user text-light"></i>
+    <div class="artists-lineup-infos">
+      <h2>
+        <% @party.artists.each do |artist| %>
+          <%= artist.name %>
+        <% end %>
+      </h2>
+    </div>
+  </div>
+
+  <div class="date-and-place">
+    <i class="far fa-calendar-alt text-light"></i>
+    <div class="date-and-place-infos">
+      <h3> <%= @party.start_time %> - <%= @party.end_time %> </h3>
+      <p> <%= @party.venue_location %> </p>
+    </div>
+  </div>
+
+  <div class="listen-and-social-medias">
+    <div class="soundcloud-player">
+      <h2>Listen on Soundcloud</h2>
+    </div>
+    <div class="social-media-card">
+      <h2>Social Medias</h2>
+
+      <!-- Share button code -->
+      <div class="fb-share-button"
+        data-href="http://localhost:3000/parties/<%= @party.id %>"
+        data-layout="button_count"
+        data-size="large"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share the event</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="map"  id="map" style="width: 100%; height: 300px;" data-markers="<%= @markers.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+
+  </div>
+</div>

@@ -6,11 +6,12 @@ class LineupPolicy < ApplicationPolicy
   end
 
   def new?
-    user.admin?
+    create?
   end
 
   def create?
-    user.admin?
+    true
+    # user.admin?
   end
 
   def destroy?

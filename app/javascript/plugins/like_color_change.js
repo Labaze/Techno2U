@@ -1,9 +1,9 @@
-const hearts = document.querySelectorAll('.fa-heart');
+const stars = document.querySelectorAll('.fa-star');
 
-if (hearts) {
-  hearts.forEach(heart => {
-    heart.addEventListener('click', (event) => {
-      heart.classList.toggle("text-danger");
+if (stars) {
+  stars.forEach(star => {
+    star.addEventListener('click', (event) => {
+      star.classList.toggle("text-warning");
     });
   });
 };
