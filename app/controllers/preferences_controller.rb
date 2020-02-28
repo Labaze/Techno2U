@@ -4,6 +4,7 @@ class PreferencesController < ApplicationController
   def new
     @preference = Attending.new
     authorize @preference
+    @user = current_user
   end
 
   def create

@@ -3,15 +3,15 @@
     <i class="fas fa-bars text-light"></i>
 
     <ul class="sidenav-party-index-filters">
-      <h3> <%= link_to 'MY PARTIES', profile_path %> </h3>
-      <h3> <%= link_to 'MY ARTISTS', profile_path %> </h3>
-      <h3> <%= link_to 'COMMUNITY TBD week 2', profile_path %> </h3>
-      <h3> <%= link_to 'SETTINGS Classic view of settings', edit_user_password_path %> </h3>
+      <li> <%= link_to 'My Parties', profile_path %> </li>
+      <li> <%= link_to 'My Artists', profile_path %> </li>
+      <li> <%= link_to 'Community', profile_path %> </li>
+      <li> <%= link_to 'Settings', edit_user_password_path %> </li>
     </ul>
   </div>
 
   <div class="container">
-    <% @parties.each do |party| %>
+    <% @user.parties.each do |party| %>
 
       <%= render 'shared/profile_card', party: party %>
 
