@@ -9,6 +9,8 @@ class ArtistsController < ApplicationController
 
   def show
     authorize @artist
+    @user = current_user
+    authorize @user
     @artist = Artist.find(params[:id])
     @soundcloud = SoundCloud.new(name: @artist.name)
   end
