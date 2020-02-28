@@ -116,8 +116,15 @@ class ResidentAdvisor
   private
 
   def self.scrapper(url)
-    html_file = open(url).read
-    html_doc = Nokogiri::HTML(html_file)
+    sleep(2)
+    puts "      "
+    puts "      "
+    p url
+    p open(url)
+    unless
+      p html_file = open(url).read
+      html_doc = Nokogiri::HTML(html_file)
+    end
   end
 
   def self.create_time(date_time)

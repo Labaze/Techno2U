@@ -8,13 +8,13 @@
 
 puts 'Destroy all the database'
 
-Party.destroy_all
-User.destroy_all
-Attending.destroy_all
-Artist.destroy_all
-Lineup.destroy_all
-Genre.destroy_all
+# Party.destroy_all
+# Artist.destroy_all
+# Lineup.destroy_all
 Preference.destroy_all
+Attending.destroy_all
+Genre.destroy_all
+User.destroy_all
 
 puts 'Database clean'
 
@@ -59,7 +59,6 @@ puts 'Artists created from RA top 1000 (scrapping)'
 
 puts 'Creating Parties in Berlin, with associated lineups and artists'
 
-ResidentAdvisor.scrapping_parties('berlin', 'month', '2020-03-01')
 
 puts 'Parties created from RA list (scrapping)'
 
@@ -67,10 +66,11 @@ puts 'Parties created from RA list (scrapping)'
 
 puts 'Creating users'
 
-marc     = User.create!(name:'MarcoFullStack',  email:'marc.combarel@edhec.com',   password:'azerty')
-augustin = User.create!(name:'Dourtealacreme',  email:'augustin.dortu@edhec.com',  password:'azerty')
-pierre   = User.create!(name:'Pedro',           email:'pierre.debilbao@edhec.com', password:'azerty')
-basile   = User.create!(name:'DJBaz',           email:'basile.masson@edhec.com',   password:'azerty')
+alex     = User.create!(name:'alex',            email:'alex@gmail.com',            password:'azerty', admin: true)
+marc     = User.create!(name:'MarcoFullStack',  email:'marc.combarel@edhec.com',   password:'azerty', admin: true)
+augustin = User.create!(name:'Dourtealacreme',  email:'augustin.dortu@edhec.com',  password:'azerty', admin: true)
+pierre   = User.create!(name:'Pedro',           email:'pierre.debilbao@edhec.com', password:'azerty', admin: true)
+basile   = User.create!(name:'DJBaz',           email:'basile.masson@edhec.com',   password:'azerty', admin: true)
 ricardo  = User.create!(name:'Ricardo',         email:'ricardo@test.com',          password:'azerty')
 carl     = User.create!(name:'Carl Cox',        email:'carl@test.com',             password:'azerty')
 octave   = User.create!(name:'Octave One',      email:'octave@test.com',           password:'azerty')
