@@ -3,7 +3,6 @@ class ProfilesController < ApplicationController
 
   def show
     authorize @user
-    @parties = policy_scope(Party)
 
     artists = ["maceo plex"]
     @soundclouds = []
