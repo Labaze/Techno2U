@@ -1,0 +1,21 @@
+<div class="profile-page-container">
+  <div class="sidenav-party-index">
+    <i class="fas fa-bars text-light"></i>
+
+    <ul class="sidenav-party-index-filters">
+      <li> <%= link_to 'My Parties', profile_path %> </li>
+      <li> <%= link_to 'My Artists', profile_path %> </li>
+      <li> <%= link_to 'Community', profile_path %> </li>
+      <li> <%= link_to 'Settings', edit_user_password_path %> </li>
+    </ul>
+  </div>
+
+  <div class="container">
+    <% @user.parties.each do |party| %>
+
+      <%= render 'shared/profile_card', party: party %>
+
+    <% end %>
+  </div>
+
+</div>
