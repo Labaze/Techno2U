@@ -6,9 +6,9 @@ import "../plugins/sidenav_opening";
 import "../plugins/today_date";
 import "../plugins/calendar";
 import "../plugins/audio_quizz_card_animation";
-import 'mapbox-gl/dist/mapbox-gl.css';
+// import 'mapbox-gl/dist/mapbox-gl.css';
 
-import { initMapbox } from '../plugins/init_mapbox';
+// import { initMapbox } from '../plugins/init_mapbox';
 
-initMapbox();
+// initMapbox();
 

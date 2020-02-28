@@ -5,6 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :preferences, dependent: :destroy
+  has_many :attendings
   has_many :parties, through: :attendings
+  has_many :preferences
   has_many :genres, through: :preferences
 end

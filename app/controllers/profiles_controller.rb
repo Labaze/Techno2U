@@ -3,7 +3,12 @@ class ProfilesController < ApplicationController
 
   def show
     authorize @user
-    @parties = policy_scope(Party)
+
+    artists = ["maceo plex"]
+    @soundclouds = []
+    artists.each do |artist|
+      @soundclouds << SoundCloud.new(name: artist)
+    end
   end
 
   private

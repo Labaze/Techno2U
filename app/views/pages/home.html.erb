@@ -1,9 +1,5 @@
 <%= render 'shared/banner' %>
-<% @soundclouds.each do |soundcloud| %>
-  <% soundcloud.sounds_ids.each do |id| %>
-    <%= render 'shared/soundcloud_player', soundcloud_id: "#{id}" %>
-  <% end %>
-<% end %>
+
 
 <div class="container">
   <div class='home-cards'>
