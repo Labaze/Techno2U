@@ -36,6 +36,7 @@ class ResidentAdvisor
     links.select{|link| link.attribute('href').value.include?("events/")}.each do |link|
       url = "https://www.residentadvisor.net#{link.attribute('href').value}"
       doc = scrapper(url)
+
       party = Party.new
 
       party.url            = url

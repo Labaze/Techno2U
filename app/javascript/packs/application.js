@@ -10,4 +10,5 @@ import "../plugins/audio_quizz_card_animation";
 
 // import { initMapbox } from '../plugins/init_mapbox';
 
-initMapbox();
+// initMapbox();
+

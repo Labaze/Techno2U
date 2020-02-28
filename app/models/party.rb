@@ -4,7 +4,7 @@ class Party < ApplicationRecord
 
   # has_one :genre
   belongs_to :genre, optional: true
-  has_many :lineups
+  has_many :lineups, dependent: :destroy
   has_many :users, through: :attendings
   has_many :lineups, dependent: :destroy
   has_many :attendings, dependent: :destroy

@@ -1,0 +1,7 @@
+<h1>Listen to <%=  @artist.name %></h1>
+
+<div class="container">
+  <% @soundcloud.sounds_ids.each do |id| %>
+      <%= render 'shared/soundcloud_player', soundcloud_id: "#{id}" %>
+    <% end %>
+</div>

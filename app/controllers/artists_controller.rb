@@ -1,3 +1,5 @@
+require_relative '../services/soundcloud'
+
 class ArtistsController < ApplicationController
   before_action :set_artist, only: %i[show]
 
@@ -7,11 +9,13 @@ class ArtistsController < ApplicationController
 
   def show
     authorize @artist
+    @artist = Artist.find(params[:id])
+    @soundcloud = SoundCloud.new(name: @artist.name)
   end
 
   private
 
-  def set_party
+  def set_artist
     @artist = Artist.find(params[:id])
   end
 

@@ -6,6 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+
 puts 'Destroy all the database'
 
 Party.destroy_all
@@ -49,24 +50,23 @@ puts 'Genres created from wikipedia list (no scrapping). Type Genre.all in conso
 
 
 
-# puts 'Creating Artists'
+puts 'Creating Artists'
 
-# ResidentAdvisor.scrapping_artists_top_1000
+ResidentAdvisor.scrapping_artists_top_1000
 
-# puts 'Artists created from RA top 1000 (scrapping)'
-
-
-
-puts 'Creating Parties in Berlin, with associated lineups and artists'
+puts 'Artists created from RA top 1000 (scrapping)'
 
 
-ResidentAdvisor.scrapping_parties("de", "berlin",    "week", '2020-03-01')
-ResidentAdvisor.scrapping_parties("fr", "paris",     "week", '2020-03-01')
-ResidentAdvisor.scrapping_parties("uk", "london",    "week", '2020-03-01')
-ResidentAdvisor.scrapping_parties("it", "rome",      "week", '2020-03-01')
-ResidentAdvisor.scrapping_parties("nl", "amsterdam", "week", '2020-03-01')
-ResidentAdvisor.scrapping_parties("us", "newyork",   "day", '2020-03-07')
-ResidentAdvisor.scrapping_parties("jp", "tokyo",     "week", '2020-03-01')
+
+puts 'Creating Parties by rake task + background job'
+
+# ResidentAdvisor.scrapping_parties("de", "berlin",    "week", '2020-03-01')
+# ResidentAdvisor.scrapping_parties("fr", "paris",     "week", '2020-03-01')
+# ResidentAdvisor.scrapping_parties("uk", "london",    "week", '2020-03-01')
+# ResidentAdvisor.scrapping_parties("it", "rome",      "week", '2020-03-01')
+# ResidentAdvisor.scrapping_parties("nl", "amsterdam", "week", '2020-03-01')
+# ResidentAdvisor.scrapping_parties("us", "newyork",   "day", '2020-03-07')
+# ResidentAdvisor.scrapping_parties("jp", "tokyo",     "week", '2020-03-01')
 
 
 puts 'Parties created from RA list (scrapping)'
