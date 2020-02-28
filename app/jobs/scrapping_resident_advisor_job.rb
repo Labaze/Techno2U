@@ -10,7 +10,7 @@ class ScrappingResidentAdvisorJob < ApplicationJob
     # ResidentAdvisor.scrapping_parties("nl/amsterdam", "week", Time.now.strftime("%Y-%d-%m"))
     # ResidentAdvisor.scrapping_parties("us/newyork", "week", Time.now.strftime("%Y-%d-%m"))
     # ResidentAdvisor.scrapping_parties("jp/tokyo", "week", Time.now.strftime("%Y-%d-%m"))
-    today = Time.now.strftime("%Y-%d-%m")
+    today = Time.now.strftime("%Y-%m-%d")
     ResidentAdvisor.scrapping_parties("de", "berlin",    "week", today)
     ResidentAdvisor.scrapping_parties("fr", "paris",     "week", today)
     ResidentAdvisor.scrapping_parties("uk", "london",    "week", today)
