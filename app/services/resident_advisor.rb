@@ -1,7 +1,7 @@
 require 'nokogiri'
 require 'date'
 require 'open-uri'
-require 'CSV'
+require 'csv'
 
 class ResidentAdvisor
 
