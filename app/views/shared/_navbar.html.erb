@@ -34,6 +34,19 @@
           <%= link_to 'Quizz', new_preference_path  %>
         </li>
 
+        <li class="nav-item">
+          <div class="group">
+            <span class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="far fa-bell" id="bell"></i>
+            </span>
+
+
+            <div class="dropdown-menu dropdown-menu-right border border-light" id="notification">
+              <i class="fas fa-poll"><%= link_to 'Take the preference quizz to help us finding you the best parties for you', new_preference_path %></i>
+            </div>
+          </div>
+        </li>
+
         <li class="nav-item dropdown">
           <img class="avatar dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://kitt.lewagon.com/placeholder/users/ssaunier" />
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
