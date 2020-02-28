@@ -6,9 +6,8 @@
     </div>
     <div id="stacked-cards-block" class="stackedcards stackedcards--animatable init">
       <div class="stackedcards-container">
-        <% @soundcloud_artist_ids.each do |soundcloud_artist_id| %>
-          <% sound_id = soundcloud_artist_id.sound_id %>
-          <div><%= render 'shared/audio_quizz_card', soundcloud_id: sound_id, class: "card-item" %></div>
+        <% @tracks.each do |track| %>
+          <div><%= render 'shared/audio_quizz_card', track: track, class: "card-item" %></div>
         <% end %>
       </div>
       <div class="stackedcards--animatable stackedcards-overlay top"></div>

@@ -16,7 +16,7 @@
   </div>
 
   <div class="profile-card-right">
-    <% @soundclouds.each do |soundcloud| %>
+    <% @soundcloud.each do |soundcloud| %>
       <%= render 'shared/soundcloud_player', soundcloud_id: "#{soundcloud.sounds_ids.first}" %>
     <% end %>
   </div>
