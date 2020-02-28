@@ -60,7 +60,7 @@ puts 'Genres created from wikipedia list (no scrapping). Type Genre.all in conso
 puts 'Creating Parties in Berlin, with associated lineups and artists'
 
 
-ResidentAdvisor.scrapping_parties("de", "berlin",       "week", '2020-03-01')
+ResidentAdvisor.scrapping_parties("de", "berlin",    "week", '2020-03-01')
 ResidentAdvisor.scrapping_parties("fr", "paris",     "week", '2020-03-01')
 ResidentAdvisor.scrapping_parties("uk", "london",    "week", '2020-03-01')
 ResidentAdvisor.scrapping_parties("it", "rome",      "week", '2020-03-01')

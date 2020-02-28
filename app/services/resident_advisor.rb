@@ -117,6 +117,7 @@ class ResidentAdvisor
   private
 
   def self.scrapper(url)
+    sleep(1)
     html_file = open(url).read
     html_doc = Nokogiri::HTML(html_file)
   end
