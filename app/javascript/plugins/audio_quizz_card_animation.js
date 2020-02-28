@@ -163,6 +163,14 @@ document.addEventListener("DOMContentLoaded", function(event) {
         },300);
         buttonRight.style.display = 'none';
         buttonLeft.style.display = 'none';
+
+        // REDIRECT TO ALL PARTIES AFTER THE QUIZZ IS FINISHED [ADD PARAMS TO URL BASE ON THE ALGO]
+        // =========================================================================================
+
+        window.location.replace("/parties");
+
+        // =========================================================================================
+
       }
       else if(!(currentPosition >= maxElements)){
         if(useOverlays) {
@@ -200,6 +208,14 @@ document.addEventListener("DOMContentLoaded", function(event) {
         },300);
         buttonRight.style.display = 'none';
         buttonLeft.style.display = 'none';
+
+        // REDIRECT TO ALL PARTIES AFTER THE QUIZZ IS FINISHED [ADD PARAMS TO URL BASE ON THE ALGO]
+        // =========================================================================================
+
+        window.location.replace("/parties");
+
+        // =========================================================================================
+
       }
       else if(!(currentPosition >= maxElements)){
         if(useOverlays) {
