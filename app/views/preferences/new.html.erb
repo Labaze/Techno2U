@@ -6,13 +6,10 @@
     </div>
     <div id="stacked-cards-block" class="stackedcards stackedcards--animatable init">
       <div class="stackedcards-container">
-        <div><%= render 'shared/audio_quizz_card', class: "card-item" %></div>
-        <div><%= render 'shared/audio_quizz_card', class: "card-item" %></div>
-        <div><%= render 'shared/audio_quizz_card', class: "card-item" %></div>
-        <div><%= render 'shared/audio_quizz_card', class: "card-item" %></div>
-        <div><%= render 'shared/audio_quizz_card', class: "card-item" %></div>
-        <div><%= render 'shared/audio_quizz_card', class: "card-item" %></div>
-        <div><%= render 'shared/audio_quizz_card', class: "card-item" %></div>
+        <% @soundcloud_artist_ids.each do |soundcloud_artist_id| %>
+          <% sound_id = soundcloud_artist_id.sound_id %>
+          <div><%= render 'shared/audio_quizz_card', soundcloud_id: sound_id, class: "card-item" %></div>
+        <% end %>
       </div>
       <div class="stackedcards--animatable stackedcards-overlay top"></div>
       <div class="stackedcards--animatable stackedcards-overlay right"><i class="fas fa-star" id="star"></i></div>

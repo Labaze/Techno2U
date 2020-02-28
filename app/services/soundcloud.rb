@@ -66,15 +66,17 @@ class SoundCloud
     url_track = base_url + end_url + "/tracks"
     html_file = open(url_track).read
     html_doc = Nokogiri::HTML(html_file)
-    sound_url = html_doc.search('h2 a').attribute('href').value
+    unless html_doc.search('h2 a').attribute('href').nil?
+      sound_url = html_doc.search('h2 a').attribute('href').value
+    end
     sound_url
   end
 
   # 1 track ID per artist
   def find_sound_id
+    end_url = url_track_artist
     id = ""
     base_url = "https://soundcloud.com"
-    end_url = url_track_artist
     sound_url = base_url + end_url
     html_file = open(sound_url).read
     html_doc = Nokogiri::HTML(html_file)
