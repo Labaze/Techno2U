@@ -11,11 +11,8 @@
   </div>
 
   <div class="container">
-    <% @user.parties.each do |party| %>
-
-      <%= render 'shared/profile_card', party: party %>
-
+    <% @user.parties.each_with_index do |party, index| %>
+        <%= render 'shared/profile_card', party: party, track: @track_ids[index] %>
     <% end %>
   </div>
-
 </div>
