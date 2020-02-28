@@ -29,9 +29,18 @@
 
 .navbar-lewagon #bell:hover {
   color:black;
-  // font-weight: 500;
 }
 
+.bell-and-notif {
+    position: relative;
+    right:5px;
+
+  .fa-circle {
+    position: absolute;
+    right: 10px;
+    font-size: 10px;
+  }
+}
 
 .navbar-lewagon a:hover {
     color:black;
