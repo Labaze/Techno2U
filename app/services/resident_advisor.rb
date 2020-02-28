@@ -28,11 +28,12 @@ class ResidentAdvisor
     end
   end
 
-  def self.scrapping_parties(city, period, date)
+  def self.scrapping_parties(country, city, period, date)
+    # country format in 2 letters
     # date format yyyy-mm-dd, period = day / week / month
-    events_page = scrapper("https://www.residentadvisor.net/events/de/#{city.downcase}/#{period.downcase}/#{date}")
+    events_page = scrapper("https://www.residentadvisor.net/events/#{country.downcase}/#{city.downcase}/#{period.downcase}/#{date}")
     links = events_page.search('.event-title a')
-    links.select{|link| link.attribute('href').value.include?("events")}.each do |link|
+    links.select{|link| link.attribute('href').value.include?("events/")}.each do |link|
       url = "https://www.residentadvisor.net#{link.attribute('href').value}"
       doc = scrapper(url)
 
@@ -117,6 +118,7 @@ class ResidentAdvisor
   private
 
   def self.scrapper(url)
+    sleep(1)
     html_file = open(url).read
     html_doc = Nokogiri::HTML(html_file)
   end

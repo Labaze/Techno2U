@@ -4,7 +4,7 @@ class Artist < ApplicationRecord
   has_many :lineups, dependent: :destroy
   has_many :preferences, dependent: :destroy
 
-  has_one :genre
+  belongs_to :genre, optional: true
 
   validates :name, presence: true, uniqueness: true
 end
