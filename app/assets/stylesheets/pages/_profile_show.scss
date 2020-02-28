@@ -1,0 +1,15 @@
+.profile-page-container {
+  display: flex;
+  margin: 20px 0;
+}
+
+
+.profile-page-container a {
+  color: white;
+  font-weight: 200;
+}
+
+.profile-page-container a:hover {
+  text-decoration: none;
+  opacity: 0.7;
+}

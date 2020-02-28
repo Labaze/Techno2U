@@ -1,0 +1,24 @@
+<div class="profile-card">
+
+  <div class="profil-card-left">
+    <h3 class="title"><%= party.name %></h3>
+    <img src="https://images.unsplash.com/photo-1513670144176-2211a82b531f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80" class="image" alt="Event Image">
+
+    <div class="bar">
+      <div class="emptybar"></div>
+      <div class="filledbar"></div>
+    </div>
+  </div>
+
+  <div class="profil-card-middle">
+    <ul class="infos">
+      <li><i class="far fa-user text-light"></i><%= party.artists.map(&:name).join(", ").truncate(40) %></li>
+      <li><i class="far fa-calendar-alt text-light"></i><%= party.start_time %> - <%= party.end_time %></li>
+      <li><i class="fab fa-houzz text-light"></i><%= party.venue_location %></li>
+    </ul>
+  </div>
+
+  <div class="profil-card-right">
+    <p>Suggested by xxxxxxx</p>
+  </div>
+</div>
