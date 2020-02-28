@@ -50,17 +50,17 @@ puts 'Genres created from wikipedia list (no scrapping). Type Genre.all in conso
 
 
 
-puts 'Creating Artists'
+# puts 'Creating Artists'
 
-ResidentAdvisor.scrapping_artists_top_1000
+# ResidentAdvisor.scrapping_artists_top_1000
 
-puts 'Artists created from RA top 1000 (scrapping)'
+# puts 'Artists created from RA top 1000 (scrapping)'
 
 
 
 puts 'Creating Parties in Berlin, with associated lineups and artists'
 
-ResidentAdvisor.scrapping_parties('berlin', 'week', '2020-03-02')
+ResidentAdvisor.scrapping_parties('berlin', 'day', '2020-03-02')
 
 puts 'Parties created from RA list (scrapping)'
 
