@@ -9,13 +9,13 @@
 
 puts 'Destroy all the database'
 
-Party.destroy_all
-User.destroy_all
-Attending.destroy_all
-Artist.destroy_all
-Lineup.destroy_all
-Genre.destroy_all
+# Party.destroy_all
+# Artist.destroy_all
+# Lineup.destroy_all
 Preference.destroy_all
+Attending.destroy_all
+Genre.destroy_all
+User.destroy_all
 
 puts 'Database clean'
 
@@ -58,20 +58,28 @@ puts 'Genres created from wikipedia list (no scrapping). Type Genre.all in conso
 
 
 
-puts 'Creating Parties in Berlin, with associated lineups and artists'
+# puts 'Creating Parties by rake task + background job'
 
-ResidentAdvisor.scrapping_parties('berlin', 'day', '2020-03-02')
+# ResidentAdvisor.scrapping_parties("de", "berlin",    "week", '2020-03-01')
+# ResidentAdvisor.scrapping_parties("fr", "paris",     "week", '2020-03-01')
+# ResidentAdvisor.scrapping_parties("uk", "london",    "week", '2020-03-01')
+# ResidentAdvisor.scrapping_parties("it", "rome",      "week", '2020-03-01')
+# ResidentAdvisor.scrapping_parties("nl", "amsterdam", "week", '2020-03-01')
+# ResidentAdvisor.scrapping_parties("us", "newyork",   "day", '2020-03-07')
+# ResidentAdvisor.scrapping_parties("jp", "tokyo",     "week", '2020-03-01')
 
-puts 'Parties created from RA list (scrapping)'
+
+# puts 'Parties created from RA list (scrapping)'
 
 
 
-puts 'Creating somes users'
+puts 'Creating users'
 
-marc     = User.create!(name:'MarcoFullStack',  email:'marc.combarel@edhec.com',   password:'azerty')
-augustin = User.create!(name:'Dourtealacreme',  email:'augustin.dortu@edhec.com',  password:'azerty')
-pierre   = User.create!(name:'Pedro',           email:'pierre.debilbao@edhec.com', password:'azerty')
-basile   = User.create!(name:'DJBaz',           email:'basile.masson@edhec.com',   password:'azerty')
+alex     = User.create!(name:'alex',            email:'alex@gmail.com',            password:'azerty', admin: true)
+marc     = User.create!(name:'MarcoFullStack',  email:'marc.combarel@edhec.com',   password:'azerty', admin: true)
+augustin = User.create!(name:'Dourtealacreme',  email:'augustin.dortu@edhec.com',  password:'azerty', admin: true)
+pierre   = User.create!(name:'Pedro',           email:'pierre.debilbao@edhec.com', password:'azerty', admin: true)
+basile   = User.create!(name:'DJBaz',           email:'basile.masson@edhec.com',   password:'azerty', admin: true)
 ricardo  = User.create!(name:'Ricardo',         email:'ricardo@test.com',          password:'azerty')
 carl     = User.create!(name:'Carl Cox',        email:'carl@test.com',             password:'azerty')
 octave   = User.create!(name:'Octave One',      email:'octave@test.com',           password:'azerty')
