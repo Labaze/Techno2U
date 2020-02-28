@@ -20,8 +20,35 @@
   padding-right: 10px;
 }
 
+.navbar-lewagon #bell {
+  // text-decoration: none;
+  padding-left: 10px;
+  color: $gray;
+  font-weight: 200;
+}
+
+.navbar-lewagon #bell:hover {
+  color:black;
+  // font-weight: 500;
+}
+
 
 .navbar-lewagon a:hover {
     color:black;
     font-weight: 500;
+}
+
+#notification {
+  width: 320px;
+  overflow-wrap: break-word;
+  right: 60px;
+  padding-left: 20px;
+  padding-right: 20px;
+  background-color: #E0EFFF;
+  font-size: 16px;
+
+  i {
+    background-color: #E0EFFF;
+    font-size: 16px;
+  }
 }
