@@ -7,6 +7,22 @@ class PartiesController < ApplicationController
   def index
     @parties = policy_scope(Party)
     @user = current_user
+    @soundcloud_artists = []
+    @track_ids = []
+
+    @parties.each do |party|
+      unless party.artists.first.nil?
+        @soundcloud_artists << SoundCloud.new(name: party.artists.first.name)
+      end
+    end
+
+    @soundcloud_artists.each do |soundcloud_artist_id|
+      unless soundcloud_artist_id.nil?
+        @track_ids << soundcloud_artist_id.sound_id
+      end
+    end
+
+    # @tracks = track_ids.reject { |c| c == "" }
   end
 
   def show
