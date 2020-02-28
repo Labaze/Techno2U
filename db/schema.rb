@@ -78,9 +78,6 @@ ActiveRecord::Schema.define(version: 2020_02_27_150605) do
     t.bigint "genre_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.float "latitude"
-    t.float "longitude"
-    t.string "address"
     t.string "url"
     t.string "venue_name"
     t.text "image_url"
@@ -88,6 +85,9 @@ ActiveRecord::Schema.define(version: 2020_02_27_150605) do
     t.date "end_date"
     t.text "description"
     t.text "facebook_link"
+    t.float "latitude"
+    t.float "longitude"
+    t.string "address"
     t.index ["genre_id"], name: "index_parties_on_genre_id"
   end
 
