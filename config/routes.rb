@@ -13,4 +13,5 @@ Rails.application.routes.draw do
   resources :artists, only: [ :index, :show ]
 
   resources :profiles, only: :show
+  resources :preferences, only: [ :new, :create ]
 end
