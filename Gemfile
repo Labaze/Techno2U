@@ -16,6 +16,9 @@ gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
 gem 'pundit'
+gem 'sidekiq'
+gem 'sidekiq-failures', '~> 1.0'
+# gem 'geocoder'
 
 
 group :development do
@@ -32,4 +35,3 @@ group :development, :test do
   gem 'dotenv-rails'
 end
 
-gem 'geocoder'

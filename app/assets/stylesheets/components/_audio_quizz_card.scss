@@ -2,7 +2,7 @@
   display: flex;
   height: 560px;
   width: 400px;
-  background-color: #dfe7ef;
+  background-color: #F5F5F5; //#dfe7ef;
   border-radius: 10px;
   box-shadow: -1px 0 1rem #000;
   transition: 0.4s ease-out;
@@ -10,35 +10,11 @@
   left: 0px;
 }
 
-// .bar {
-//   position: absolute;
-//   top: calc(100% - 280px);
-//   left: 40px;
-//   height: 5px;
-//   width: 150px;
-// }
-
-// .emptybar {
-//   background-color: #2e3033;
-//   width: 100%;
-//   height: 100%;
-// }
-
-// .filledbar {
-//   position: absolute;
-//   top: 0px;
-//   z-index: 3;
-//   width: 0px;
-//   height: 100%;
-//   background: rgb(0,154,217);
-//   background: linear-gradient(90deg, rgba(0,154,217,1) 0%, rgba(217,147,0,1) 65%, rgba(255,186,0,1) 100%);
-//   transition: 0.6s ease-out;
-// }
-
-// .audio-quizz-card:hover .filledbar {
-//   width: 120px;
-//   transition: 0.4s ease-out;
-// }
+.soundcloud-player-audio-quizz {
+  position: absolute;
+  top: calc(50%);
+  width: 100%;
+}
 
 .album-picture {
   img {
@@ -50,37 +26,4 @@
     border-top-left-radius: 10px;
     border-bottom: 1px solid $gray;
   }
-}
-
-.audio-quizz-card-infos {
-  position: absolute;
-  top: calc(100% - 150px);
-
-  li {
-    list-style:none;
-    padding-bottom: 20px;
-    color:white;
-    font-size: 13px;
-  }
-
-  i {
-    padding-right: 10px;
-  }
-}
-
-.stroke {
-  stroke: white;
-  stroke-dasharray: 360;
-  stroke-dashoffset: 360;
-  transition: 0.6s ease-out;
-}
-
-svg {
-  fill: #17141d;
-  stroke-width: 2px;
-}
-
-.audio-quizz-card:hover .stroke {
-  stroke-dashoffset: 100;
-  transition: 0.6s ease-out;
 }

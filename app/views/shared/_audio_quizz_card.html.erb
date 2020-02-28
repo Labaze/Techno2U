@@ -1,14 +1,10 @@
 <div class="audio-quizz-card">
 
-  <div class='play-button'>
-
+  <div class='soundcloud-player-audio-quizz'>
+    <%= render 'shared/soundcloud_player', soundcloud_id: "#{@soundclouds.sounds_ids.first}" %>
   </div>
 
   <div class="album-picture">
     <img src="https://img.discogs.com/b2w_GU3yv4c-pmDM9iuA1IGe9XM=/fit-in/600x600/filters:strip_icc():format(jpeg):mode_rgb():quality(90)/discogs-images/R-8036642-1469442144-9353.jpeg.jpg">
   </div>
-  <ul class="audio-quizz-card-infos">
-    <li><i class="far fa-user text-light"></i>Mall Grab</li>
-    <li><i class="far fa-play-circle"></i></i> Can't </li>
-  </ul>
 </div>

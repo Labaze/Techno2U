@@ -178,6 +178,13 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
     //Functions to swipe right elements on logic external action.
     function onActionRight() {
+// ===============================================================================================================
+      // const iframe = document.querySelector('iframe');
+      // console.log(iframe);
+      // const btn = iframe.contentWindow.document.querySelector('.playButton')
+      // console.log(btn);
+      // btn.click();
+// ===============================================================================================================
       if (currentPosition + 1 === maxElements) {
         if(useOverlays) {
           rightObj.classList.remove('no-transition');

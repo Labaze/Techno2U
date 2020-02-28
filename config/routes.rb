@@ -11,5 +11,12 @@ Rails.application.routes.draw do
     resources :lineups, only: [ :new, :create, :destroy ]
   end
   resources :artists, only: [ :index, :show ]
+
+  resources :profiles, only: :show
   resources :preferences, only: [ :new, :create ]
+
+  require "sidekiq/web"
+  authenticate :user, lambda { |u| u.admin } do
+    mount Sidekiq::Web => '/sidekiq'
+  end
 end
