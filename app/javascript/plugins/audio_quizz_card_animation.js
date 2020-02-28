@@ -146,6 +146,10 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
     //Functions to swipe left elements on logic external action.
     function onActionLeft() {
+      var iframe = document.querySelector('iframe');
+      var parents = document.querySelectorAll(".soundcloud-player-audio-quizz");
+      parents[currentPosition].removeChild(iframe);
+
       if (currentPosition + 1 === maxElements) {
         if(useOverlays) {
           leftObj.classList.remove('no-transition');
@@ -178,13 +182,10 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
     //Functions to swipe right elements on logic external action.
     function onActionRight() {
-// ===============================================================================================================
-      // const iframe = document.querySelector('iframe');
-      // console.log(iframe);
-      // const btn = iframe.contentWindow.document.querySelector('.playButton')
-      // console.log(btn);
-      // btn.click();
-// ===============================================================================================================
+      var iframe = document.querySelector('iframe');
+      var parents = document.querySelectorAll(".soundcloud-player-audio-quizz");
+      parents[currentPosition].removeChild(iframe);
+
       if (currentPosition + 1 === maxElements) {
         if(useOverlays) {
           rightObj.classList.remove('no-transition');
