@@ -9,5 +9,6 @@ class PagesController < ApplicationController
     artists.each do |artist|
       @soundclouds << SoundCloud.new(name: artist)
     end
+    @user = current_user
   end
 end

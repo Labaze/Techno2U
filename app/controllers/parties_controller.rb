@@ -6,11 +6,13 @@ class PartiesController < ApplicationController
 
   def index
     @parties = policy_scope(Party)
+    @user = current_user
   end
 
   def show
     @attending = Attending.new
     authorize @party
+     @user = current_user
 
     # @party = Party.geocoded #returns parties with coordinates
     @markers = [
@@ -25,6 +27,7 @@ class PartiesController < ApplicationController
 
   def edit
     authorize @party
+    @user = current_user
   end
 
   def update
