@@ -8,6 +8,10 @@
   transition: 0.4s ease-out;
   border-radius: 10px;
   height: 220px;
+
+  a {
+    text-decoration: none;
+  }
 }
 
 .profile-card:hover {
