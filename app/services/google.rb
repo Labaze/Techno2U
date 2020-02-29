@@ -1,6 +1,6 @@
 require 'nokogiri'
 require 'open-uri'
-require 'CSV'
+require 'csv'
 
 class Google
   def self.scrapping_venue_type(venue_name)
