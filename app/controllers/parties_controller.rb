@@ -11,7 +11,7 @@ class PartiesController < ApplicationController
     @soundcloud_artists = []
     @track_ids = []
 
-    @parties.each do |party|
+    @parties.first(3).each do |party|
       unless party.artists.first.nil?
         @soundcloud_artists << SoundCloud.new(name: party.artists.first.name)
       end
@@ -27,7 +27,10 @@ class PartiesController < ApplicationController
   def show
     @attending = Attending.new
     authorize @party
-     @user = current_user
+    @user = current_user
+
+    @soundcloud_artists = []
+    @track_ids = []
 
     # @party = Party.geocoded #returns parties with coordinates
     # @markers = [
@@ -36,6 +39,18 @@ class PartiesController < ApplicationController
     #     lng: @party.longitude
     #   }
     # ]
+
+    @party.artists.each do |artist|
+      unless artist.nil?
+        @soundcloud_artists << SoundCloud.new(name: artist.name)
+      end
+    end
+
+    @soundcloud_artists.each do |soundcloud_artist_id|
+      unless soundcloud_artist_id.nil?
+        @track_ids << soundcloud_artist_id.sound_id
+      end
+    end
   end
 
   # UPDATE

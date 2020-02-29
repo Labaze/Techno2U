@@ -1,5 +1,8 @@
 require 'nokogiri'
 require 'open-uri'
+require 'csv'
+require 'uri'
+require 'iconv'
 
 class SoundCloud
 
@@ -18,7 +21,7 @@ class SoundCloud
   private
 
   def soundcloud_artist_name
-    url = "https://soundcloud.com/search?q=#{@name}"
+    url = URI.parse("https://soundcloud.com/search?q=#{@name}")
 
     html_file = open(url).read
     html_doc = Nokogiri::HTML(html_file)
