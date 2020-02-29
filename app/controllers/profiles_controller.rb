@@ -1,3 +1,5 @@
+require_relative '../services/soundcloud'
+
 class ProfilesController < ApplicationController
   before_action :set_user
 

@@ -30,7 +30,9 @@
     </ul>
     <div class='container'>
       <% @parties.each_with_index do |party, index| %>
+        <%= link_to party_path(party), class: "link-no-underline" do %>
           <%= render 'shared/profile_card', party: party, track: @track_ids[index] %>
+        <% end %>
       <% end %>
     </div>
   </div>
