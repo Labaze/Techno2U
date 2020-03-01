@@ -1,16 +1,16 @@
 <div class="card">
-  <h3 class="title">Card 1</h3>
+  <h3 class="title"><%= party.name %></h3>
   <%= render 'shared/star_button'%>
   <div class="bar">
     <div class="emptybar"></div>
     <div class="filledbar"></div>
   </div>
   <div class="event-picture">
-    <img src="https://images.unsplash.com/photo-1513670144176-2211a82b531f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80" alt="">
+    <img src="https://www.residentadvisor.net<%= party.image_url %>" alt="">
   </div>
   <ul class="infos">
-    <li><i class="far fa-user text-light"></i>Mall Grab | Dan Shake | Laurent Garnier | ... </li>
-    <li><i class="far fa-calendar-alt text-light"></i>Wednesday, 26th February, 2020</li>
-    <li><i class="fab fa-houzz text-light"></i>Open-air</li>
+    <li><i class="far fa-user text-light"></i><%= party.artists.first(3).each do |artist| p artist.name end %></li>
+    <li><i class="far fa-calendar-alt text-light"></i><%= party.start_date %> - <%= party.start_time %></li>
+    <li><i class="fab fa-houzz text-light"></i><%= party.venue_name %> - <%= party.venue_location %></li>
   </ul>
 </div>

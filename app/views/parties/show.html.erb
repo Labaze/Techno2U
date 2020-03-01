@@ -8,7 +8,7 @@
     <div class="artists-lineup-infos">
       <h2>
         <% @party.artists.each do |artist| %>
-          <%= artist.name %>
+          <%= link_to artist.name, artist_path(artist), class: "link-without-style" %>
         <% end %>
       </h2>
     </div>
