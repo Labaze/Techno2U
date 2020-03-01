@@ -1,15 +1,19 @@
 <div class="container container-artist-show">
   <h1><%=  @artist.name %></h1>
 
-  <h2>Next events (3 out of <%= @artist.parties.size %>)</h2>
+  <h2>Next events</h2>
   <div class="d-flex flex-row flex-wrap justify-content-between">
     <% if @artist.parties.size > 2 %>
       <% @artist.parties.first(3).each do |party| %>
-        <%= render 'shared/party_card', party: party %>
+        <%= link_to party_path(party), class: "link-without-style" do  %>
+          <%= render 'shared/party_card', party: party %>
+        <% end %>
       <% end %>
     <% else %>
      <% @artist.parties.each do |party| %>
-        <%= render 'shared/party_card', party: party %>
+        <%= link_to party_path(party), class: "link-without-style" do  %>
+         <%= render 'shared/party_card', party: party %>
+        <% end %>
       <% end %>
     <% end %>
   </div>
