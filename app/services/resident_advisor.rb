@@ -51,17 +51,21 @@ class ResidentAdvisor
       party.description    = scrapping_description(doc)
       party.facebook_link  = scrapping_facebook_link(doc)
 
-      party.save
+      unless Party.exists?(url: party.url)
+        party.save
 
-      artists                 = scrapping_artists(doc)
-      artists.each do |artist_name|
-        if Artist.find_by(name: artist_name).nil?
-          artist = Artist.create(name: artist_name)
-        else
-          artist = Artist.find_by(name: artist_name)
+        artists = scrapping_artists(doc)
+        artists.each do |artist_name|
+          if Artist.find_by(name: artist_name).nil?
+            artist = Artist.create(name: artist_name)
+          else
+            artist = Artist.find_by(name: artist_name)
+          end
+          Lineup.create(artist: artist, party: party)
         end
-        Lineup.create(artist: artist, party: party)
+
       end
+
     end
   end
 
