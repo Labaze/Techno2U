@@ -25,9 +25,16 @@
   <div class="listen-and-social-medias">
     <div class="soundcloud-player p-3">
       <h2>Listen on Soundcloud</h2>
+      <select id="artist_selector" class="select2 select_artist" name="artist">
+        <% @party.artists.each do |artist| %>
+          <option value="<%=  artist.name %>"><%= artist.name %></option>
+        <% end %>
+      </select>
       <% @track_ids.each_with_index do |track, index| %>
-        <h3><%= @party.artists[index].name %></h3>
-        <%= render 'shared/soundcloud_player', soundcloud_id: track %>
+        <div id="<%= @party.artists[index].name %>" class="d-none soundcloud_player_show">
+          <h3><%= @party.artists[index].name %></h3>
+          <%= render 'shared/soundcloud_player', soundcloud_id: track %>
+        </div>
       <% end %>
     </div>
     <div class="social-media-card p-3">

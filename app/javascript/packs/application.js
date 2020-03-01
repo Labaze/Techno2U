@@ -6,6 +6,13 @@ import "../plugins/sidenav_opening";
 import "../plugins/today_date";
 import "../plugins/calendar";
 import "../plugins/audio_quizz_card_animation";
+import "../plugins/soundcloud_player_according_to_select";
+
+// Select2
+import "select2/dist/css/select2.css";
+import { initSelect2 } from "../components/init_select2";
+initSelect2();
+
 // import 'mapbox-gl/dist/mapbox-gl.css';
 
 // import { initMapbox } from '../plugins/init_mapbox';
