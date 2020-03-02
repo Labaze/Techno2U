@@ -19,7 +19,7 @@ gem 'pundit'
 gem 'sidekiq'
 gem 'sidekiq-failures', '~> 1.0'
 gem 'iconv'
-# gem 'geocoder'
+gem 'geocoder'
 
 
 group :development do

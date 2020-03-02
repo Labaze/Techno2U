@@ -11,3 +11,8 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+
+.global-container {
+  min-height: calc(100vh - 160px - 66px);
+}

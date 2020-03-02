@@ -14,8 +14,8 @@ import "select2/dist/css/select2.css";
 import { initSelect2 } from "../components/init_select2";
 initSelect2();
 
-// import 'mapbox-gl/dist/mapbox-gl.css';
+import 'mapbox-gl/dist/mapbox-gl.css';
 
-// import { initMapbox } from '../plugins/init_mapbox';
+import { initMapbox } from '../plugins/init_mapbox';
 
-// initMapbox();
+initMapbox();
