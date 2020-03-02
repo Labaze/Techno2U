@@ -20,5 +20,14 @@
 
   <div class="container display-artists">
     <h2>Salut Salut !!</h2>
+
+    <% artistsList = [] %>
+    <% @user.parties.each do |party| %>
+      <% party.artists.each do |artist| %>
+        <% artistsList << artist.name %>
+      <% end %>
+      artistsList.map{|i| i.downcase}.uniq
+      <p> <%= artistsList %> </p>
+    <% end %>
   </div>
 </div>
