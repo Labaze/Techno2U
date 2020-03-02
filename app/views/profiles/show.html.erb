@@ -26,7 +26,7 @@
       <% party.artists.each do |artist| %>
         <% artistsList << artist.name %>
       <% end %>
-      artistsList.map{|i| i.downcase}.uniq
+      <% artistsList.map{|i| i.downcase}.uniq %>
       <p> <%= artistsList %> </p>
     <% end %>
   </div>
