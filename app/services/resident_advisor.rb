@@ -112,7 +112,7 @@ class ResidentAdvisor
   end
 
   def self.scrapping_facebook_link(doc)
-    doc.search('.links a').last.attribute('href').value
+    doc.search('.links a').last.attribute('href').value if doc.search('.links a').last.attribute('href').value.include?("facebook")
   end
 
   private
