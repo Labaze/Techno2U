@@ -1,0 +1,34 @@
+.container-artist-show h1, h2, h3, p, i {
+  color: white;
+}
+
+.container-party-show i {
+  font-size: 30px;
+}
+
+.date-and-place {
+  display: flex;
+  align-items: center;
+
+}
+
+.date-and-place-infos {
+  margin-left: 30px;
+}
+
+.listen-and-social-medias {
+  display: flex;
+  margin: 10px 0;
+}
+
+.soundcloud-player {
+  width: 50%;
+}
+
+.social-media-card {
+  width: 50%;
+}
+
+.container-party-show {
+  width: 80%;
+}

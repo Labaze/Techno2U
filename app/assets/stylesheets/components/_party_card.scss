@@ -1,0 +1,12 @@
+.party_card {
+  background-color: $light-gray;
+  height: 200px;
+  width: 300px;
+  border: solid 1px red;
+  border-radius: 10px;
+  box-shadow: -1rem 0 3rem #000;
+}
+
+.party_card_title {
+  color: black;
+}

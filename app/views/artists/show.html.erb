@@ -1,7 +1,25 @@
-<h1>Listen to <%=  @artist.name %></h1>
+<div class="container container-artist-show">
+  <h1><%=  @artist.name %></h1>
 
-<div class="container">
+  <h2>Next events</h2>
+  <div class="d-flex flex-row flex-wrap justify-content-between">
+    <% if @artist.parties.size > 2 %>
+      <% @artist.parties.first(3).each do |party| %>
+        <%= link_to party_path(party), class: "link-without-style" do  %>
+          <%= render 'shared/party_card', party: party %>
+        <% end %>
+      <% end %>
+    <% else %>
+     <% @artist.parties.each do |party| %>
+        <%= link_to party_path(party), class: "link-without-style" do  %>
+         <%= render 'shared/party_card', party: party %>
+        <% end %>
+      <% end %>
+    <% end %>
+  </div>
+
+<h2>Listen to <%= @artist.name %></h2>
   <% @soundcloud.sounds_ids.each do |id| %>
       <%= render 'shared/soundcloud_player', soundcloud_id: "#{id}" %>
-    <% end %>
+  <% end %>
 </div>
