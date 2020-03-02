@@ -55,9 +55,9 @@ class ResidentAdvisor
         party.save
 
         artists = scrapping_artists(doc)
-        artists.each do |artist_name|
-          if Artist.find_by(name: artist_name).nil?
-            artist = Artist.create(name: artist_name)
+        artists.each do |artist|
+          if Artist.find_by(name: artist).nil?
+            artist = Artist.create(name: artist[0], picture_url: artist[1])
           else
             artist = Artist.find_by(name: artist_name)
           end
@@ -68,6 +68,8 @@ class ResidentAdvisor
 
     end
   end
+
+  private
 
   def self.scrapping_name(doc)
     doc.search('h1').first.text
@@ -100,10 +102,19 @@ class ResidentAdvisor
   end
 
   def self.scrapping_artists(doc)
-    artists = []
+    artists = {}
     scrap = doc.search('.lineup a')
-    scrap.each{ |artist| artists << artist.text}
+    scrap.each do |artist|
+      artist_name = artist.text
+      artist_picture_url = get_photo_url(artist.attribute('href').value)
+      artists[artist_name] = artist_picture_url
+    end
     artists
+  end
+
+  def get_photo_url(url)
+    doc = scrapper("https://www.residentadvisor.net#{url}")
+    doc.search('#featureHead').attribute('style').value.scan(/;background-image: url\((.*)\)/).last.first unless doc.search('#featureHead').attribute('style').nil?
   end
 
   def self.scrapping_image_url(doc)
@@ -118,8 +129,6 @@ class ResidentAdvisor
   def self.scrapping_facebook_link(doc)
     doc.search('.links a').last.attribute('href').value if doc.search('.links a').last.attribute('href').value.include?("facebook")
   end
-
-  private
 
   def self.scrapper(url)
     sleep(1)
