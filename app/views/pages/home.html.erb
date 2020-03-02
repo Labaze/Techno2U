@@ -2,6 +2,8 @@
 
 
 <div class="container">
+  <p class="home-description"></p>
+
   <div class='home-cards'>
     <% Party.last(3).each do |party| %>
       <%= link_to party_path(party), class: "link-without-style" do  %>
