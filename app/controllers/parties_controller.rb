@@ -34,13 +34,11 @@ class PartiesController < ApplicationController
     @soundcloud_artists = []
     @track_ids = []
 
-    # @party = Party.geocoded #returns parties with coordinates
-    # @markers = [
-    #   {
-    #     lat: @party.latitude,
-    #     lng: @party.longitude
-    #   }
-    # ]
+    parties = Party.geocoded #returns parties with coordinates
+    @markers = [{
+      lat: @party.latitude,
+      lng: @party.longitude
+    }]
 
     @party.artists.each do |artist|
       unless artist.nil?

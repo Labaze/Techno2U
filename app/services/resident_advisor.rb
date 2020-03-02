@@ -5,6 +5,10 @@ require 'csv'
 
 class ResidentAdvisor
 
+  def initialize
+    Party.destroy_all
+  end
+
   def self.scrapping_artists_top_1000
     artists = []
 
