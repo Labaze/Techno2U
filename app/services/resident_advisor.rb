@@ -55,11 +55,11 @@ class ResidentAdvisor
         party.save
 
         artists = scrapping_artists(doc)
-        artists.each do |artist|
-          if Artist.find_by(name: artist).nil?
-            artist = Artist.create(name: artist[0], picture_url: artist[1])
+        artists.each do |artist_element|
+          if Artist.find_by(name: artist_element[0]).nil?
+            artist = Artist.create(name: artist_element[0], picture_url: artist_element[1])
           else
-            artist = Artist.find_by(name: artist_name)
+            artist = Artist.find_by(name: artist_element[0])
           end
           Lineup.create(artist: artist, party: party)
         end
