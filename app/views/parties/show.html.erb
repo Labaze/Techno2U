@@ -23,15 +23,27 @@
     <div class="row">
       <div class="col-8 soundcloud-player p-3">
         <h2>Who's playing? </h2>
-        <select id="artist_selector" class="select2 select_artist" name="artist">
+        <% if @party.artists.size < 10 %>
           <% @party.artists.each do |artist| %>
-            <option value="<%=  artist.name %>"><%= artist.name %></option>
+            <img src="https://www.residentadvisor.net<%= artist.picture_url %>" alt="" class="avatar-artist">
+            <h6><%= artist.name %></h6>
           <% end %>
-        </select>
-        <% @track_ids.each_with_index do |track, index| %>
-          <div id="<%= @party.artists[index].name %>" class="d-none soundcloud_player_show mt-4">
-            <%= render 'shared/soundcloud_player', soundcloud_id: track %>
-          </div>
+          <% @track_ids.each_with_index do |track, index| %>
+            <div id="<%= @party.artists[index].name %>" class="d-none soundcloud_player_show mt-4">
+              <%= render 'shared/soundcloud_player', soundcloud_id: track %>
+            </div>
+          <% end %>
+        <% else %>
+          <select id="artist_selector" class="select2 select_artist" name="artist">
+            <% @party.artists.each do |artist| %>
+              <option value="<%=  artist.name %>"><%= artist.name %></option>
+            <% end %>
+          </select>
+          <% @track_ids.each_with_index do |track, index| %>
+            <div id="<%= @party.artists[index].name %>" class="d-none soundcloud_player_show mt-4">
+              <%= render 'shared/soundcloud_player', soundcloud_id: track %>
+            </div>
+          <% end %>
         <% end %>
           <div class="social-media-card p-3">
             <!-- Share button code -->
