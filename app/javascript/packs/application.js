@@ -7,6 +7,7 @@ import "../plugins/today_date";
 import "../plugins/calendar";
 import "../plugins/audio_quizz_card_animation";
 import "../plugins/soundcloud_player_according_to_select";
+import "../plugins/dashboard_page_switch";
 
 // Select2
 import "select2/dist/css/select2.css";
@@ -18,4 +19,3 @@ initSelect2();
 // import { initMapbox } from '../plugins/init_mapbox';
 
 // initMapbox();
-
