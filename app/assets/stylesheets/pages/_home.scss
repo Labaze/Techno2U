@@ -4,3 +4,29 @@
   justify-content: space-around;
   margin-bottom: 200px;
 }
+
+.call-to-action{
+  margin-top: 60px;
+
+  .btn{
+    border-radius: 5px;
+    margin-left: 15px;
+    width: 220px;
+    border:none;
+    background: #213E53;
+    padding:5px;
+    box-shadow: 3px 3px 3px #12202B, -3px -3px 3px #0C151D;
+    font-weight: 500;
+
+    &:hover {
+      background: #346283;
+      box-shadow: inset 3px 3px 20px #070911;
+    }
+  }
+}
+
+.home-description {
+  // text-align: justify;
+  font-size: 24px;
+  color: white;
+}
