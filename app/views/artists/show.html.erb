@@ -1,6 +1,8 @@
 <div class="container container-artist-show">
   <h1><%=  @artist.name %></h1>
 
+  <img src="https://www.residentadvisor.net<%= @artist.picture_url %>" alt="" class="artist_image">
+
   <h2>Next events</h2>
   <div class="d-flex flex-row flex-wrap justify-content-between">
     <% if @artist.parties.size > 2 %>
