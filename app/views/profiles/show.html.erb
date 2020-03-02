@@ -3,18 +3,22 @@
     <i class="fas fa-bars text-light"></i>
 
     <ul class="sidenav-party-index-filters">
-      <li> <%= link_to 'My Parties', profile_path %> </li>
-      <li> <%= link_to 'My Artists', profile_path %> </li>
+      <li id= "parties"> My parties </li>
+      <li id="artists"> My artists </li>
       <li> <%= link_to 'Community', profile_path %> </li>
-      <li> <%= link_to 'Settings', edit_user_password_path %> </li>
+      <li> <%= link_to 'Settings', edit_user_registration_path %> </li>
     </ul>
   </div>
 
-  <div class="container">
+  <div class="container display-parties">
     <% @user.parties.each_with_index do |party, index| %>
       <%= link_to party_path(party), class: "link-no-underline" do %>
         <%= render 'shared/profile_card', party: party, track: @track_ids[index] %>
       <% end %>
     <% end %>
+  </div>
+
+  <div class="container display-artists">
+    <h2>Salut Salut !!</h2>
   </div>
 </div>
