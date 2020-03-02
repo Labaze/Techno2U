@@ -7,17 +7,28 @@ class PartiesController < ApplicationController
   # READ
 
   def index
-    @parties = policy_scope(Party)
+    @parties = policy_scope(Party).first(3)
     @user = current_user
 
     @soundcloud_artists = []
     @track_ids = []
 
-    @parties.first(3).each do |party|
-      unless party.artists.first.nil?
-        @soundcloud_artists << SoundCloud.new(name: party.artists.first.name)
+
+    if params[:search][:location].present?
+      @parties = Party.where("venue_location ILIKE ?", "%#{params[:search][:location]}%").first(3)
+      @parties.each do |party|
+        unless party.artists.first.nil?
+          @soundcloud_artists << SoundCloud.new(name: party.artists.first.name)
+        end
+      end
+    else
+      @parties.each do |party|
+        unless party.artists.first.nil?
+          @soundcloud_artists << SoundCloud.new(name: party.artists.first.name)
+        end
       end
     end
+
 
     @soundcloud_artists.each do |soundcloud_artist_id|
       unless soundcloud_artist_id.nil?
