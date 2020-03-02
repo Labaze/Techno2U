@@ -112,7 +112,7 @@ class ResidentAdvisor
     artists
   end
 
-  def get_photo_url(url)
+  def self.get_photo_url(url)
     doc = scrapper("https://www.residentadvisor.net#{url}")
     doc.search('#featureHead').attribute('style').value.scan(/;background-image: url\((.*)\)/).last.first unless doc.search('#featureHead').attribute('style').nil?
   end
