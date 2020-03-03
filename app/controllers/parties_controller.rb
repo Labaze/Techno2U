@@ -7,7 +7,6 @@ class PartiesController < ApplicationController
   def index
     @parties = policy_scope(Party).sample(3)
     @user = current_user
-
     if params[:search].nil?
       location = "paris"
       @parties = Party.where("venue_location ILIKE :query", query: "%#{location}%")
@@ -32,6 +31,7 @@ class PartiesController < ApplicationController
     }]
 
     @track_ids = {}
+
     @party.artists.each do |artist|
       unless artist.nil?
         @track_ids[artist.name] = artist.track_url

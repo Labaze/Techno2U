@@ -115,6 +115,10 @@ end
 puts 'Attendings created'
 
 
+puts 'Creating DJ Dortu'
+Artist.create!(name: 'DjDortu')
+
+
 
 puts 'Creating preferences'
 

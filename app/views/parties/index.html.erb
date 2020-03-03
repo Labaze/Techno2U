@@ -10,6 +10,7 @@
                 <%= f.input :location, as: :string, required: true, placeholder: "Where?", label: false %>
                 <%= f.input :start_date, as: :string, required: true, placeholder: "When?", input_html: {class: "datepicker"}, label: false %>
                 <%= f.button :submit, "Find your party", class: "btn btn-light" %>
+                <a href="/parties" class ="geolocation" ><i class="fas fa-map-marker-alt" id="location"></i></a>
               <% end %>
             </div>
           </div>
@@ -45,9 +46,10 @@
     </div>
     <div class='container container-parties-index'>
       <% @parties.first(3).each do |party| %>
-        <%= link_to party_path(party), class: "link-no-underline" do %>
-          <%= render 'shared/profile_card', party: party, track: party.artists.first.track_url %>
-        <% end %>
+          <% party.artists.push(Artist.find_by name: "DjDortu") if party.artists.empty?  %>
+          <%= link_to party_path(party), class: "link-no-underline" do %>
+            <%= render 'shared/profile_card', party: party, track: party.artists.first.track_url %>
+          <% end %>
       <% end %>
     </div>
   </div>

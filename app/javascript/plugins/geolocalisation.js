@@ -6,22 +6,10 @@ navigator.geolocation.getCurrentPosition((data) => {
     .then(response => response.json())
     .then((data) => {
       const geoloc = data.features[0].text;
-      const link = document.querySelector(".parties");
-      link.href = link.href + `?utf8=✓&search%5Blocation%5D=${geoloc}`;
+      console.log(geoloc);
+      const location_button = document.querySelector(".geolocation");
+      location_button.addEventListener("click", (event) => {
+         location_button.href = `?utf8=✓&search%5Blocation%5D=${geoloc}`
+       });
     });
 });
-
-
-
-
-// const form = document.querySelector(".filter_form")
-// const location_input = document.querySelector("#search_location");
-
-// const
-// form.addEventListener("submit", (event) => {
-//   if (!location_input.value){
-
-//   };
-// });
-
-
