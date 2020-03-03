@@ -1,5 +1,7 @@
 <%= render 'shared/party_banner', party: @party %>
 
+<div id="track_ids" data-ids="<%= @track_ids.to_json() %>"></div>
+
 <div class="container container-party-show">
   <h1 class ="mt-4"> <%= @party.name %> </h1>
   <div class="artists-lineup">
@@ -23,40 +25,38 @@
     <div class="row">
       <div class="col-8 soundcloud-player p-3">
         <h2>Who's playing? </h2>
-        <% if @party.artists.size < 10 %>
-          <% @party.artists.each do |artist| %>
-            <img src="https://www.residentadvisor.net<%= artist.picture_url %>" alt="" class="avatar-artist">
-            <h6><%= artist.name %></h6>
-          <% end %>
-          <% @track_ids.each_with_index do |track, index| %>
-            <div id="<%= @party.artists[index].name %>" class="d-none soundcloud_player_show mt-4">
-              <%= render 'shared/soundcloud_player', soundcloud_id: track %>
+        <% if @party.artists.size <= 8 %>
+          <div id="artist-images-grid" class="d-flex flex-row flex-wrap justify-content-around text-center">
+            <% @party.artists.each do |artist| %>
+              <% if artist.picture_url.nil? %>
+                <%= render 'shared/artist_avatar', artist: artist, image: "ic_headset_48px.svg" %>
+              <% else %>
+                <%= render 'shared/artist_avatar', artist: artist, image: "https://www.residentadvisor.net#{artist.picture_url}" %>
+              <% end %>
+            <% end %>
+          </div>
+            <div id="soundcloud_player_show_few_artists" class="soundcloud_player_show mt-4">
             </div>
-          <% end %>
         <% else %>
           <select id="artist_selector" class="select2 select_artist" name="artist">
             <% @party.artists.each do |artist| %>
-              <option value="<%=  artist.name %>"><%= artist.name %></option>
+              <option value="<%= artist.name %>"><%= artist.name %></option>
             <% end %>
           </select>
-          <% @track_ids.each_with_index do |track, index| %>
-            <div id="<%= @party.artists[index].name %>" class="d-none soundcloud_player_show mt-4">
-              <%= render 'shared/soundcloud_player', soundcloud_id: track %>
+            <div id="soundcloud_player_show_lot_artists" class="soundcloud_player_show mt-4">
             </div>
-          <% end %>
         <% end %>
-          <div class="social-media-card p-3">
-            <!-- Share button code -->
-            <div class="fb-share-button"
-              data-href="http://localhost:3000/parties/<%= @party.id %>"
-              data-layout="button_count"
-              data-size="large"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share the event</a>
-            </div>
+        <div class="social-media-card p-3">
+          <!-- Share button code -->
+          <div class="fb-share-button"
+            data-href="http://localhost:3000/parties/<%= @party.id %>"
+            data-layout="button_count"
+            data-size="large"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share the event</a>
           </div>
+        </div>
       </div>
       <div class="col-4 map"  id="map" style="width: 100%; height: 300px;" data-markers="<%= @markers.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
       </div>
     </div>
-
   </div>
 </div>
