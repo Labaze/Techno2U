@@ -1,4 +1,4 @@
-class ScrappingResidentAdvisorJob < ApplicationJob
+class ScrappingSoundcloudJob < ApplicationJob
   queue_as :default
 
   def perform(*args)
