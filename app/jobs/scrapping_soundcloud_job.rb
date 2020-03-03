@@ -4,7 +4,7 @@ class ScrappingSoundcloudJob < ApplicationJob
   def perform(*args)
     # Do something later
     Artist.all.each do |artist|
-      artist.track_url = SoundCloud.scrapping_tracks(artist.name)
+      artist.track_url = Soundcloud.scrapping_tracks(artist.name)
       artist.save
     end
   end

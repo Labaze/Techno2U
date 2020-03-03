@@ -3,7 +3,7 @@ require 'open-uri'
 require 'csv'
 require 'uri'
 
-class SoundCloud
+class Soundcloud
 
   def initialize(attrs = {})
     @name = attrs[:name]
