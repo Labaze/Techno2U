@@ -4,24 +4,11 @@ class PartiesController < ApplicationController
   before_action :set_party, only: %i[show edit update destroy]
 
 
-  # READ
-
   def index
     @parties = policy_scope(Party).sample(3)
     @user = current_user
     @soundcloud_artists = []
     @track_ids = []
-
-    # @parties = Party.order(:venue_location).page params[:page]
-
-
-    # @parties.each do |party|
-    #     # unless party.artists.first.nil?
-    #     #   @soundcloud_artists << SoundCloud.new(name: party.artists.first.name)
-    #     # end
-    #   end
-
-
 
     if params[:search].nil?
       location = "paris"
@@ -44,7 +31,6 @@ class PartiesController < ApplicationController
         end
       end
     end
-
 
 
     @soundcloud_artists.each do |soundcloud_artist_id|

@@ -1,45 +1,48 @@
 <div class="index-page">
-  <div class="sidenav-party-index">
-    <i class="fas fa-bars text-light"></i>
-    <ul class="sidenav-party-index-filters">
-      <li>
-        <form method="get">
-          <div class="form-group">
-            <input name="location" type="country" class="form-control" id="county" placeholder="Where">
+  <div class="container d-flex">
+    <div class="sidenav-party-index">
+      <i class="fas fa-bars text-light"></i>
+      <ul class="sidenav-party-index-filters">
+        <li>
+          <div class="container">
+            <div class="form-wrapper" style="width: 250px; margin: 0 auto;">
+              <%= simple_form_for :search, method: "get", html: {class: "filter_form"}  do |f| %>
+                <%= f.input :location, as: :string, required: true, placeholder: "Where?", label: false %>
+                <%= f.input :start_date, as: :string, required: true, placeholder: "When?", input_html: {class: "datepicker"}, label: false %>
+                <%= f.button :submit, "Find your party", class: "btn btn-light" %>
+              <% end %>
+            </div>
           </div>
-<!--           <div class="form-group">
-            <input type="region" class="form-control" id="county" placeholder="Region">
-          </div>
-          <div class="form-group">
-            <input type="city" class="form-control" id="county" placeholder="City">
-          </div> -->
-        </form>
-      </li>
-      <div class="container">
-        <div class="form-wrapper" style="width: 250px; margin: 0 auto;">
-          <h2>Find your party</h2>
-
-          <%= simple_form_for :search, method: "get" do |f| %>
-            <%= f.input :location, as: :string, required: true, placeholder: "Where?", label: false %>
-            <%= f.input :start_date, as: :string, required: true, placeholder: "When?", input_html: {class: "datepicker"}, label: false %>
-            <%#= f.input :ends_at, as: :string, required: false, input_html: {class: "datepicker"} %>
-            <%= f.button :submit, "Find a party", class: "btn btn-light" %>
-          <% end %>
-        </div>
+        </li>
+        <!--  <li>
+                  <form method="get">
+                    <div class="form-group">
+                      <input name="location" type="country" class="form-control" id="county" placeholder="Where">
+                    </div>
+                    <div class="form-group">
+                      <input type="region" class="form-control" id="county" placeholder="Region">
+                    </div>
+                    <div class="form-group">
+                      <input type="city" class="form-control" id="county" placeholder="City">
+                    </div>
+                  </form>
+              </li> -->
+           <!-- <li>
+                  <%#= render 'shared/checkboxes' %>
+                </li> -->
+          <!--  <li class='price-range'>
+                  <form>
+                    <label for="formControlRange">Price</label>
+                    <input type="range" class="form-control-range" id="formControlRange">
+                  </form>
+                </li> -->
+          <!-- <li> -->
+                  <%#= render 'shared/calendar' %>
+          <!--  </li> -->
+              <%= paginate @parties %>
+            </ul>
       </div>
- <!--      <li>
-        <%#= render 'shared/checkboxes' %>
-      </li> -->
-<!--       <li class='price-range'>
-        <form>
-          <label for="formControlRange">Price</label>
-          <input type="range" class="form-control-range" id="formControlRange">
-        </form>
-      </li> -->
-      <li>
-        <%= render 'shared/calendar' %>
-      </li>
-    </ul>
+    </div>
     <div class='container container-parties-index'>
       <% @parties.first(3).each_with_index do |party, index| %>
         <%= link_to party_path(party), class: "link-no-underline" do %>
@@ -50,10 +53,7 @@
   </div>
 </div>
 
-<%# unless params[:search].nil? %>
-<%= paginate @parties %>
-<%# end  %>
 
 
-<%= console %>
+
 
