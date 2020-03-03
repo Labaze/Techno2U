@@ -7,36 +7,16 @@ class PartiesController < ApplicationController
   def index
     @parties = policy_scope(Party).sample(3)
     @user = current_user
-    @soundcloud_artists = []
-    @track_ids = []
 
     if params[:search].nil?
       location = "paris"
       @parties = Party.where("venue_location ILIKE :query", query: "%#{location}%")
       @parties = @parties.page params[:page]
-      @parties.each do |party|
-        unless party.artists.first.nil?
-          @soundcloud_artists << SoundCloud.new(name: party.artists.first.name)
-        end
-      end
     else
       @parties = Party.where("venue_location ILIKE :query", query: "%#{params[:search][:location]}%")
       date = Date.parse params[:search][:start_date] if params[:search][:start_date].present?
       @parties = @parties.where("start_date = ?", date) if params[:search][:start_date].present?
       @parties = @parties.page params[:page]
-      @parties.each do |party|
-        puts party.start_date
-        unless party.artists.first.nil?
-          @soundcloud_artists << SoundCloud.new(name: party.artists.first.name)
-        end
-      end
-    end
-
-
-    @soundcloud_artists.each do |soundcloud_artist_id|
-      unless soundcloud_artist_id.nil?
-        @track_ids << soundcloud_artist_id.sound_id
-      end
     end
   end
 
@@ -45,21 +25,19 @@ class PartiesController < ApplicationController
     authorize @party
     @user = current_user
 
-    @soundcloud_artists = []
-    @track_ids = {}
-
     parties = Party.geocoded #returns parties with coordinates
     @markers = [{
       lat: @party.latitude,
       lng: @party.longitude
     }]
 
+    @track_ids = {}
     @party.artists.each do |artist|
       unless artist.nil?
-        @soundcloud_artists << SoundCloud.new(name: artist.name)
-        @track_ids[artist.name] = @soundcloud_artists.last.sound_id
+        @track_ids[artist.name] = artist.track_url
       end
     end
+
   end
 
   # UPDATE

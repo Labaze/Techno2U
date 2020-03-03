@@ -2,20 +2,25 @@ require 'nokogiri'
 require 'open-uri'
 require 'csv'
 require 'uri'
-require 'iconv'
 
-class SoundCloud
+class Soundcloud
 
   def initialize(attrs = {})
     @name = attrs[:name]
   end
 
   def sounds_ids
-    ids = find_sound_ids
+    find_sound_ids
   end
 
   def sound_id
-    id = find_sound_id
+    find_sound_id
+  end
+
+  def self.scrapping_tracks(artist_name)
+    sleep(rand(15..30))
+    soundcloud = Soundcloud.new(name: artist_name)
+    soundcloud.sound_id
   end
 
   private
