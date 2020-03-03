@@ -7,27 +7,38 @@ class PartiesController < ApplicationController
   # READ
 
   def index
+    @parties = policy_scope(Party).sample(3)
     @user = current_user
-    @parties = policy_scope(Party).first(3)
     @soundcloud_artists = []
     @track_ids = []
 
+    # @parties = Party.order(:venue_location).page params[:page]
+
+
     # @parties.each do |party|
-    #   unless party.artists.first.nil?
-    #     @soundcloud_artists << SoundCloud.new(name: party.artists.first.name)
+    #     # unless party.artists.first.nil?
+    #     #   @soundcloud_artists << SoundCloud.new(name: party.artists.first.name)
+    #     # end
     #   end
-    # end
+
 
 
     if params[:search].nil?
+      location = "paris"
+      @parties = Party.where("venue_location ILIKE :query", query: "%#{location}%")
+      @parties = @parties.page params[:page]
       @parties.each do |party|
         unless party.artists.first.nil?
           @soundcloud_artists << SoundCloud.new(name: party.artists.first.name)
         end
       end
-    elsif params[:search][:location].present?
-      @parties = Party.where("venue_location ILIKE ?", "%#{params[:search][:location]}%").first(3)
+    else
+      @parties = Party.where("venue_location ILIKE :query", query: "%#{params[:search][:location]}%")
+      date = Date.parse params[:search][:start_date] if params[:search][:start_date].present?
+      @parties = @parties.where("start_date = ?", date) if params[:search][:start_date].present?
+      @parties = @parties.page params[:page]
       @parties.each do |party|
+        puts party.start_date
         unless party.artists.first.nil?
           @soundcloud_artists << SoundCloud.new(name: party.artists.first.name)
         end
@@ -112,7 +123,7 @@ class PartiesController < ApplicationController
     @party = Party.find(params[:id])
   end
 
-  def restaurant_params
+  def party_params
     params.require(:party).permit(:name, :start_time, :end_time, :venue_type, :venue_location, :genre_id)
   end
 end

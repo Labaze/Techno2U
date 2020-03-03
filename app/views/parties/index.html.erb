@@ -20,8 +20,8 @@
           <h2>Find your party</h2>
 
           <%= simple_form_for :search, method: "get" do |f| %>
-            <%= f.input :location, as: :string, required: false, placeholder: "Where?", label: false %>
-            <%= f.input :start_date, as: :string, required: false, placeholder: "When?", input_html: {class: "datepicker"}, label: false %>
+            <%= f.input :location, as: :string, required: true, placeholder: "Where?", label: false %>
+            <%= f.input :start_date, as: :string, required: true, placeholder: "When?", input_html: {class: "datepicker"}, label: false %>
             <%#= f.input :ends_at, as: :string, required: false, input_html: {class: "datepicker"} %>
             <%= f.button :submit, "Find a party", class: "btn btn-light" %>
           <% end %>
@@ -50,4 +50,10 @@
   </div>
 </div>
 
+<%# unless params[:search].nil? %>
+<%= paginate @parties %>
+<%# end  %>
+
+
+<%= console %>
 
