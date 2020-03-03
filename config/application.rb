@@ -17,8 +17,7 @@ module Techno2U
     config.load_defaults 5.2
 
     # Allow services to work
-
-        config.autoloader = :classic
+    config.autoloader = :classic
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
@@ -26,5 +25,8 @@ module Techno2U
     # the framework and any gems in your application.
 
     config.active_job.queue_adapter = :sidekiq
+
+    # Allow AJAX
+    config.action_view.embed_authenticity_token_in_remote_forms = true
   end
 end
