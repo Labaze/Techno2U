@@ -1,7 +1,8 @@
 <div class="index-page">
   <div class="container d-flex">
     <div class="sidenav-party-index">
-          <div class="container">
+          <div class="container form_find_party">
+            <h2>Techno events</h2>
             <div class="form-wrapper" style="width: 250px; margin: 0 auto;">
               <%= simple_form_for :search, method: "get", html: {class: "filter_form"}  do |f| %>
                 <%= f.input :location, as: :string, required: true, placeholder: "Where?", label: false %>
