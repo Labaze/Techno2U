@@ -9,21 +9,6 @@ class PartiesController < ApplicationController
   def index
     @parties = policy_scope(Party)
     @user = current_user
-
-    @soundcloud_artists = []
-    @track_ids = []
-
-    @parties.first(3).each do |party|
-      unless party.artists.first.nil?
-        @soundcloud_artists << SoundCloud.new(name: party.artists.first.name)
-      end
-    end
-
-    @soundcloud_artists.each do |soundcloud_artist_id|
-      unless soundcloud_artist_id.nil?
-        @track_ids << soundcloud_artist_id.sound_id
-      end
-    end
   end
 
   def show
@@ -31,21 +16,19 @@ class PartiesController < ApplicationController
     authorize @party
     @user = current_user
 
-    @soundcloud_artists = []
-    @track_ids = {}
-
     parties = Party.geocoded #returns parties with coordinates
     @markers = [{
       lat: @party.latitude,
       lng: @party.longitude
     }]
 
+    @track_ids = {}
     @party.artists.each do |artist|
       unless artist.nil?
-        @soundcloud_artists << SoundCloud.new(name: artist.name)
-        @track_ids[artist.name] = @soundcloud_artists.last.sound_id
+        @track_ids[artist.name] = artist.track_url
       end
     end
+
   end
 
   # UPDATE
