@@ -5,6 +5,7 @@ class ScrappingSoundcloudJob < ApplicationJob
     # Do something later
     Artist.all.each do |artist|
       artist.track_url = SoundCloud.scrapping_tracks(artist.name)
+      artist.save
     end
   end
 end
