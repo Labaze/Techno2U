@@ -21,10 +21,10 @@
       <p> <%= @party.venue_location %> </p>
     </div>
   </div>
+        <h2>Who's playing? </h2>
   <div class="container">
     <div class="row">
       <div class="col-8 soundcloud-player p-3">
-        <h2>Who's playing? </h2>
         <% if @party.artists.size <= 8 %>
           <div id="artist-images-grid" class="d-flex flex-row flex-wrap justify-content-around text-center">
             <% @party.artists.each do |artist| %>
@@ -55,7 +55,7 @@
           </div>
         </div>
       </div>
-      <div class="col-4 map"  id="map" style="width: 100%; height: 300px;" data-markers="<%= @markers.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+      <div class="col-4 map mt-5"  id="map" style="width: 100%; height: 300px;" data-markers="<%= @markers.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
       </div>
     </div>
   </div>
