@@ -20,6 +20,7 @@ gem 'sidekiq'
 gem 'sidekiq-failures', '~> 1.0'
 gem 'iconv'
 gem 'geocoder'
+gem 'cloudinary', '~> 1.12.0'
 
 
 group :development do
