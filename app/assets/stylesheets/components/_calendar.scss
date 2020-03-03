@@ -128,6 +128,7 @@ $bootstrap-xl: 1200px;
   box-shadow: $drop-shadow-modal;
   padding: 15px;
   position: absolute;
+  left: -250px;
   overflow: hidden;
   user-select: none;
   transition: transform 0.1s;
@@ -138,7 +139,7 @@ $bootstrap-xl: 1200px;
     position: absolute; display: block;
     top: 0; left: -5px; right: -5px;
     height: 96px;
-    background: $colour-primary;
+    background: $background-home;
     content: '';
   }
 }
@@ -164,7 +165,7 @@ $bootstrap-xl: 1200px;
   top: 4px;
 
   &:hover {
-    background: $lightgray;
+    background: $background-home;
   }
 }
 #date-picker-previous-month {
@@ -218,7 +219,7 @@ $bootstrap-xl: 1200px;
     }
 
     &.active {
-      background: $colour-primary;
+      background: $background-home;
       color: white;
     }
 
