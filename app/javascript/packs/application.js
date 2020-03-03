@@ -7,6 +7,7 @@ import "../plugins/today_date";
 import "../plugins/calendar";
 import "../plugins/audio_quizz_card_animation";
 import "../plugins/soundcloud_player_according_to_select";
+import "../plugins/soundcloud_player_according_to_image_selection";
 import "../plugins/dashboard_page_switch";
 import "../plugins/facebook_sdk";
 
@@ -15,8 +16,7 @@ import "select2/dist/css/select2.css";
 import { initSelect2 } from "../components/init_select2";
 initSelect2();
 
+// Mapbox
 import 'mapbox-gl/dist/mapbox-gl.css';
-
 import { initMapbox } from '../plugins/init_mapbox';
-
 initMapbox();
