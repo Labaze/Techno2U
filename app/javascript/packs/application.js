@@ -10,6 +10,7 @@ import "../plugins/soundcloud_player_according_to_select";
 import "../plugins/soundcloud_player_according_to_image_selection";
 import "../plugins/dashboard_page_switch";
 import "../plugins/facebook_sdk";
+import "../plugins/first_session_animation";
 
 // Select2
 import "select2/dist/css/select2.css";
@@ -20,3 +21,4 @@ initSelect2();
 import 'mapbox-gl/dist/mapbox-gl.css';
 import { initMapbox } from '../plugins/init_mapbox';
 initMapbox();
+

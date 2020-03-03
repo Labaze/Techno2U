@@ -5,5 +5,6 @@ class PagesController < ApplicationController
 
   def home
     @user = current_user
+    @non_existing_session = session.id.nil?
   end
 end
