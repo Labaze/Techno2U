@@ -1,0 +1,15 @@
+.container-li ul li {
+  float: Left;
+  margin: 0 1em 0 1em;
+  color: white;
+  a {
+      color: gray;
+      text-decoration: none;
+  }
+
+  a:hover
+  {
+       color: white;
+       text-decoration:none;
+  }
+}

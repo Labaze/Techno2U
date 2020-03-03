@@ -11,7 +11,7 @@ class ArtistsController < ApplicationController
     authorize @artist
     @user = current_user
     authorize @user
-    # @soundcloud = SoundCloud.new(name: @artist.name)
+    @soundcloud = SoundCloud.new(name: @artist.name)
   end
 
   private
