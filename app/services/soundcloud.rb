@@ -18,7 +18,7 @@ class Soundcloud
   end
 
   def self.scrapping_tracks(artist_name)
-    sleep(2)
+    sleep(rand(15..30))
     soundcloud = Soundcloud.new(name: artist_name)
     soundcloud.sound_id
   end
