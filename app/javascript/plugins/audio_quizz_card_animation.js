@@ -2,6 +2,14 @@
 const stackCardsBlock = document.getElementById("stacked-cards-block");
 
 if (stackCardsBlock){
+
+  function encodeQueryData(data) {
+     const ret = [];
+     for (let d in data)
+       ret.push(encodeURIComponent(d) + '=' + encodeURIComponent(data[d]));
+     return ret.join('&');
+  }
+
   document.addEventListener("DOMContentLoaded", function(event) {
 
     function stackedCards () {
@@ -210,7 +218,9 @@ if (stackCardsBlock){
 
 
   // ========================= [RAJOUTER LES PARAMS POUR FILTRER LES PARTIES] ====================
-          window.location.replace("/parties");
+        const data = { 'first name': 'George', 'last name': 'Jetson', 'age': 110 };
+        const querystring = encodeQueryData(data);
+        window.location.replace("/parties");
   // =============================================================================================
         }
         else if(!(currentPosition >= maxElements)){

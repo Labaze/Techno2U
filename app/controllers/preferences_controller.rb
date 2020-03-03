@@ -4,19 +4,18 @@ class PreferencesController < ApplicationController
   # skip_before_action :authenticate_user!, only: [:home]
 
   def new
-    @preference = Attending.new
+    @preference = Preference.new
     authorize @preference
-    @artists = Artist.all.sample(5)
-    @user = current_user
+
     track_ids = []
 
+    @user = current_user
+    @artists = Artist.joins(:parties).where("start_date < ?", Date.today)
+    # @artists = Artist.all.sample(5)
 
     @artists.each do |artist|
       track_ids << artist.track_url
     end
     @tracks = track_ids.reject { |c| c == "" }
-  end
-
-  def create
   end
 end
