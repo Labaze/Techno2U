@@ -6,7 +6,7 @@
               <%= simple_form_for :search, method: "get", html: {class: "filter_form"}  do |f| %>
                 <%= f.input :location, as: :string, required: true, placeholder: "Where?", label: false %>
                 <%= f.input :start_date, as: :string, required: true, placeholder: "When?", input_html: {class: "datepicker"}, label: false %>
-                <%= f.button :submit, "Find your party", class: "btn btn-light" %>
+                <%= f.button :submit, "Find your party", class: "btn btn-secondary" %>
                 <a href="/parties" class ="geolocation" ><i class="fas fa-map-marker-alt" id="location"></i></a>
               <% end %>
             </div>

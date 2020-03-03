@@ -5,8 +5,12 @@
     <%= render 'shared/home_loader' %>
     <h3>Find easily the best music event for you</h3>
     <div class="call-to-action">
-      <button class="btn btn-secondary">Audio Quizz</button>
-      <button class="btn btn-primary">Find Parties</button>
+      <%= link_to new_preference_path , {class: "btn btn-secondary"} do %>
+        Audio Quizz
+      <% end %>
+      <%= link_to parties_path , {class: "btn btn-secondary"} do %>
+        Find a party
+      <% end %>
     </div>
   </div>
 </div>
