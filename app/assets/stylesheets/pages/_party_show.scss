@@ -1,4 +1,4 @@
-.container-party-show h1, h2, h3, p, i {
+.container-party-show h1, h2, h3, h6, p, i {
   color: white;
 }
 
@@ -7,22 +7,11 @@
 }
 
 .artists-lineup {
-  display: flex;
   align-items: center;
-}
-
-.artists-lineup-infos {
-  margin-left: 30px;
 }
 
 .date-and-place {
-  display: flex;
   align-items: center;
-
-}
-
-.date-and-place-infos {
-  margin-left: 30px;
 }
 
 .listen-and-social-medias {
@@ -31,17 +20,18 @@
 }
 
 .soundcloud-player {
-  width: 50%;
+  width: 100%;
 }
 
 .social-media-card {
-  width: 50%;
-}
-
-.container-party-show {
-  width: 80%;
+  width: 100%;
+  align-items: middle;
 }
 
 .select_artist {
   width: 100%;
+}
+
+.lineup-name {
+  width: 200px;
 }
