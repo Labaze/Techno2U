@@ -8,13 +8,13 @@ class AttendingsController < ApplicationController
   end
 
   def create
-    @attending = Attending.new(attending_params)
+    @attending = Attending.new(party_id: params[:party_id])
     @party = Party.find(params[:party_id])
     @attending.party = @party
-    @attending.user = current.user
+    @attending.user = current_user
     authorize @attending
     if @attending.save
-      redirect_to party_path(@attending.party)
+        redirect_to root_path
     else
       redirect_to party_path(params[:attending_id]), :alert => "You are already going to this party, you fat fuck!"
     end
@@ -24,6 +24,7 @@ class AttendingsController < ApplicationController
     @attending = Attending.find(params[:id])
     @attending.destroy
     authorize @attending
+    redirect_to request.referrer
   end
 
 
