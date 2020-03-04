@@ -10,7 +10,7 @@ class PreferencesController < ApplicationController
     track_ids = []
 
     @user = current_user
-    @artists = Artist.joins(:parties).where("start_date < ?", Date.today).limit(10)
+    @artists = Artist.joins(:parties).where("start_date >= ?", Date.today).limit(10)
 
     @artists.each do |artist|
       track_ids << artist.track_url
