@@ -1,9 +1,14 @@
-<div class="container container-artist-show">
+<div class="container container-artist-show my-3">
   <h1><%=  @artist.name %></h1>
 
-  <img src="https://www.residentadvisor.net<%= @artist.picture_url %>" alt="" class="artist_image">
+  <% if @artist.picture_url.nil? %>
+    <%= cl_image_tag("ownpy1x8yf0zriqij8hi", class: "artist_image") %>
+  <% else %>
+    <img src="https://www.residentadvisor.net<%= @artist.picture_url %>" alt="" class="artist_image">
+  <% end %>
 
-  <h2>Next events</h2>
+
+  <h2 class="mt-5 mb-3">Next events</h2>
   <div class="d-flex flex-row flex-wrap justify-content-between">
     <% if @artist.parties.size > 2 %>
       <% @artist.parties.first(3).each do |party| %>
@@ -19,8 +24,7 @@
       <% end %>
     <% end %>
   </div>
-
-<h2>Listen to <%= @artist.name %></h2>
+  <h2 class="my-3">Listen to <%= @artist.name %></h2>
   <% @soundcloud.sounds_ids.each do |id| %>
       <%= render 'shared/soundcloud_player', soundcloud_id: "#{id}" %>
   <% end %>

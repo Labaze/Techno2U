@@ -19,7 +19,7 @@
     </div>
     <div class='container container-parties-index'>
       <% @parties.first(3).each do |party| %>
-          <% party.artists.push(Artist.find_by name: "DjDortu") if party.artists.empty?  %>
+          <% party.artists.push(Artist.find_by name: "Unknown") if party.artists.empty?  %>
           <%= link_to party_path(party), class: "link-no-underline" do %>
             <%= render 'shared/profile_card', party: party, track: party.artists.first.track_url %>
           <% end %>

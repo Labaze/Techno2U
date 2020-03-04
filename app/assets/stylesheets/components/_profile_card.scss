@@ -26,7 +26,6 @@
 }
 
 .profile-card-middle {
-  display: flex;
   align-items: center;
   ul {
     margin-bottom: 0;
@@ -63,9 +62,6 @@
 .profile-card-title {
   color: white;
   font-weight: 300;
-  position: absolute;
-  left: 20px;
-  top: 15px;
 }
 
 .container-parties-index {
