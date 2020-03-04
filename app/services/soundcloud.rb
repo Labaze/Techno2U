@@ -27,7 +27,7 @@ class Soundcloud
 
   def soundcloud_artist_name
     encoded_name = CGI.escape(@name)
-    url = URI.parse("https://soundcloud.com/search?q=#{encoded_name}")
+    url = URI.parse(CGI.escape("https://soundcloud.com/search?q=#{encoded_name}"))
 
     html_file = open(url).read
     html_doc = Nokogiri::HTML(html_file)

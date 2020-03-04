@@ -19,7 +19,8 @@ User.destroy_all
 
 puts 'Database clean'
 
-# Seeding Genres
+
+
 puts 'Creating genres'
 
 ambient                = Genre.create!(name: 'Ambient')
@@ -49,6 +50,10 @@ game_music             = Genre.create!(name: 'Musique de jeu vidéo')
 puts 'Genres created from wikipedia list (no scrapping). Type Genre.all in console to check the styles created'
 
 
+
+puts 'Creating Unknown artist'
+Artist.create!(name: 'Unknown')
+puts 'Unknown artist created'
 
 # puts 'Creating Artists'
 
@@ -113,10 +118,6 @@ User.all.each do |user|
 end
 
 puts 'Attendings created'
-
-
-puts 'Creating DJ Dortu'
-Artist.create!(name: 'DjDortu')
 
 
 
