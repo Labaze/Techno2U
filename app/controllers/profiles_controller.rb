@@ -7,16 +7,13 @@ class ProfilesController < ApplicationController
     @user = current_user
     authorize @user
 
-    track_ids = []
+    @track_ids = []
 
     @user.parties.each do |party|
-
-      # party.artists.each do |artist|
-        track_ids << party.artists.first.track_url
-      # end
+      party.artists.each do |artist|
+        @track_ids << artist.track_url
+      end
     end
-
-    # @tracks = track_ids.reject { |c| c == "" }
   end
 
   private
