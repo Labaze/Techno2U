@@ -1,18 +1,51 @@
 <div class="index-page">
   <div class="container d-flex">
     <div class="sidenav-party-index">
-      <i class="fas fa-bars text-light"></i>
-      <ul class="sidenav-party-index-filters">
-        <li>
-          <div class="container">
+          <div class="container form_find_party">
+            <h2>Techno events</h2>
             <div class="form-wrapper" style="width: 250px; margin: 0 auto;">
               <%= simple_form_for :search, method: "get", html: {class: "filter_form"}  do |f| %>
                 <%= f.input :location, as: :string, required: true, placeholder: "Where?", label: false %>
                 <%= f.input :start_date, as: :string, required: true, placeholder: "When?", input_html: {class: "datepicker"}, label: false %>
-                <%= f.button :submit, "Find your party", class: "btn btn-light" %>
+                <%= f.button :submit, "Find your party", class: "btn btn-secondary" %>
+                <a href="/parties" class ="geolocation" ><i class="fas fa-map-marker-alt" id="location"></i></a>
               <% end %>
             </div>
           </div>
+
+<!--       <i class="fas fa-bars text-light"></i> -->
+<!--       <ul class="sidenav-party-index-filters">
+ -->
+           <!--  <li>
+                      <form method="get">
+                        <div class="form-group">
+                          <input name="location" type="country" class="form-control" id="county" placeholder="Where">
+                        </div>
+                        <div class="form-group">
+                          <input type="region" class="form-control" id="county" placeholder="Region">
+                        </div>
+                        <div class="form-group">
+                          <input type="city" class="form-control" id="county" placeholder="City">
+                        </div>
+                      </form>
+                  </li> -->
+               <!-- <li>
+                      <%#= render 'shared/checkboxes' %>
+                    </li> -->
+              <!--  <li class='price-range'>
+                      <form>
+                        <label for="formControlRange">Price</label>
+                        <input type="range" class="form-control-range" id="formControlRange">
+                      </form>
+                    </li> -->
+              <!-- <li> -->
+                      <%#= render 'shared/calendar' %>
+              <!--  </li> -->
+              <div class="container-li">
+                <%= paginate @parties if params[:page] %>
+                <%#= paginate @parties %>
+              </div>
+            <!-- </ul> -->
         </li>
         <!--  <li>
                   <form method="get">
@@ -39,21 +72,18 @@
           <!-- <li> -->
                   <%#= render 'shared/calendar' %>
           <!--  </li> -->
-              <%= paginate @parties if params[:page] %>
             </ul>
       </div>
     </div>
     <div class='container container-parties-index'>
       <% @parties.first(3).each do |party| %>
-        <%= link_to party_path(party), class: "link-no-underline" do %>
-          <%= render 'shared/profile_card', party: party, track: party.artists.first.track_url %>
-        <% end %>
+          <% party.artists.push(Artist.find_by name: "DjDortu") if party.artists.empty?  %>
+          <%= link_to party_path(party), class: "link-no-underline" do %>
+            <%= render 'shared/profile_card', party: party, track: party.artists.first.track_url %>
+          <% end %>
       <% end %>
     </div>
   </div>
 </div>
 
-
-
-
-
+<%= console %>

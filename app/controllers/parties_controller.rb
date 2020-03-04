@@ -8,11 +8,9 @@ class PartiesController < ApplicationController
     @parties = policy_scope(Party).sample(3)
     @user = current_user
 
-    # # ============================================================================
     if !params[:query].nil?
       artist_names = JSON.parse(params[:query])
       @parties = Party.joins(:artists).where("artists.name IN (?)", artist_names).uniq
-    # ============================================================================
     elsif params[:search].nil?
       location = "paris"
       @parties = Party.where("venue_location ILIKE :query", query: "%#{location}%")
@@ -37,6 +35,7 @@ class PartiesController < ApplicationController
     }]
 
     @track_ids = {}
+
     @party.artists.each do |artist|
       unless artist.nil?
         @track_ids[artist.name] = artist.track_url

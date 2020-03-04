@@ -89,6 +89,9 @@ ActiveRecord::Schema.define(version: 2020_03_02_111124) do
     t.date "end_date"
     t.text "description"
     t.text "facebook_link"
+    t.float "latitude"
+    t.float "longitude"
+    t.string "address"
     t.index ["genre_id"], name: "index_parties_on_genre_id"
   end
 
