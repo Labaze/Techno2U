@@ -27,6 +27,7 @@ if (stackCardsBlock){
       var elTrans;
       var buttonLeft = document.querySelector('.left-action');
       var buttonRight = document.querySelector('.right-action');
+      const data = [];
 
       obj = document.getElementById('stacked-cards-block');
       stackedCardsObj = obj.querySelector('.stackedcards-container');
@@ -167,8 +168,8 @@ if (stackCardsBlock){
           buttonRight.style.display = 'none';
           buttonLeft.style.display = 'none';
 
-          // ========================= [RAJOUTER LES PARAMS POUR FILTRER LES PARTIES] ====================
-                  window.location.replace("/parties");
+          // ============ [ON ENVOIE LA QUERY DE TOUS LES ARTIST_NAMES LIKES A INDEX PARTIES] ============
+                  window.location.replace(`/parties?query=${escape(JSON.stringify(data))}`);
           // =============================================================================================
         }
         else if(!(currentPosition >= maxElements)){
@@ -191,6 +192,13 @@ if (stackCardsBlock){
       function onActionRight() {
         var iframe = document.querySelector('iframe');
         var parents = document.querySelectorAll(".soundcloud-player-audio-quizz");
+
+      // ================== [ON RECUPERE LES ARTIST_NAMES ] =========================
+        const artist_names = JSON.parse(document.querySelector('.artist-names').innerText);
+        data.push(artist_names[currentPosition]);
+      // ============================================================================
+
+
         parents[currentPosition].removeChild(iframe);
 
         if (currentPosition + 1 === maxElements) {
@@ -209,8 +217,8 @@ if (stackCardsBlock){
           buttonLeft.style.display = 'none';
 
 
-  // ========================= [RAJOUTER LES PARAMS POUR FILTRER LES PARTIES] ====================
-          window.location.replace("/parties");
+  // ============ [ON ENVOIE LA QUERY DE TOUS LES ARTIST_NAMES LIKES A INDEX PARTIES] ============
+        window.location.replace(`/parties?query=${escape(JSON.stringify(data))}`);
   // =============================================================================================
         }
         else if(!(currentPosition >= maxElements)){

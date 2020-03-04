@@ -8,11 +8,3 @@ if (stars) {
     });
   });
 };
-
-// if (audioQuizzCards) {
-//   audioQuizzCards.forEach(quizzCard => {
-//     quizzCard.firstElementChild.addEventListener('click', (event) => {
-//       quizzCard.firstElementChild.firstElementChild.classList.toggle("text-danger");
-//     });
-//   });
-// };

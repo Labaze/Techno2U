@@ -14,12 +14,13 @@ class PreferencePolicy < ApplicationPolicy
   end
 
   def create?
-    record.user == user
+    # record.user == user
+    true
   end
 
   def new?
-    # create?
-    true
+    create?
+    # true
   end
 
   def update?
