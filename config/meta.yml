@@ -1,0 +1,5 @@
+meta_product_name: "Techno2U"
+meta_title: "Techno2U - Find easily the best music events for you"
+meta_description: "Techno2U helps people to find parties, festivals, and music events of any kind that best fit their preferences"
+meta_image: "techno2U.png" # should exist in `app/assets/images/`
+twitter_account: "@CombarelM"   # required for Twitter Cards
