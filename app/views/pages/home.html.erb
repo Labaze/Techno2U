@@ -11,7 +11,7 @@
 <div class="container <%= "first-session-animation-hide" if @non_existing_session %>">
   <p class="home-description"></p>
   <div class='home-cards'>
-    <% Party.last(3).each do |party| %>
+    <% Party.all.sample(3).each do |party| %>
       <%= link_to party_path(party), class: "link-without-style" do  %>
         <%= render 'shared/home_card', party: party%>
       <% end %>
