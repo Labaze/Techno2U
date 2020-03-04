@@ -2,6 +2,9 @@ class Party < ApplicationRecord
   geocoded_by :venue_location
   after_validation :geocode, if: :will_save_change_to_venue_location?
 
+  #pagination
+  paginates_per 3
+
   # has_one :genre
   belongs_to :genre, optional: true
   has_many :lineups, dependent: :destroy

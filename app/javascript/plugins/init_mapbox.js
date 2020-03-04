@@ -16,7 +16,7 @@ const initMapbox = () => {
 
     const map = new mapboxgl.Map({
       container: 'map',
-      style: 'mapbox://styles/mapbox/streets-v10'
+      style: 'mapbox://styles/mapbox/navigation-guidance-night-v4'
     });
 
     markers.forEach((marker) => {

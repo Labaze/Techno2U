@@ -1,13 +1,12 @@
+<hr style="border-color: rgb(70, 70, 70);">
 <div class="home-footer container">
   <div class="home_footer_links">
-    <ul class="blink-text-menu">
-      <li class = "grid-element"><a href="#">about</a></li>
-      <li class = "grid-element"><a href="#">carrier</a></li>
-      <li class = "grid-element"><a href="#">community</a></li>
-      <li class = "grid-element"><a href="#">contact</a></li>
+    <ul class="blink-text-menu list-group list-group-horizontal">
+      <li class = "grid-element m-4"><%= link_to 'Home', root_path %></li>
+      <li class = "grid-element m-4"><%= link_to 'Parties', parties_path %></li>
+      <li class = "grid-element m-4"><%= link_to 'Quizz', new_preference_path %></li>
     </ul>
   </div>
-
   <div class="social-media-links">
     <a href="#"><i class="fab fa-facebook"></i></a>
     <a href="#"><i class="fab fa-twitter"></i></a>

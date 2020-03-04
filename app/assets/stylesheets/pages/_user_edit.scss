@@ -12,6 +12,8 @@
 
 .form-actions {
   display: flex;
+  justify-content: space-around;
+  width: 100%;
 }
 
 .submit-btn {
@@ -34,3 +36,5 @@
 .fa-undo-alt {
   font-size: 15px;
 }
+
+
