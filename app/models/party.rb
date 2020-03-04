@@ -2,7 +2,7 @@ class Party < ApplicationRecord
   geocoded_by :venue_location
   after_validation :geocode, if: :will_save_change_to_venue_location?
 
-  #pagination
+  # pagination
   paginates_per 3
 
   # has_one :genre
