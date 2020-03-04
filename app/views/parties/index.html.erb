@@ -39,7 +39,7 @@
           <!-- <li> -->
                   <%#= render 'shared/calendar' %>
           <!--  </li> -->
-              <%= paginate @parties %>
+              <%= paginate @parties if params[:page] %>
             </ul>
       </div>
     </div>
