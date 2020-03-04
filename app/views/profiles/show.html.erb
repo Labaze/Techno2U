@@ -6,7 +6,7 @@
       <li id= "parties"> My parties </li>
       <li id="artists"> My artists </li>
       <li> <%= link_to 'Community', profile_path %> </li>
-      <li> <%= link_to 'Settings', edit_user_registration_path %> </li>
+      <li> <%= link_to 'Account settings', edit_user_registration_path %> </li>
     </ul>
   </div>
 
@@ -20,15 +20,60 @@
   </div>
 
   <div class="container display-artists">
-    <h1 class= "title-profile-show">My artists</h1>
 
-    <% artistsList = [] %>
-    <% @user.parties.each do |party| %>
-      <% party.artists.each do |artist| %>
-        <% artistsList << artist.name %>
+    <div class="artists-liked">
+      <h1 class= "title-profile-show">Artists liked</h1>
+
+      <% artistsList = [] %>
+      <% @user.parties.each do |party| %>
+        <% party.artists.each do |artist| %>
+          <% artistsList << artist %>
+        <% end %>
+        <% artistsList.map{|i| i.name.downcase}.uniq %>
+
+        <div id="artist-images-grid" class="d-flex flex-row flex-wrap justify-content-around text-center">
+          <% artistsList.each do |artist| %>
+            <% if artist.picture_url.nil? %>
+              <%= render 'shared/artist_avatar_dashboard', artist: artist, image: "ic_headset_48px.svg" %>
+            <% else %>
+              <%= render 'shared/artist_avatar_dashboard', artist: artist, image: "https://www.residentadvisor.net#{artist.picture_url}" %>
+            <% end %>
+          <% end %>
+        </div>
+
+        <div id="soundcloud_player_show_few_artists" class="soundcloud_player_show mt-4">
+        </div>
+
       <% end %>
-      <% artistsList.map{|i| i.downcase}.uniq %>
-      <p> <%= artistsList %> </p>
-    <% end %>
+
+    </div>
+
+    <div class="artists-seen">
+      <h1 class= "title-profile-show">Artists seen</h1>
+
+      <% artistsList = [] %>
+      <% @user.parties.each do |party| %>
+        <% party.artists.each do |artist| %>
+          <% artistsList << artist %>
+        <% end %>
+        <% artistsList.map{|i| i.name.downcase}.uniq %>
+
+
+        <div id="artist-images-grid" class="d-flex flex-row flex-wrap justify-content-around text-center">
+          <% artistsList.each do |artist| %>
+            <% if artist.picture_url.nil? %>
+              <%= render 'shared/artist_avatar_dashboard', artist: artist, image: "ic_headset_48px.svg" %>
+            <% else %>
+              <%= render 'shared/artist_avatar_dashboard', artist: artist, image: "https://www.residentadvisor.net#{artist.picture_url}" %>
+            <% end %>
+          <% end %>
+        </div>
+
+        <div id="soundcloud_player_show_few_artists" class="soundcloud_player_show mt-4">
+        </div>
+
+      <% end %>
+    </div>
   </div>
+
 </div>

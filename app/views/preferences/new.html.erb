@@ -1,4 +1,5 @@
 <div class="container audio-quizz">
+  <div class='artist-names d-none'><%= artist_names = @artists.map { |artist| artist.name } %></div>
   <div class="quizz-row">
     <div class="indications">
       <h3>Listen to some tracks</h3>
@@ -14,10 +15,10 @@
       <div class="stackedcards--animatable stackedcards-overlay right"><i class="fas fa-star" id="star"></i></div>
       <div class="stackedcards--animatable stackedcards-overlay left"><i class="fas fa-times" id="ban"></i></div>
 
-      <!-- <div class="global-actions"> -->
+      <% if  @tracks.any?%>
         <div class="left-action"><%= render 'shared/remove_button' %></div>
         <div class="right-action"><%= render 'shared/audio_quizz_star_button.html' %></div>
-      <!-- </div> -->
+      <% end %>
     </div>
   </div>
 </div>

@@ -362,5 +362,3 @@ $("#filter").on("keyup, input" , function() {
 });
 // end live search
 var listItems = $("li").length;
-
-console.log(listItems);

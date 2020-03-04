@@ -54,16 +54,16 @@
           <% end %>
         <% end %>
       </div>
-        <div id="soundcloud_player_show_few_artists" class="soundcloud_player_show mt-4">
-        </div>
+      <div id="soundcloud_player_show_few_artists" class="soundcloud_player_show mt-4">
+      </div>
     <% else %>
       <select id="artist_selector" class="select2 select_artist" name="artist">
         <% @party.artists.each do |artist| %>
           <option value="<%= artist.name %>"><%= artist.name %></option>
         <% end %>
       </select>
-        <div id="soundcloud_player_show_lot_artists" class="soundcloud_player_show mt-4">
-        </div>
+      <div id="soundcloud_player_show_lot_artists" class="soundcloud_player_show mt-4">
+      </div>
     <% end %>
   </div>
   <div class="map align-self-center justify-content-center mx-auto"  id="map" style="width: 95%; height: 300px;" data-markers="<%= @markers.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">

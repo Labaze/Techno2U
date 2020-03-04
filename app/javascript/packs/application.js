@@ -1,4 +1,5 @@
 import "bootstrap";
+import "../plugins/flatpickr";
 import "../plugins/blink_text_footer";
 import "../plugins/like_deslike_color_change";
 import "../plugins/geolocalisation";

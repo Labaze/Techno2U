@@ -1,0 +1,7 @@
+<%= paginator.render do -%>
+  <ul class="pagination text-white">
+    <%= prev_page_tag unless current_page.first? %>
+    <%= "#{current_page} of #{total_pages}" %>
+    <%= next_page_tag unless current_page.last? %>
+  </ul>
+<% end -%>

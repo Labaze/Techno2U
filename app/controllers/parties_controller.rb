@@ -4,11 +4,23 @@ class PartiesController < ApplicationController
   before_action :set_party, only: %i[show edit update destroy]
 
 
-  # READ
-
   def index
-    @parties = policy_scope(Party)
+    @parties = policy_scope(Party).sample(3)
     @user = current_user
+
+    if !params[:query].nil?
+      artist_names = JSON.parse(params[:query])
+      @parties = Party.joins(:artists).where("artists.name IN (?)", artist_names).uniq
+    elsif params[:search].nil?
+      location = "paris"
+      @parties = Party.where("venue_location ILIKE :query", query: "%#{location}%")
+      @parties = @parties.page params[:page]
+    else
+      @parties = Party.where("venue_location ILIKE :query", query: "%#{params[:search][:location]}%")
+      date = Date.parse params[:search][:start_date] if params[:search][:start_date].present?
+      @parties = @parties.where("start_date = ?", date) if params[:search][:start_date].present?
+      @parties = @parties.page params[:page]
+    end
   end
 
   def show
@@ -23,6 +35,7 @@ class PartiesController < ApplicationController
     }]
 
     @track_ids = {}
+
     @party.artists.each do |artist|
       unless artist.nil?
         @track_ids[artist.name] = artist.track_url
@@ -73,7 +86,7 @@ class PartiesController < ApplicationController
     @party = Party.find(params[:id])
   end
 
-  def restaurant_params
+  def party_params
     params.require(:party).permit(:name, :start_time, :end_time, :venue_type, :venue_location, :genre_id)
   end
 end
