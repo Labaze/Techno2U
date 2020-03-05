@@ -10,7 +10,7 @@
     <img src="https://www.residentadvisor.net<%= party.image_url %>" onerror="this.src='https://images.unsplash.com/photo-1513670144176-2211a82b531f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80';" alt="Missing Image" />
   </div>
   <h3 class="title m-3"><%= party.name.truncate(50) %></h3>
-  <ul class="infos mt-5 ">
+  <ul class="infos mt-3 ">
     <li class="d-flex align-items-center">
       <i class="far fa-user text-light"></i>
       <% party.artists.first(3).each do |artist| %>

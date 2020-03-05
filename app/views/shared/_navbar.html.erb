@@ -17,6 +17,10 @@
         <%= link_to 'Parties', parties_path, class: "parties"  %>
       </li>
 
+      <li class="nav-item" id="quizz">
+        <%= link_to 'Quizz', new_preference_path   %>
+      </li>
+
       <% if current_user.nil?  %>
         <li class="nav-item">
           <%= link_to 'Log-in', new_user_session_path   %>
@@ -30,9 +34,6 @@
           <%= link_to 'Profile', profile_path(@user)   %>
         </li>
 
-        <li class="nav-item" id="quizz">
-          <%= link_to 'Quizz', new_preference_path   %>
-        </li>
 
         <li class="nav-item">
           <div class="group">
