@@ -13,7 +13,7 @@
   <div class='home-cards'>
     <% Party.all.sample(3).each do |party| %>
       <%= link_to party_path(party), class: "link-without-style" do  %>
-        <%= render 'shared/home_card', party: party%>
+        <%= render 'shared/home_card', party: party %>
       <% end %>
     <% end %>
   </div>

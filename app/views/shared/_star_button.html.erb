@@ -1,15 +1,16 @@
+<% if !current_user.nil? %>
+  <% if current_user.attended?(party) %>
+    <%= link_to attending_path(current_user.get_attending_from_party(party)), method: :delete  do %>
+      <div class="star-button">
+        <i class="fas fa-star text-warning" id="star"></i>
+      </div>
+    <% end %>
 
-<% if !current_user.nil? && current_user.attended?(party) %>
-  <%= link_to attending_path(current_user.get_attending_from_party(party)), method: :delete  do %>
-    <div class="star-button">
-      <i class="fas fa-star text-warning" id="star"></i>
-    </div>
-  <% end %>
-
-<% else %>
-  <%= link_to party_attendings_path(party), method: :post  do %>
-    <div class="star-button">
-      <i class="fas fa-star" id="star"></i>
-    </div>
+  <% else %>
+    <%= link_to party_attendings_path(party), method: :post  do %>
+      <div class="star-button">
+        <i class="fas fa-star" id="star"></i>
+      </div>
+    <% end %>
   <% end %>
 <% end %>
