@@ -1,7 +1,7 @@
 require_relative '../services/soundcloud'
 
 class PartiesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:index :show]
+  skip_before_action :authenticate_user!, only: [:index, :show]
   before_action :set_party, only: %i[show edit update destroy]
 
 
