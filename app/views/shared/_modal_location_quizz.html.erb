@@ -1,0 +1,13 @@
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content bg-transparent border-0">
+      <div class="modal-body">
+        <h3>Where do yo want to party?</h3>
+        <% @locations.each do |location| %>
+          <%= link_to "#{location}" , "/preferences/new?location=#{location}", :method=> 'GET'   %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+

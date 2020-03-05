@@ -2,8 +2,8 @@
   <div class='artist-names d-none'><%= artist_names = @artists.map { |artist| artist.name } %></div>
   <div class="quizz-row">
     <div class="indications">
-      <h3>Listen to some tracks</h3>
-      <h5>we will find the best music events for you</h5>
+      <h2>Listen to some artists</h2>
+      <h4>We'll find you the right party, just for you.</h4>
     </div>
     <div id="stacked-cards-block" class="stackedcards stackedcards--animatable init">
       <div class="stackedcards-container">
@@ -22,3 +22,7 @@
     </div>
   </div>
 </div>
+
+<% unless params[:location].present? %> 
+  <%= render 'shared/modal_location_quizz' %>
+<% end %>

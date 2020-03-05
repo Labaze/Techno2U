@@ -1,0 +1,28 @@
+.modal-backdrop {
+    opacity:0.9 !important;
+}
+
+.modal-body {
+	h3 {
+		font-size: 36px;
+	}
+	a {
+	  text-decoration: none;
+	  color: white;
+	  font-size: 20px;
+	}
+	
+	a:hover {
+	  span {
+	    .out {
+	      opacity: 0;
+	      transform: translateX(-100%);
+	    }
+
+	    .in {
+	      opacity: 1;
+	      transform: translateX(0);
+	    }
+	  }
+	}
+}

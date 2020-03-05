@@ -12,6 +12,8 @@ import "../plugins/soundcloud_player_according_to_image_selection";
 import "../plugins/dashboard_page_switch";
 import "../plugins/facebook_sdk";
 import "../plugins/first_session_animation";
+import "../plugins/location_quiz";
+
 
 // Select2
 import "select2/dist/css/select2.css";
