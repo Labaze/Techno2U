@@ -1,6 +1,7 @@
 require_relative '../services/soundcloud'
 
 class ArtistsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:show]
   before_action :set_artist, only: %i[show]
 
   def index
