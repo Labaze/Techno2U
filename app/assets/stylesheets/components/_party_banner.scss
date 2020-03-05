@@ -1,20 +1,20 @@
 .party-banner {
-  background-size: cover;
+  background-size:     cover;
   background-position: top;
-  height: 500px;
+  height:              500px;
   }
 
 .party-banner h1 {
-  margin: 0;
-  color: white;
+  margin:      0;
+  color:       white;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  font-size: 32px;
+  font-size:   32px;
   font-weight: bold;
 }
 
 .party-banner p {
-  font-size: 20px;
-  color: white;
-  opacity: .7;
+  font-size:   20px;
+  color:       white;
+  opacity:     .7;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
 }

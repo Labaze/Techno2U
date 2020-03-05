@@ -7,12 +7,14 @@
   <div class="artists-lineup d-flex flex-row">
     <div><i class="far fa-user text-light"></i></div>
     <div class="artists-lineup-infos ml-3">
-      <h2>
-        <%= link_to @party.artists.first.name, artist_path(@party.artists.first), class: "link-without-style pointer" %>
-        <% @party.artists.drop(1).each do |artist| %>
-          <%= link_to " — #{artist.name}", artist_path(artist), class: "link-without-style" %>
-        <% end %>
-      </h2>
+      <% unless @party.artists.first.nil? %>
+        <h2>
+          <%= link_to @party.artists.first.name, artist_path(@party.artists.first), class: "link-without-style pointer" %>
+          <% @party.artists.drop(1).each do |artist| %>
+            <%= link_to " — #{artist.name}", artist_path(artist), class: "link-without-style" %>
+          <% end %>
+        </h2>
+      <% end %>
     </div>
   </div>
   <div class="row">

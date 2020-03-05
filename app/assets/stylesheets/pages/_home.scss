@@ -1,19 +1,19 @@
 // Specific CSS for your home-page
 .alert-messages{
-  display: flex;
+  display:  flex;
   position: relative;
-  z-index: 100;
+  z-index:  100;
 }
 
 .first-session-animation-show {
-  opacity: 0;
-  animation: 0.5s ease-in 1s show;
+  opacity:             0;
+  animation:           0.5s ease-in 1s show;
   animation-fill-mode: forwards;
 }
 
 .first-session-animation-hide {
-  opacity: 0.5;
-  animation: 1s ease-in hide;
+  opacity:             0.5;
+  animation:           1s ease-in hide;
   animation-fill-mode: forwards;
 }
 
@@ -39,9 +39,9 @@
 
 
 .home-cards {
-  display:flex;
+  display:         flex;
   justify-content: space-around;
-  margin-bottom: 200px;
+  margin-bottom:   200px;
 }
 
 .call-to-action{
@@ -49,13 +49,13 @@
 
   .btn{
     border-radius: 5px;
-    margin-left: 15px;
-    width: 220px;
-    border:none;
-    background: #213E53;
-    padding:5px;
-    box-shadow: 3px 3px 3px #12202B, -3px -3px 3px #0C151D;
-    font-weight: 500;
+    margin-left:   15px;
+    width:         220px;
+    border:        none;
+    background:    #213E53;
+    padding:       5px;
+    box-shadow:    3px 3px 3px #12202B, -3px -3px 3px #0C151D;
+    font-weight:   500;
 
     &:hover {
       background: #346283;
@@ -66,7 +66,7 @@
 
 .home-description {
   font-size: 24px;
-  color: white;
+  color:     white;
 }
 
 

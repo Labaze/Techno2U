@@ -1,69 +1,73 @@
-.navbar-lewagon {
-  justify-content: space-between;
+.navbar {
+  justify-content:  space-between;
   background-color: #17141d;
-
 }
 
-.navbar-lewagon .navbar-collapse {
+.navbar .navbar-collapse {
   flex-grow: 0;
 }
 
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
+.navbar .navbar-brand img {
+  width:       40px;
   margin-left: 10px;
 }
 
-.navbar-lewagon a {
+.navbar-items {
   text-decoration: none;
-  padding-left: 10px;
-  color: white;
-  font-weight: 400;
-  padding-right: 10px;
+  padding-left:    10px;
+  color:           white;
+  font-weight:     400;
+  padding-right:   10px;
 }
 
-.navbar-lewagon #bell {
+.navbar #bell {
   // text-decoration: none;
   padding-left: 10px;
-  color: $gray;
-  font-weight: 200;
+  color:        $white;
+  font-weight:  200;
 }
 
-.navbar-lewagon #bell:hover {
-  color:black;
+.navbar #bell:hover {
+  cursor: pointer;
 }
 
 .bell-and-notif {
     position: relative;
-    right:5px;
+    right:    5px;
+    color:    $white;
 
   .fa-circle {
-    position: absolute;
-    right: 10px;
+    position:  absolute;
+    right:     10px;
     font-size: 10px;
   }
 }
 
-.navbar-lewagon a:hover {
+.navbar a:hover {
     font-weight: 500;
 }
 
 #notification {
-  width: 320px;
-  overflow-wrap: break-word;
-  right: 60px;
-  padding-left: 20px;
-  padding-right: 20px;
-  background-color: #E0EFFF;
-  font-size: 16px;
+  width:            200px;
+  overflow-wrap:    break-word;
+  right:            60px;
+  padding-left:     20px;
+  padding-right:    20px;
+  background-color: #17141d;
+  font-size:        16px;
 
   i {
-    background-color: #E0EFFF;
-    font-size: 16px;
+    background-color: #17141d;
+    font-size:        16px;
   }
 }
 
-.navbar-lewagon li{
-  margin-left:15px;
-  margin-right:15px;
+.navbar li{
+  margin-left:  15px;
+  margin-right: 15px;
+}
+
+.dropdown-menu {
+  background-color: #17141d;
 }
 

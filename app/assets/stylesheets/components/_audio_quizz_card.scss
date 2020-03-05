@@ -1,29 +1,29 @@
 .audio-quizz-card {
-  display: flex;
-  height: 560px;
-  width: 400px;
+  display:          flex;
+  height:           560px;
+  width:            400px;
   background-color: #F5F5F5; //#dfe7ef;
-  border-radius: 10px;
-  box-shadow: -1px 0 1rem #000;
-  transition: 0.4s ease-out;
-  position: relative;
-  left: 0px;
+  border-radius:    10px;
+  box-shadow:       -1px 0 1rem #000;
+  transition:       0.4s ease-out;
+  position:         relative;
+  left:             0px;
 }
 
 .soundcloud-player-audio-quizz {
   position: absolute;
-  top: calc(50%);
-  width: 100%;
+  top:      calc(50%);
+  width:    100%;
 }
 
 .album-picture {
   img {
-    left: calc(50%-20px);
-    width: 100%;
-    height:50%;
-    object-fit: cover;
+    left:                    calc(50%-20px);
+    width:                   100%;
+    height:                  50%;
+    object-fit:              cover;
     border-top-right-radius: 10px;
-    border-top-left-radius: 10px;
-    border-bottom: 1px solid $gray;
+    border-top-left-radius:  10px;
+    border-bottom:           1px solid $gray;
   }
 }

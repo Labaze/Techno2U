@@ -1,30 +1,24 @@
 <div class="profile-page-container">
   <div class="sidenav-party-index">
-    <i class="fas fa-bars text-light"></i>
 
     <ul class="sidenav-party-index-filters">
-      <li id= "parties"> My parties </li>
-      <li id="artists"> My artists </li>
+      <li id= "parties" class="selected"> My parties </li>
+      <li id="artists" class="unselected"> My artists </li>
       <!-- <li> <%#= link_to 'Community', profile_path %> </li> -->
       <li> <%= link_to 'Account settings', edit_user_registration_path %> </li>
     </ul>
   </div>
   <div class="container display-parties">
-    <h1 class= "title-profile-show">My parties attended</h1>
+    <h1 class= "title-profile-show m-4 mb-5">My parties attended</h1>
     <% @user.parties.each_with_index do |party, index| %>
-      <%= render 'shared/profile_card', party: party, track: @track_ids[index] %>
+      <%= render 'shared/profile_card_logged', party: party, track: @track_ids[index] %>
     <% end %>
   </div>
             <!-- ------------------------------------------ -->
 
   <div class="container display-artists">
     <div class="artists-liked">
-
-
-
-
-
-      <h1 class= "title-profile-show">Artists liked</h1>
+      <h1 class= "title-profile-show m-4">Artists liked</h1>
       <% artistsList = [] %>
       <% @user.parties.each do |party| %>
         <% party.artists.each do |artist| %>
