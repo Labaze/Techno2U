@@ -1,0 +1,31 @@
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content bg-transparent border-0">
+      <h3>Where do yo want to party?</h3>
+      <div class="modal-body">
+        <div class="modal-first-column modal-column">
+          <ul>
+            <li><%= link_to @locations[0] , "/preferences/new?location=#{@locations[0]}", :method=> 'GET'   %></li>
+            <li><%= link_to @locations[1] , "/preferences/new?location=#{@locations[1]}", :method=> 'GET'   %></li>
+            <li><%= link_to @locations[2] , "/preferences/new?location=#{@locations[2]}", :method=> 'GET'   %></li>
+          </ul>
+        </div>
+        <div class="modal-second-column modal-column">
+          <ul>
+            <li><%= link_to @locations[3] , "/preferences/new?location=#{@locations[3]}", :method=> 'GET'   %></li>
+            <li><%= link_to @locations[4] , "/preferences/new?location=#{@locations[4]}", :method=> 'GET'   %></li>
+            <li><%= link_to @locations[5] , "/preferences/new?location=#{@locations[5]}", :method=> 'GET'   %></li>
+          </ul>
+        </div>
+        <div class="modal-third-column modal-column">
+          <ul>
+            <li><%= link_to @locations[6] , "/preferences/new?location=#{@locations[6]}", :method=> 'GET'   %></li>
+            <li><%= link_to @locations[7] , "/preferences/new?location=#{@locations[7]}", :method=> 'GET'   %></li>
+            <!-- <li><%#= link_to @locations[8] , "/preferences/new?location=#{@locations[8]}", :method=> 'GET'   %></li> -->
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
