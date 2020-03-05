@@ -48,7 +48,7 @@
       <div id="artist-images-grid" class="d-flex flex-row flex-wrap justify-content-around text-center">
         <% @party.artists.each do |artist| %>
           <% if artist.picture_url.nil? %>
-            <%= render 'shared/artist_avatar', artist: artist, image: "ic_headset_48px.svg"%>
+            <%= render 'shared/artist_avatar', artist: artist, image: "http://res.cloudinary.com/dozzulcez/image/upload/w_300,h_300,c_crop/ownpy1x8yf0zriqij8hi"%>
           <% else %>
             <%= render 'shared/artist_avatar', artist: artist, image: "https://www.residentadvisor.net#{artist.picture_url}" %>
           <% end %>
@@ -66,6 +66,8 @@
       </div>
     <% end %>
   </div>
-  <div class="map align-self-center justify-content-center mx-auto"  id="map" style="width: 95%; height: 300px;" data-markers="<%= @markers.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+  <% unless @party.venue_location.downcase == "unknown" || @party.venue_location.downcase == "to be announced" || @party.venue_location.downcase == "tba" || @party.venue_location.downcase == "" || @party.venue_location.downcase == "secret location" || @party.venue_name.downcase == "unknown" || @party.venue_name.downcase == "to be announced" || @party.venue_name.downcase == "tba" || @party.venue_name.downcase == "" || @party.venue_name.downcase == "secret location" %>
+    <div class="map align-self-center justify-content-center mx-auto"  id="map" style="width: 95%; height: 300px;" data-markers="<%= @markers.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+  <% end %>
   </div>
 </div>
