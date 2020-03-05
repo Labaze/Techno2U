@@ -10,12 +10,12 @@
     </ul>
   </div>
 
+
+
   <div class="container display-parties">
     <h1 class= "title-profile-show">My parties attended</h1>
     <% @user.parties.each_with_index do |party, index| %>
-      <%= link_to party_path(party), class: "link-no-underline" do %>
-        <%= render 'shared/profile_card', party: party, track: @track_ids[index] %>
-      <% end %>
+      <%= render 'shared/profile_card', party: party, track: @track_ids[index] %>
     <% end %>
   </div>
 
