@@ -14,9 +14,9 @@ class PartiesController < ApplicationController
       @parties = Party.joins(:artists).where("artists.name IN (?)", artist_names).where('start_date >= ?', Date.today).uniq
       @parties = Party.where(id: @parties.map(&:id))
       @parties = @parties.page params[:page]
-    elsif params[:search].nil?
-      location = "paris"
-      @parties = Party.where("venue_location ILIKE :query", query: "%#{location}%")
+    elsif params[:search].nil? || params[:search][:location].empty? #params[:search].nil?
+      location = "Paris"
+      @parties = Party.where("end_date >= ?", Date.today).where("venue_location ILIKE :query", query: "%#{location}%")
       @parties = @parties.page params[:page]
     else
       @parties = Party.where("venue_location ILIKE :query", query: "%#{params[:search][:location]}%")
@@ -93,3 +93,4 @@ class PartiesController < ApplicationController
     params.require(:party).permit(:name, :start_time, :end_time, :venue_type, :venue_location, :genre_id)
   end
 end
+

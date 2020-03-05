@@ -13,7 +13,7 @@ import "../plugins/dashboard_page_switch";
 import "../plugins/facebook_sdk";
 import "../plugins/first_session_animation";
 import "../plugins/location_quiz";
-
+import "../plugins/ping_button_parties";
 
 // Select2
 import "select2/dist/css/select2.css";

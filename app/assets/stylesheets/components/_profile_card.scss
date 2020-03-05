@@ -1,7 +1,7 @@
 .profile-card {
   position: relative;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 12fr 1fr;
   margin-bottom: 20px;
   background-color: #17141d;
   box-shadow: -1rem 0 3rem #000;
@@ -11,6 +11,11 @@
 
   a {
     text-decoration: none;
+  }
+
+  .profile-content-grid {
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr;
   }
 }
 
@@ -26,7 +31,8 @@
 }
 
 .profile-card-middle {
-  align-items: center;
+  display: flex;
+  align-items:center;
   ul {
     margin-bottom: 0;
   }
@@ -39,7 +45,7 @@
 
 .profile-card-left img {
   width: 100%;
-  height: 100%;
+  height: 179px;
   max-height: 220px;
   object-fit: cover;
   border-radius: 10px;
@@ -69,4 +75,5 @@
     text-decoration: none;
   }
 }
+
 
