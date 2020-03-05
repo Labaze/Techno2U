@@ -10,14 +10,16 @@
     </ul>
   </div>
 
+
+
   <div class="container display-parties">
     <h1 class= "title-profile-show">My parties attended</h1>
     <% @user.parties.each_with_index do |party, index| %>
-      <%= link_to party_path(party), class: "link-no-underline" do %>
-        <%= render 'shared/profile_card', party: party, track: @track_ids[index] %>
-      <% end %>
+      <%= render 'shared/profile_card', party: party, track: @track_ids[index] %>
     <% end %>
   </div>
+
+
 
   <div class="container display-artists">
 
@@ -46,33 +48,6 @@
 
       <% end %>
 
-    </div>
-
-    <div class="artists-seen">
-      <h1 class= "title-profile-show">Artists seen</h1>
-
-      <% artistsList = [] %>
-      <% @user.parties.each do |party| %>
-        <% party.artists.each do |artist| %>
-          <% artistsList << artist %>
-        <% end %>
-        <% artistsList.map{|i| i.name.downcase}.uniq %>
-
-
-        <div id="artist-images-grid" class="d-flex flex-row flex-wrap justify-content-around text-center">
-          <% artistsList.each do |artist| %>
-            <% if artist.picture_url.nil? %>
-              <%= render 'shared/artist_avatar_dashboard', artist: artist, image: "ic_headset_48px.svg" %>
-            <% else %>
-              <%= render 'shared/artist_avatar_dashboard', artist: artist, image: "https://www.residentadvisor.net#{artist.picture_url}" %>
-            <% end %>
-          <% end %>
-        </div>
-
-        <div id="soundcloud_player_show_few_artists" class="soundcloud_player_show mt-4">
-        </div>
-
-      <% end %>
     </div>
   </div>
 
