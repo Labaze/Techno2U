@@ -1,7 +1,43 @@
 .container-form-sign-up {
-  margin-top: 20px;
+    justify-content: center;
+    align-items:center;
+    width: 45%;
+    box-sizing: border-box;
+
+  .sign-up-picture {
+    height: 240px;
+    width: 100%;
+
+    img {
+      width: 100%;
+      height: 240px;
+      object-fit: cover;
+      border-top-right-radius: 10px;
+      border-top-left-radius: 10px;
+    }
+  }
+
+  .form-inputs, .form-actions, .other-links, h2 {
+    font-size: 16px;
+    color:white;
+    z-index: 10;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    justify-content: center;
+    color: #37393B;
+  }
+
+  h2 {
+    margin-top: 10px;
+    font-size: 20px;
+  }
+  .form-infos {
+    border: 1px solid white;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    background: #F5F5F5;
+  }
 }
 
-.other-links-sign-up {
-  margin-top: 20px;
-}
+
