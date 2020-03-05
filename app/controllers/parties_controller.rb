@@ -11,7 +11,7 @@ class PartiesController < ApplicationController
 
     if !params[:query].nil?
       artist_names = JSON.parse(params[:query])
-      @parties = Party.joins(:artists).where("artists.name IN (?)", artist_names).uniq
+      @parties = Party.joins(:artists).where("artists.name IN (?)", artist_names).where('start_date >= ?', Date.today).uniq
       @parties = Party.where(id: @parties.map(&:id))
       @parties = @parties.page params[:page]
     elsif params[:search].nil? || params[:search][:location].empty? #params[:search].nil?

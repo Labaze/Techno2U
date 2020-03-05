@@ -7,14 +7,15 @@ class PreferencesController < ApplicationController
     @preference = Preference.new
     authorize @preference
 
-    track_ids = []
+    @tracks = []
 
+    @locations = ["Lille","Paris", "Berlin", "London", "Rome", "Amsterdam", "New York", "Tokyo"]
     @user = current_user
-    @artists = Artist.joins(:parties).where("start_date >= ?", Date.today).limit(10)
 
+    @artists = Artist.joins(:parties).where('start_date >= ?', Date.today).where('track_url IS NOT NULL').where('venue_location ILIKE :query', query: "%#{params[:location]}%").limit(10)
+    
     @artists.each do |artist|
-      track_ids << artist.track_url
+      @tracks << artist.track_url
     end
-    @tracks = track_ids.reject { |c| c == "" }
   end
 end
