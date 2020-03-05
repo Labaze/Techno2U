@@ -5,50 +5,52 @@
     <ul class="sidenav-party-index-filters">
       <li id= "parties"> My parties </li>
       <li id="artists"> My artists </li>
-      <li> <%= link_to 'Community', profile_path %> </li>
+      <!-- <li> <%#= link_to 'Community', profile_path %> </li> -->
       <li> <%= link_to 'Account settings', edit_user_registration_path %> </li>
     </ul>
   </div>
-
-
-
   <div class="container display-parties">
     <h1 class= "title-profile-show">My parties attended</h1>
     <% @user.parties.each_with_index do |party, index| %>
       <%= render 'shared/profile_card', party: party, track: @track_ids[index] %>
     <% end %>
   </div>
-
-
+            <!-- ------------------------------------------ -->
 
   <div class="container display-artists">
-
     <div class="artists-liked">
-      <h1 class= "title-profile-show">Artists liked</h1>
 
+
+
+
+
+      <h1 class= "title-profile-show">Artists liked</h1>
       <% artistsList = [] %>
       <% @user.parties.each do |party| %>
         <% party.artists.each do |artist| %>
           <% artistsList << artist %>
         <% end %>
-        <% artistsList.map{|i| i.name.downcase}.uniq %>
+      <% end %>
+      <% artistsList.map{|i| i.name.downcase}.uniq %>
 
-        <div id="artist-images-grid" class="d-flex flex-row flex-wrap justify-content-around text-center">
+
+      <div id="artist-images-grid-profile" class="d-flex flex-row flex-wrap justify-content-around text-center">
           <% artistsList.each do |artist| %>
-            <% if artist.picture_url.nil? %>
-              <%= render 'shared/artist_avatar_dashboard', artist: artist, image: "ic_headset_48px.svg" %>
-            <% else %>
-              <%= render 'shared/artist_avatar_dashboard', artist: artist, image: "https://www.residentadvisor.net#{artist.picture_url}" %>
+            <%= link_to artist_path(artist) do %>
+              <% if artist.picture_url.nil? %>
+                <div class="artist-small-card m-3">
+                  <%= cl_image_tag 'http://res.cloudinary.com/dozzulcez/image/upload/ownpy1x8yf0zriqij8hi', alt: "alttext", class: "avatar-artist" %>
+                  <p class="m-3"><strong id="<%= artist.name %>"><%= artist.name %></strong></p>
+                </div>
+              <% else %>
+                <div class="artist-small-card m-3">
+                  <img src="https://www.residentadvisor.net<%= artist.picture_url %>" class="avatar-artist" />
+                  <p class="m-3"><strong id="<%= artist.name %>"><%= artist.name %></strong></p>
+                </div>
+              <% end %>
             <% end %>
           <% end %>
-        </div>
-
-        <div id="soundcloud_player_show_few_artists" class="soundcloud_player_show mt-4">
-        </div>
-
-      <% end %>
-
+      </div>
     </div>
   </div>
-
 </div>
