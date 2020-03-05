@@ -17,7 +17,7 @@
         <%= artist.name %>
       <% end %>
     </li>
-    <li><i class="far fa-calendar-alt text-light"></i><%= party.start_date %>  at  <%= party.start_time %></li>
+    <li><i class="far fa-calendar-alt text-light"></i><%= party.start_date.strftime("%d %B %Y") %>  at  <%= party.start_time %></li>
     <li><i class="fab fa-houzz text-light"></i><%= party.venue_name %> - <%= party.venue_location %></li>
   </ul>
 </div>

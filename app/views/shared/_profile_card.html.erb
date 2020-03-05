@@ -9,7 +9,7 @@
     <div class="profile-card-middle">
       <ul class="profile-card-infos">
         <li><i class="far fa-user text-light"></i><%= party.artists.map(&:name).join("/ ").truncate(40) %></li>
-        <li><i class="far fa-calendar-alt text-light"></i><%= party.start_date %> at <%= party.start_time %> - <%= party.end_date %> at <%= party.end_time %></li>
+        <li><i class="far fa-calendar-alt text-light"></i><%= party.start_date.strftime("%d %B %Y") %> <br> <%= party.start_time %> - <%= party.end_date %> at <%= party.end_time %></li>
         <li><i class="fab fa-houzz text-light"></i><%= party.venue_location %></li>
       </ul>
     </div>
