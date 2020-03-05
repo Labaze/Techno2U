@@ -1,5 +1,5 @@
 
-<% if current_user.attended?(party) %>
+<% if !current_user.nil? && current_user.attended?(party) %>
   <%= link_to attending_path(current_user.get_attending_from_party(party)), method: :delete  do %>
     <div class="star-button">
       <i class="fas fa-star text-warning" id="star"></i>
