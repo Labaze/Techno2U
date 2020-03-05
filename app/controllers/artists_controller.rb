@@ -11,7 +11,6 @@ class ArtistsController < ApplicationController
   def show
     authorize @artist
     @user = current_user
-    authorize @user
     @soundcloud = Soundcloud.new(name: @artist.name)
   end
 
