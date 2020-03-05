@@ -14,7 +14,7 @@ class AttendingsController < ApplicationController
     @attending.user = current_user
     authorize @attending
     if @attending.save
-        redirect_to root_path
+        redirect_to request.referrer
     else
       redirect_to party_path(params[:attending_id]), :alert => "You are already going to this party, you fat fuck!"
     end
@@ -24,6 +24,7 @@ class AttendingsController < ApplicationController
     @attending = Attending.find(params[:id])
     @attending.destroy
     authorize @attending
+    p "hellllllllllll"
     redirect_to request.referrer
   end
 

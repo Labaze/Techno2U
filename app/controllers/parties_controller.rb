@@ -1,6 +1,7 @@
 require_relative '../services/soundcloud'
 
 class PartiesController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index, :show]
   before_action :set_party, only: %i[show edit update destroy]
 
 
@@ -11,6 +12,8 @@ class PartiesController < ApplicationController
     if !params[:query].nil?
       artist_names = JSON.parse(params[:query])
       @parties = Party.joins(:artists).where("artists.name IN (?)", artist_names).uniq
+      @parties = Party.where(id: @parties.map(&:id))
+      @parties = @parties.page params[:page]
     elsif params[:search].nil?
       location = "paris"
       @parties = Party.where("venue_location ILIKE :query", query: "%#{location}%")
