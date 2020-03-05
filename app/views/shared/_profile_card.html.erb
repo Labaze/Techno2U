@@ -2,12 +2,12 @@
 <div class="profile-card">
   <%= link_to party_path(party), class: "profile-content-grid link-no-underline" do %>
     <div class="profile-card-left">
-      <h3 class="profile-card-title"><%= party.name.truncate(20) %></h3>
       <img src="https://www.residentadvisor.net<%= party.image_url %>" onerror="this.src='https://images.unsplash.com/photo-1513670144176-2211a82b531f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80';" alt="Missing Image" />
     </div>
 
     <div class="profile-card-middle">
       <ul class="profile-card-infos">
+      <h5 class="profile-card-title"><%= party.name.truncate(40) %></h5>
         <li><i class="far fa-user text-light"></i><%= party.artists.map(&:name).join("/ ").truncate(40) %></li>
         <li><i class="far fa-calendar-alt text-light"></i><%= party.start_date.strftime("%d %B %Y") %> <br> <%= party.start_time %> - <%= party.end_date %> at <%= party.end_time %></li>
         <li><i class="fab fa-houzz text-light"></i><%= party.venue_location %></li>
@@ -17,22 +17,7 @@
       <%= render 'shared/soundcloud_player', soundcloud_id: track %>
     </div>
   <% end %>
-  <div class="profile-card-middle">
-    <h5 class="profile-card-title m-3"><%= party.name.truncate(40) %></h5>
-    <ul class="profile-card-infos">
-      <li><i class="far fa-user text-light"></i><%= party.artists.map(&:name).join("/ ").truncate(40) %></li>
-
-      <li><i class="far fa-calendar-alt text-light"></i><%= party.start_date %> at <%= party.start_time %> - <%= party.end_date %> at <%= party.end_time %></li>
-
-      <li><i class="fab fa-houzz text-light"></i></i><%= party.venue_location %></li>
-    </ul>
-  </div>
-
-  <div class="profile-card-right">
-    <%= render 'shared/soundcloud_player', soundcloud_id: track %>
-  </div>
-  <!-- <div class="profile-card-extrem-right"> -->
-  <%= render 'shared/star_button', party: party %>
+<%= render 'shared/star_button', party: party %>
 </div>
 
 
