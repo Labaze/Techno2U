@@ -4,38 +4,35 @@ if (document.querySelector("#parties")){
   const myArtists = document.querySelector("#artists");
 
 
-  displayParties = document.querySelector(".display-parties");
+  const displayParties = document.querySelector(".display-parties");
+  const displayArtists = document.querySelector(".display-artists");
   displayParties.style.display = "";
-  displayArtists = document.querySelector(".display-artists");
   displayArtists.style.display = "none";
-  myParties.innerText = "• My parties";
-  myArtists.innerText = "My artists";
+
 
 
   myParties.addEventListener("click", (event) => {
 
-    displayParties = document.querySelector(".display-parties");
     displayParties.style.display = "";
-
-    displayArtists = document.querySelector(".display-artists");
     displayArtists.style.display = "none";
 
-    myParties.innerText = "• My parties";
-    myArtists.innerText = "My artists";
+    myParties.classList.add("selected");
+    myParties.classList.remove("unselected");
+    myArtists.classList.add("unselected");
+    myArtists.classList.remove("selected");
 
   });
 
 
   myArtists.addEventListener("click", (event) => {
 
-    displayArtists = document.querySelector(".display-parties");
-    displayArtists.style.display = "none";
-
-    displayArtists = document.querySelector(".display-artists");
+    displayParties.style.display = "none";
     displayArtists.style.display = "";
 
-    myParties.innerText = "My parties";
-    myArtists.innerText = "• My artists";
+    myArtists.classList.add("selected");
+    myArtists.classList.remove("unselected");
+    myParties.classList.add("unselected");
+    myParties.classList.remove("selected");
   });
 
 }

@@ -12,17 +12,19 @@
           <% end %>
         </div>
       </div>
-      <div class="container-li">
+      <div class="container-li m-3 d-flex justify-content-center">
         <%= paginate @parties %>
       </div>
       </div>
     </div>
     <div class='container container-parties-index'>
-      <% @parties.first(3).each do |party| %>
+      <% @parties.each do |party| %>
           <% party.artists.push(Artist.find_by name: "Unknown") if party.artists.empty?  %>
-          <%# link_to party_path(party), class: "link-no-underline" do %>
+          <% if current_user.nil? %>
             <%= render 'shared/profile_card', party: party, track: party.artists.first.track_url %>
-          <%# end %>
+          <% else %>
+            <%= render 'shared/profile_card_logged', party: party, track: party.artists.first.track_url %>
+          <% end %>
       <% end %>
     </div>
   </div>

@@ -1,18 +1,18 @@
 label {
   margin-bottom: 1rem;
-  line-height: 1;
-  position: relative;
-  display: flex;
-  align-items: center;
-  user-select: none;
-  cursor: pointer;
-  padding-left:5px;
-  padding-top:10px;
+  line-height:   1;
+  position:      relative;
+  display:       flex;
+  align-items:   center;
+  user-select:   none;
+  cursor:        pointer;
+  padding-left:  5px;
+  padding-top:   10px;
 
   &:hover {
     input[type="checkbox"] + svg.checkbox {
       .checkbox-box {
-        fill: rgb(0, 0, 0);
+        fill:         rgb(0, 0, 0);
         fill-opacity: 0.05;
       }
     }
@@ -23,39 +23,39 @@ label {
     &:checked + svg.checkbox {
       .checkbox-mark {
         stroke-dashoffset: 0;
-        transition: stroke-dashoffset 0.2s linear;
+        transition:        stroke-dashoffset 0.2s linear;
       }
     }
   }
 
   svg.checkbox {
-    width: 1rem;
-    height: 1rem;
+    width:        1rem;
+    height:       1rem;
     margin-right: 0.5rem;
 
     .checkbox-box,
     .checkbox-mark {
-      fill: none;
-      stroke: white;
+      fill:           none;
+      stroke:         white;
       stroke-linecap: round;
-      stroke-width: 8px;
+      stroke-width:   8px;
     }
 
     .checkbox-mark {
-      stroke-linejoin: round;
-      stroke-dasharray: 120;
+      stroke-linejoin:   round;
+      stroke-dasharray:  120;
       stroke-dashoffset: 120;
     }
   }
 
   span.label-text {
-    font-size: small;
+    font-size:   small;
     font-weight: bold;
-    color: white;
+    color:       white;
   }
 }
 
 .reverse {
   stroke-dashoffset: 120;
-  transition: stroke-dashoffset 0.2s linear;
+  transition:        stroke-dashoffset 0.2s linear;
 }

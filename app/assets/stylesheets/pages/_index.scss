@@ -1,15 +1,15 @@
 // Import page-specific CSS files here.
-@import "home";
-@import "party_show";
-@import "profile_show";
-@import "preferences_new";
 @import "artist_show";
-@import "user_edit";
+@import "home";
 @import "login";
-@import "signup";
 @import "parties_index";
+@import "party_show";
+@import "preferences_new";
+@import "profile_show";
+@import "signup";
+@import "user_edit";
 
 .index-page{
-  display: grid;
+  display:               grid;
   grid-template-columns: 1fr 3fr;
 }

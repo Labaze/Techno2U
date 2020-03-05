@@ -6,7 +6,7 @@ class PartiesController < ApplicationController
 
 
   def index
-    @parties = policy_scope(Party).sample(3)
+    @parties = policy_scope(Party).sample(4)
     @user = current_user
 
     if !params[:query].nil?

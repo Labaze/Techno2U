@@ -1,6 +1,7 @@
 require_relative '../services/soundcloud'
 
 class ArtistsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:show]
   before_action :set_artist, only: %i[show]
 
   def index
@@ -10,7 +11,6 @@ class ArtistsController < ApplicationController
   def show
     authorize @artist
     @user = current_user
-    authorize @user
     @soundcloud = Soundcloud.new(name: @artist.name)
   end
 
