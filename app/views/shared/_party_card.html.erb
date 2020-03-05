@@ -1,10 +1,7 @@
 <div class="party_card m-3 p-3">
   <h5 class="party_card_title"><%= party.name.truncate(25) %></h5>
-  <div class="m-3">
-    <i class="far fa-calendar-alt text-light mr-3"></i><%= party.start_date %> - <%= party.start_time %>
-  </div>
-  <div class="m-3">
-    <i class="fab fa-houzz text-light"></i><%= party.venue_name %> - <%= party.venue_location.truncate(55) %>
-  </div>
+  <ul>
+    <li class="d-flex align-items-center mt-5 mb-4"><i class="far fa-calendar-alt text-light mr-3"></i><%= party.start_date.strftime("%d %B %Y") %> at <%= party.start_time %></li>
+    <li class="d-flex align-items-center mt-4"><i class="fab fa-houzz text-light mr-3"></i><%= party.venue_name %></li>
   </ul>
 </div>
