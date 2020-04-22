@@ -68,3 +68,23 @@
   }
 }
 
+// ---------------------------------------------------------------
+
+@media(max-width: 768px) {
+  .home-footer {
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-content: center;
+  }
+}
+
+@media(max-width: 992px) {
+  .home-footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  // .cards {
+  //   grid-template-columns: 1fr 1fr;
+  // }
+}

@@ -20,46 +20,8 @@
   padding-right:   10px;
 }
 
-.navbar #bell {
-  // text-decoration: none;
-  padding-left: 10px;
-  color:        $white;
-  font-weight:  200;
-}
-
-.navbar #bell:hover {
-  cursor: pointer;
-}
-
-.bell-and-notif {
-    position: relative;
-    right:    5px;
-    color:    $white;
-
-  .fa-circle {
-    position:  absolute;
-    right:     10px;
-    font-size: 10px;
-  }
-}
-
 .navbar a:hover {
     font-weight: 500;
-}
-
-#notification {
-  width:            200px;
-  overflow-wrap:    break-word;
-  right:            60px;
-  padding-left:     20px;
-  padding-right:    20px;
-  background-color: #17141d;
-  font-size:        16px;
-
-  i {
-    background-color: #17141d;
-    font-size:        16px;
-  }
 }
 
 .navbar li{
@@ -70,4 +32,3 @@
 .dropdown-menu {
   background-color: #17141d;
 }
-
