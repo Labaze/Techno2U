@@ -28,7 +28,6 @@
         <li class="nav-item">
           <%= link_to 'Sign-up', new_user_registration_path  %>
         </li>
-      <!-- CHANGE THE PATH FOR THE PROFILE -->
       <% else %>
         <li class="nav-item">
           <%= link_to 'Profile', profile_path(@user)   %>
@@ -46,14 +45,12 @@
         <li class="nav-item dropdown">
           <img class="avatar dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://geo-static.traxsource.com/files/artists/10554.jpg" />
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-            <!-- CHANGE THE PATH FOR THE PROFILE -->
             <a class="dropdown-item" href="#">My Profile</a>
             <%= link_to "Settings", edit_user_registration_path, class: "dropdown-item" %>
             <%= link_to "Log-out", destroy_user_session_path, method: :delete , class: "dropdown-item" %>
           </div>
         </li>
       <% end %>
-
     </ul>
   </div>
 </div>

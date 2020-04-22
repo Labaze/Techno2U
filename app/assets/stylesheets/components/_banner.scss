@@ -13,3 +13,12 @@
     margin-top: 24px;
   }
 }
+
+
+@media(max-width: 768px) {
+  .banner {
+    h1 {
+      font-size: 50px;
+    }
+  }
+}

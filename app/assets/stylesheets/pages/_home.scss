@@ -70,3 +70,18 @@
 }
 
 
+
+// -----------------------------------------------------
+
+@media(max-width: 768px) {
+  .home-cards {
+    display:         flex;
+    flex-direction: column;
+  }
+}
+
+
+
+
+
+

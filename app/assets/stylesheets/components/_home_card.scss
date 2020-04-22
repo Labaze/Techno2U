@@ -102,3 +102,14 @@ svg {
   stroke-dashoffset: 100;
   transition:        0.6s ease-out;
 }
+
+// -----------------------------------------------------------
+
+@media(max-width: 768px) {
+  .card {
+    display:          flex;
+    flex-direction:   column;
+    width:            100%;
+    margin-bottom:    30px;
+  }
+}
