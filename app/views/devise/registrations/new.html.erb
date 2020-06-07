@@ -22,6 +22,17 @@
         <%= f.input :password_confirmation,
                     required: true,
                     input_html: { autocomplete: "new-password" } %>
+        <%= f.input :gender, label: 'What is your gender?',
+                    collection: [ ['M', 'Male' ], ['F', 'Female'] ],
+                    as: :radio_buttons,
+                    label_method: :last,
+                    value_method: :first,
+                    checked: @user.gender %>
+        <%= f.input :age,
+                    required: true,
+                    collection: 15..99,
+                    prompt: "Your age",
+                    input_html: { autocomplete: "your age" } %>
       </div>
 
       <div class="form-actions">
