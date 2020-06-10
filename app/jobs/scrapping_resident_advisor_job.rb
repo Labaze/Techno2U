@@ -13,11 +13,11 @@ class ScrappingResidentAdvisorJob < ApplicationJob
     today = Time.now.strftime("%Y-%m-%d")
     ResidentAdvisor.scrapping_parties("fr", "north",     "month", today)
     ResidentAdvisor.scrapping_parties("fr", "paris",     "week", today)
-    ResidentAdvisor.scrapping_parties("de", "berlin",    "week", today)
-    ResidentAdvisor.scrapping_parties("uk", "london",    "week", today)
-    ResidentAdvisor.scrapping_parties("it", "rome",      "week", today)
-    ResidentAdvisor.scrapping_parties("nl", "amsterdam", "week", today)
-    ResidentAdvisor.scrapping_parties("us", "newyork",   "week", today)
-    ResidentAdvisor.scrapping_parties("jp", "tokyo",     "week", today)
+    # ResidentAdvisor.scrapping_parties("de", "berlin",    "week", today)
+    # ResidentAdvisor.scrapping_parties("uk", "london",    "week", today)
+    # ResidentAdvisor.scrapping_parties("it", "rome",      "week", today)
+    # ResidentAdvisor.scrapping_parties("nl", "amsterdam", "week", today)
+    # ResidentAdvisor.scrapping_parties("us", "newyork",   "week", today)
+    # ResidentAdvisor.scrapping_parties("jp", "tokyo",     "week", today)
   end
 end
