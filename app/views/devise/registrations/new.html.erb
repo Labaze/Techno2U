@@ -33,6 +33,10 @@
                     collection: 15..99,
                     prompt: "Your age",
                     input_html: { autocomplete: "your age" } %>
+        <%= f.input :use, label: 'What is your main use of Techno2U ?',
+                    collection: [ 'Find a party' , 'Discover new artists' ],
+                    prompt: "Chose a way using Techno2U",
+                    input_html: { autocomplete: "Chose a way using Techno2U" } %>
       </div>
 
       <div class="form-actions">
