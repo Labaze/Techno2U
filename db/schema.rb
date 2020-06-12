@@ -95,11 +95,8 @@ ActiveRecord::Schema.define(version: 2020_06_10_143643) do
   create_table "preferences", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "genre_id"
-    t.string "venue_type"
-    t.bigint "artist_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["artist_id"], name: "index_preferences_on_artist_id"
     t.index ["genre_id"], name: "index_preferences_on_genre_id"
     t.index ["user_id"], name: "index_preferences_on_user_id"
   end
@@ -128,7 +125,6 @@ ActiveRecord::Schema.define(version: 2020_06_10_143643) do
   add_foreign_key "lineups", "artists"
   add_foreign_key "lineups", "parties"
   add_foreign_key "parties", "genres"
-  add_foreign_key "preferences", "artists"
   add_foreign_key "preferences", "genres"
   add_foreign_key "preferences", "users"
 end
