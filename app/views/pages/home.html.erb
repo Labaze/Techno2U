@@ -18,3 +18,9 @@
     <% end %>
   </div>
 </div>
+
+<% unless @user.nil? %>
+  <% if @user.preferences.empty? %>
+    <%= render 'shared/modal_preferences' %>
+  <% end %>
+<% end %>

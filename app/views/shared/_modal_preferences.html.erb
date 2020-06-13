@@ -1,0 +1,15 @@
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content bg-transparent border-0">
+      <h3>Select your music preferences</h3>
+      <div class="modal-body model-pref">
+        <%= simple_form_for @preference do |f| %>
+          <%= f.input :genre, as: :check_boxes, collection: @genres %>
+          <div class="modal-footer">
+            <%= f.button :submit, "Submit", class: "btn btn-primary" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

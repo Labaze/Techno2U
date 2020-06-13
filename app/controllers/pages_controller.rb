@@ -4,7 +4,9 @@ class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:home]
 
   def home
-    @user = current_user
     @non_existing_session = session.id.nil?
+    @genres = Genre.all.sort_by { |genre| genre.name}
+    @user = current_user
+    @preference = Preference.new
   end
 end
