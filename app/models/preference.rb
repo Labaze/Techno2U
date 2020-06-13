@@ -12,7 +12,6 @@ class Preference < ApplicationRecord
     total = 0
     total += 1 if genre.blank? == false
     total += 1 if artist.blank? == false
-    total += 1 if venue_type.blank? == false
     if total != 1
       errors[:base] << "At least one and only one element should be informed"
     end
