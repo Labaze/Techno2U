@@ -1,4 +1,4 @@
-import "bootstrap";
+import 'bootstrap';
 import "../plugins/flatpickr";
 import "../plugins/blink_text_footer";
 import "../plugins/like_deslike_color_change";
@@ -24,4 +24,3 @@ initSelect2();
 import 'mapbox-gl/dist/mapbox-gl.css';
 import { initMapbox } from '../plugins/init_mapbox';
 initMapbox();
-

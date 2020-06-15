@@ -1,3 +1,9 @@
+GIT
+  remote: git@github.com:jonmidhir/ruby-knn.git
+  revision: ccfdd1e5a850db287b8081b53a6be23f4511a7fb
+  specs:
+    knn (1.0.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -250,6 +256,7 @@ DEPENDENCIES
   iconv
   jbuilder (~> 2.0)
   kaminari
+  knn!
   listen (~> 3.0.5)
   pg (~> 0.21)
   pry-byebug
