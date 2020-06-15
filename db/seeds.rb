@@ -152,6 +152,15 @@ puts 'Creating user seeds for the model'
            )
           }
 
+# Assigning the genres liked for each user and the right number if they are specific or curious users
+
+User.all.each { |user|
+  if user.cluster.include?("specific")
+    user.genre = Genre.all.sample(rand(1..2))
+  else
+    user.genre = Genre.all.sample(rand(3..16))
+}
+
 puts 'Model users created'
 
 
