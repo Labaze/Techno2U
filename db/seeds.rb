@@ -20,32 +20,24 @@ User.destroy_all
 puts 'Database clean'
 
 
-
 puts 'Creating genres'
 
-ambient                = Genre.create!(name: 'Ambient')
-breakbeat              = Genre.create!(name: 'Breakbeat')
-disco                  = Genre.create!(name: 'Disco')
-downtempo              = Genre.create!(name: 'Downtempo')
-dnb                    = Genre.create!(name: 'Drum and bass')
-dub                    = Genre.create!(name: 'Dub')
-electro                = Genre.create!(name: 'Electro')
-electroacoustique      = Genre.create!(name: 'Musique électroacoustique')
-trap                   = Genre.create!(name: 'Trap')
-rock_electronique      = Genre.create!(name: 'Rock électronique')
-electronica            = Genre.create!(name: 'Electronica')
-techno_hardcore_gabber = Genre.create!(name: 'Techno hardcore/Gabber')
-hardstyle              = Genre.create!(name: 'Hardstyle')
-hinrg                  = Genre.create!(name: 'Hi-NRG')
-house                  = Genre.create!(name: 'House Music')
-indus                  = Genre.create!(name: 'Musique industrielle')
-idm                    = Genre.create!(name: 'IDM')
-jungle                 = Genre.create!(name: 'Jungle')
-post_disco             = Genre.create!(name: 'Post-disco')
-techno                 = Genre.create!(name: 'Techno')
-trance                 = Genre.create!(name: 'Trance')
-uk_garage              = Genre.create!(name: 'UK garage')
-game_music             = Genre.create!(name: 'Musique de jeu vidéo')
+rnb                      =          Genre.create!(name: 'RnB')
+rap                      =          Genre.create!(name: 'Rap')
+electronic               =          Genre.create!(name: 'Electronic')
+newage                   =          Genre.create!(name: 'New Age')
+classical                =          Genre.create!(name: 'Classical')
+reggae                   =          Genre.create!(name: 'Reggae')
+blues                    =          Genre.create!(name: 'Blues')
+country                  =          Genre.create!(name: 'Country')
+world                    =          Genre.create!(name: 'World')
+folk                     =          Genre.create!(name: 'Folk')
+techno                   =          Genre.create!(name: 'Techno')
+jazz                     =          Genre.create!(name: 'Jazz')
+house                    =          Genre.create!(name: 'House')
+alternative              =          Genre.create!(name: 'Alternative')
+pop                      =          Genre.create!(name: 'Pop')
+heavymetal               =          Genre.create!(name: 'Heavy Metal')
 
 puts 'Genres created from wikipedia list (no scrapping). Type Genre.all in console to check the styles created'
 
@@ -102,8 +94,65 @@ seth     = User.create!(name:'Seth Troxler',    email:'batman@test.com',        
 move     = User.create!(name:'Move D',          email:'moved@test.com',         password:'azerty')
 stingray = User.create!(name:'DJ Stingray',     email:'stingray@test.com',      password:'azerty')
 kerry    = User.create!(name:'Kerry Chandler',  email:'kerrychandler@test.com', password:'azerty')
-
 puts 'Users created'
+
+
+
+
+
+puts 'Creating User Types, gender and use'
+user_genders = ['M', 'F']
+user_types = ['X-curious', 'X-specific', 'Y-curious', 'Y-specific', 'Z-curious', 'Z-specific' ]
+user_uses = ['Find a party' , 'Discover new artists' , 'Listen to music']
+user_curious_or_specific = ["specific", "curious"]
+puts 'User Types, gender and use created'
+
+puts 'Creating user seeds for the model'
+
+# Creating 200 random users aged from 15 to 24 years old
+
+200.times { |i|
+  User.create(
+            name: "user#{i}",
+            email: "user#{i}@test.com",
+            password:'azerty',
+            age: rand(15..24),
+            gender: "#{user_genders.sample}",
+            use: "#{user_uses.sample}",
+            cluster: "Z#{user_curious_or_specific.sample}"
+           )
+          }
+
+
+# Creating 300 random users aged from 25 to 34 years old
+
+300.times { |i|
+  User.create(
+            name: "user#{i}",
+            email: "user#{i}@test.com",
+            password:'azerty',
+            age: rand(25..34),
+            gender: "#{user_genders.sample}",
+            use: "#{user_uses.sample}",
+            cluster: "Y#{user_curious_or_specific.sample}"
+           )
+          }
+
+# Creating 200 random users aged from 35 to 99 years old
+
+100.times { |i|
+  User.create(
+            name: "user#{i}",
+            email: "user#{i}@test.com",
+            password:'azerty',
+            age: rand(35..99),
+            gender: "#{user_genders.sample}",
+            use: "#{user_uses.sample}",
+            cluster: "X#{user_curious_or_specific.sample}"
+           )
+          }
+
+puts 'Model users created'
 
 
 
