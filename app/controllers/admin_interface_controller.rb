@@ -21,7 +21,6 @@ class AdminInterfaceController < ApplicationController
   def knn_algorithm(k)
     # https://github.com/JonMidhir/ruby-knn
     vectors = []
-    categories = [1,2,3,4,5]
     #we create all vectors related to user based on Gender, Age, Usage of the WebApp, Music Genres
     User.all.each do |user|
       user_x_variables = []
