@@ -152,7 +152,7 @@ puts 'Creating user seeds for the model'
            )
           }
 
-puts 'model users created'
+puts 'Model users created'
 
 
 
