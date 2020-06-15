@@ -1,9 +1,9 @@
 {
-  "name": "Techno2U",
+  "name": "techno2u",
   "private": true,
   "dependencies": {
-    "@rails/webpacker": "4.2.2",
-    "bootstrap": "4.3.1",
+    "@rails/webpacker": "5.1.1",
+    "bootstrap": "^4.5.0",
     "csvtojson": "^2.0.10",
     "flatpickr": "^4.6.3",
     "jquery": "^3.5.1",
@@ -15,5 +15,25 @@
   },
   "devDependencies": {
     "webpack-dev-server": "^3.11.0"
-  }
+  },
+  "description": "Rails app generated with [lewagon/rails-templates](https://github.com/lewagon/rails-templates), created by the [Le Wagon coding bootcamp](https://www.lewagon.com) team.",
+  "version": "1.0.0",
+  "main": "babel.config.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Labaze/Techno2U.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Labaze/Techno2U/issues"
+  },
+  "homepage": "https://github.com/Labaze/Techno2U#readme"
 }
