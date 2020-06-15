@@ -118,8 +118,8 @@ puts 'Creating user seeds for the model'
             password:'azerty',
             age: rand(15..24),
             gender: "#{user_genders.sample}",
-            use: "#{user_uses.sample}"
-            type: "Z-#{user_curious_or_specific.sample}"
+            use: "#{user_uses.sample}",
+            cluster: "Z#{user_curious_or_specific.sample}"
            )
           }
 
@@ -133,8 +133,8 @@ puts 'Creating user seeds for the model'
             password:'azerty',
             age: rand(25..34),
             gender: "#{user_genders.sample}",
-            use: "#{user_uses.sample}"
-            type: "Y-#{user_curious_or_specific.sample}"
+            use: "#{user_uses.sample}",
+            cluster: "Y#{user_curious_or_specific.sample}"
            )
           }
 
@@ -147,8 +147,8 @@ puts 'Creating user seeds for the model'
             password:'azerty',
             age: rand(35..99),
             gender: "#{user_genders.sample}",
-            use: "#{user_uses.sample}"
-            type: "X-#{user_curious_or_specific.sample}"
+            use: "#{user_uses.sample}",
+            cluster: "X#{user_curious_or_specific.sample}"
            )
           }
 
