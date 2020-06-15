@@ -16,6 +16,8 @@ Rails.application.routes.draw do
   resources :profiles, only: :show
   resources :preferences, only: [ :new, :create ]
 
+  resources :admin_interface, only: [:index]
+
   require "sidekiq/web"
   authenticate :user, lambda { |u| u.admin } do
     mount Sidekiq::Web => '/sidekiq'
