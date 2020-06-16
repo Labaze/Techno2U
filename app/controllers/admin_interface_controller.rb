@@ -1,6 +1,3 @@
-require 'Rubygems'
-require 'Knn'
-
 class AdminInterfaceController < ApplicationController
   skip_before_action :authenticate_user!
 
