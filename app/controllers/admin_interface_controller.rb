@@ -2,11 +2,13 @@ require 'Knn'
 
 class AdminInterfaceController < ApplicationController
   skip_before_action :authenticate_user!
+
   def index
     @user    = current_user
-    @kmax    = 20
+    @kmax    = 15
     dataset  = knn_dataset
     @pcc_val = select_k_best_repeated_cross_validation(dataset, @kmax)  #To Compute all the PCCs for the validation set (for all K)
+    # raise
   end
 
 
@@ -46,31 +48,31 @@ class AdminInterfaceController < ApplicationController
       user_y_variable = user.cluster
       vectors << Knn::Vector.new(user_x_variables, user_y_variable)
     end
+    vectors
   end
 
   def select_k_best_repeated_cross_validation(dataset, kmax)
-    # Repeated Cross-validation
-    n = dataset.length
+    # Leave one out
+    n                  = dataset.length
+    all_pcc            = []
+    n_train            = (0.7*n).to_i
+    n_test             = n-n_train
+    train_data_set     = dataset.sample(n_train)
+    test_data_set      = (dataset - train_data_set)
 
-    n_train = (0.7*n).to_i
-    n_test  = n-n_train
-    train_data_set = dataset.sample(n_train)
-    test_data_set = (dataset - train_data_set)
 
     (1..kmax).map do |k|
-      classifier = Knn::Classifier.new(train_data_set, k)
-      counter = 0
+      classifier       = Knn::Classifier.new(train_data_set, k)
+      counter          = 0
 
       test_data_set.each do |test_data|
-        Knn::Vector.new(test_data, nil)
-        y_new = classifier.classify(test_data)
-        counter =+ 1 if y_new == test_data.label
-        pcc = counter/n_test.to_f
-        @pcc_val << pcc
+        y_actual_value = test_data.label
+        y_new          = classifier.classify(test_data)
+        counter        += 1 if y_new == y_actual_value
       end
-        @pcc_val
-        k_best = @pcc_val.rindex(@pcc_val.max)
-        return k_best
+        pcc        = counter/n_test.to_f
+        all_pcc    << pcc
     end
+    return all_pcc
   end
 end
