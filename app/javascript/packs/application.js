@@ -5,7 +5,7 @@ import "../plugins/like_deslike_color_change";
 import "../plugins/geolocalisation";
 import "../plugins/sidenav_opening";
 import "../plugins/today_date";
-// import "../plugins/calendar";
+import "../plugins/calendar";
 import "../plugins/audio_quizz_card_animation";
 import "../plugins/soundcloud_player_according_to_select";
 import "../plugins/soundcloud_player_according_to_image_selection";
@@ -14,6 +14,7 @@ import "../plugins/facebook_sdk";
 import "../plugins/first_session_animation";
 import "../plugins/location_quiz";
 import "../plugins/ping_button_parties";
+import "../plugins/charts";
 
 // Select2
 import "select2/dist/css/select2.css";
