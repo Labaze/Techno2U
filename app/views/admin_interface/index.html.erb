@@ -1,34 +1,16 @@
 <h1>test</h1>
 
 <div clas=container>
-  <div class="table">
-    <table class="users-summary text-light">
-        <tr>
-          <td><strong>User ID</strong></td>
-          <td><strong>Gender</strong></td>
-          <td><strong>Age</strong></td>
-          <td><strong>Usage</strong></td>
-          <td><strong>Preferences</strong></td>
-          <td><strong>Cluster</strong></td>
-        </tr>
+  <div class="model-performances text-light">
+    <!-- ICI On cale les PCC -->
+    <!-- <span id="graphValues">3,4,5,4,8,2.8,3,10</span><br> -->
+    <span id="graphValues"><%= @pcc_val.sort.join(', ') %></span><br>
 
-      <% @users.all.each do |user| %>
-      <tr>
-        <td><%= user.id %></td>
-        <td><%= user.gender %></td>
-        <td><%= user.age %></td>
-        <td><%= user.use %></td>
-        <td><%= user.genres.map { |genre| genre.name } %></td>
-      <% end %>
-      </tr>
-    </table>
-  </div>
-
-  <div class=model-performances>
-    <%=  %>
-
+    <!-- ICI On cale les K -->
+    <span id="graphLabels"><%= (1..@kmax).to_a.join(', ') %></span><br>
+    <span id="axisTitles">K, PCCs</span><br>
+    <div id="debug"></div>
 
   </div>
 </div>
 
-<%= console %>

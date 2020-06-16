@@ -3,8 +3,10 @@ require 'Knn'
 class AdminInterfaceController < ApplicationController
   skip_before_action :authenticate_user!
   def index
-    @user = current_user
-    @users = User.all
+    @user    = current_user
+    @kmax    = 20
+    dataset  = knn_dataset
+    @pcc_val = select_k_best_repeated_cross_validation(dataset, @kmax)  #To Compute all the PCCs for the validation set (for all K)
   end
 
 
@@ -18,7 +20,7 @@ class AdminInterfaceController < ApplicationController
   end
 
 
-  def knn_algorithm(k)
+  def knn_dataset
     # https://github.com/JonMidhir/ruby-knn
     vectors = []
     #we create all vectors related to user based on Gender, Age, Usage of the WebApp, Music Genres
@@ -37,20 +39,38 @@ class AdminInterfaceController < ApplicationController
         user_x_variables << 3
       end
       #genre (matrix full of 0 and 1: 0 if not the genre, 1 otherwise)
-      transform_genres_to_numerical_variables(user.genres.sort).each do |element| # user_x_variables << user.genres #Voir s'il faut pas les mettres en noms each do name
+      transform_genres_to_numerical_variables(user.genres.sort).each do |element|
         user_x_variables << element
       end
       #user_type
-      # user_y_variable = user.type
-      vectors << Knn::Vector.new(user_x_variables, 'TETS') #user_y_variable)
+      user_y_variable = user.cluster
+      vectors << Knn::Vector.new(user_x_variables, user_y_variable)
     end
-      classifier = Knn::Classifier.new(vectors, k)
   end
 
+  def select_k_best_repeated_cross_validation(dataset, kmax)
+    # Repeated Cross-validation
+    n = dataset.length
 
+    n_train = (0.7*n).to_i
+    n_test  = n-n_train
+    train_data_set = dataset.sample(n_train)
+    test_data_set = (dataset - train_data_set)
 
-  def knn_prediction(new_entry)
-    # new_entry = Knn::Vector.new([2,2], nil)
-    # classifier.classify(new_entry)
+    (1..kmax).map do |k|
+      classifier = Knn::Classifier.new(train_data_set, k)
+      counter = 0
+
+      test_data_set.each do |test_data|
+        Knn::Vector.new(test_data, nil)
+        y_new = classifier.classify(test_data)
+        counter =+ 1 if y_new == test_data.label
+        pcc = counter/n_test.to_f
+        @pcc_val << pcc
+      end
+        @pcc_val
+        k_best = @pcc_val.rindex(@pcc_val.max)
+        return k_best
+    end
   end
 end
