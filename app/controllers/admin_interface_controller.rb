@@ -1,3 +1,4 @@
+require 'Rubygems'
 require 'Knn'
 
 class AdminInterfaceController < ApplicationController
