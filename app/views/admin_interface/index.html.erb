@@ -2,15 +2,10 @@
 
 <div clas=container>
   <div class="model-performances text-light">
-    <!-- ICI On cale les PCC -->
-    <!-- <span id="graphValues">3,4,5,4,8,2.8,3,10</span><br> -->
     <span id="graphValues"><%= @pcc_val.sort.join(', ') %></span><br>
-
-    <!-- ICI On cale les K -->
     <span id="graphLabels"><%= (1..@kmax).to_a.join(', ') %></span><br>
     <span id="axisTitles">K, PCCs</span><br>
     <div id="debug"></div>
-
   </div>
 </div>
 
