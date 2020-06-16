@@ -1,5 +1,5 @@
 GIT
-  remote: git@github.com:jonmidhir/ruby-knn.git
+  remote: https://github.com/JonMidhir/ruby-knn.git
   revision: ccfdd1e5a850db287b8081b53a6be23f4511a7fb
   specs:
     knn (1.0.0)
