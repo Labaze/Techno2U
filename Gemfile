@@ -23,14 +23,7 @@ gem 'geocoder'
 gem 'kaminari'
 gem 'cloudinary', '~> 1.12.0'
 
-# gem 'knn', github: 'git@github.com:JonMidhir/ruby-knn.git'
-# gem 'knn', :git => 'https://github.com/JonMidhir/ruby-knn.git'
-# git://github.com/Dakuan/client_side_validations.git
-# gem 'knn', :github => 'JonMidhir/ruby-knn'
-# gem 'knn', :github => 'JonMidhir/ruby-knn.git'
-gem 'knn', :git => 'git://github.com/JonMidhir/ruby-knn.git'
-
-
+gem 'knn', :git => 'https://github.com/JonMidhir/ruby-knn.git'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
