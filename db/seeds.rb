@@ -152,6 +152,17 @@ puts 'Creating user seeds for the model'
            )
           }
 
+# Assigning the genres liked for each user and the right number if they are specific or curious users
+# A user is defined as curious if he likes more than 3 music genres (3 include), and specific in the other case
+
+User.all.each { |user|
+  if user.cluster.include?("specific")
+    user.genre = Genre.all.sample(rand(1..2))
+  else
+    user.genre = Genre.all.sample(rand(3..16))
+  end
+}
+
 puts 'Model users created'
 
 
