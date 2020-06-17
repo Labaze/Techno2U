@@ -15,7 +15,9 @@
       <div class="container-li m-3 d-flex justify-content-center">
         <%= paginate @parties %>
       </div>
-      <button class="parties-i-might-like">Parties I might like</button>
+      <% unless @user.nil? %>
+        <button class="parties-i-might-like">Parties I might like</button>
+      <% end %>
       </div>
     </div>
     <div class='container container-parties-index'>

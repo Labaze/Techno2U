@@ -12,7 +12,6 @@ class PartiesController < ApplicationController
 
     if params[:lookalike] == 'recommendations'
       neighbours_ids = find_user_neighbours(@dataset, @user, 15)
-      raise
       @parties = Party.joins(:attendings).where('attendings.user_id IN (?)', neighbours_ids)
       @parties = @parties.page params[:page]
     elsif !params[:query].nil?
