@@ -7,12 +7,13 @@ class PartiesController < ApplicationController
   def index
     @parties = policy_scope(Party).sample(4)
     @user = current_user
+    @dataset = knn_dataset
 
 
     if params[:lookalike] == 'recommendations'
-      # HERE WE PUT THE RIGHT QUERY !
-      # USER IN THE CLUSTER ATTENDINGS, Pour les gens du cluster c est dans Pages controller
-      @parties = Party.all
+      neighbours_ids = find_user_neighbours(@dataset, @user, 15)
+      raise
+      @parties = Party.joins(:attendings).where('attendings.user_id IN (?)', neighbours_ids)
       @parties = @parties.page params[:page]
     elsif !params[:query].nil?
       artist_names = JSON.parse(params[:query])

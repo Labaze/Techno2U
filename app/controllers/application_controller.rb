@@ -63,6 +63,38 @@ class ApplicationController < ActionController::Base
   end
 
 
+  def predict_user_category(dataset, user, k)
+    classifier = Knn::Classifier.new(dataset, k)
+    user_x_variables    = []
+    user_x_variables    << transform_gender_to_numerical_variable(user.gender)
+    user_x_variables    << user.age
+    user_x_variables    << transform_usage_to_numerical_variable(user.use)
+    transform_genres_to_numerical_variables(user.genres).each do |element|
+      user_x_variables << element
+    end
+    new_entry_to_classify = Knn::Vector.new(user_x_variables, nil)
+    user.cluster = classifier.classify(new_entry_to_classify)
+    user.save
+  end
+
+
+  def find_user_neighbours(dataset, user, k)
+    classifier = Knn::Classifier.new(dataset, k)
+    user_x_variables    = []
+    user_x_variables    << transform_gender_to_numerical_variable(user.gender)
+    user_x_variables    << user.age
+    user_x_variables    << transform_usage_to_numerical_variable(user.use)
+    transform_genres_to_numerical_variables(user.genres).each do |element|
+      user_x_variables << element
+    end
+    new_entry_to_classify = Knn::Vector.new(user_x_variables, nil)
+    nearest_neighbours_numeric = classifier.nearest_neighbours_to(new_entry_to_classify)
+    nearest_neighbours_ids = nearest_neighbours_numeric.map { |neighbour| @user_ids[@dataset.find_index(neighbour)]}
+  end
+
+
+
+
   # Adding Attribute name to User, allow add and update
   before_action :configure_permitted_parameters, if: :devise_controller?
   def configure_permitted_parameters
