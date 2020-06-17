@@ -11,7 +11,7 @@ class PagesController < ApplicationController
     @dataset = knn_dataset
 
     unless @user.nil? || @user.genres.empty? #Predict the class of the new User, we wait for user to insert musical preferences
-      if @user.cluster.nil?
+      if @user.user_category.nil?
         predict_user_category(@dataset, @user, 15)
       end
     end

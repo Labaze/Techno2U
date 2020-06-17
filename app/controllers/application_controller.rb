@@ -40,7 +40,7 @@ class ApplicationController < ActionController::Base
     knn_vectors  = []
     @user_ids    = []
     #we create all vectors related to user based on Gender, Age, Usage of the WebApp, Music Genres
-    User.where.not(cluster: nil).each do |user|
+    User.where.not(user_category: nil).each do |user|
       @user_ids        << user.id
 
       user_x_variables = []
@@ -56,7 +56,7 @@ class ApplicationController < ActionController::Base
         user_x_variables << element
       end
       #user_type
-      user_y_variable = user.cluster
+      user_y_variable = user.user_category
       knn_vectors << Knn::Vector.new(user_x_variables, user_y_variable)
     end
     knn_vectors
@@ -73,7 +73,7 @@ class ApplicationController < ActionController::Base
       user_x_variables << element
     end
     new_entry_to_classify = Knn::Vector.new(user_x_variables, nil)
-    user.cluster = classifier.classify(new_entry_to_classify)
+    user.user_category = classifier.classify(new_entry_to_classify)
     user.save
   end
 

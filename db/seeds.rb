@@ -119,7 +119,7 @@ puts 'Creating user seeds for the model'
             age: rand(15..24),
             gender: "#{user_genders.sample}",
             use: "#{user_uses.sample}",
-            cluster: "Z#{user_curious_or_specific.sample}"
+            user_category: "Z#{user_curious_or_specific.sample}"
            )
           }
 
@@ -134,7 +134,7 @@ puts 'Creating user seeds for the model'
             age: rand(25..34),
             gender: "#{user_genders.sample}",
             use: "#{user_uses.sample}",
-            cluster: "Y#{user_curious_or_specific.sample}"
+            user_category: "Y#{user_curious_or_specific.sample}"
            )
           }
 
@@ -148,7 +148,7 @@ puts 'Creating user seeds for the model'
             age: rand(35..99),
             gender: "#{user_genders.sample}",
             use: "#{user_uses.sample}",
-            cluster: "X#{user_curious_or_specific.sample}"
+            user_category: "X#{user_curious_or_specific.sample}"
            )
           }
 
@@ -156,7 +156,7 @@ puts 'Creating user seeds for the model'
 # A user is defined as curious if he likes more than 3 music genres (3 include), and specific in the other case
 
 User.all.each { |user|
-  if user.cluster.include?("specific")
+  if user.user_category.include?("specific")
     user.genres = Genre.all.sample(rand(1..2))
   else
     user.genres = Genre.all.sample(rand(3..16))

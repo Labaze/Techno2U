@@ -26,7 +26,6 @@ class PreferencesController < ApplicationController
       authorize @preference
       @preference.save
     end
-    raise
     redirect_to(root_path)
   end
 
