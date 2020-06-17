@@ -4,12 +4,17 @@ class PartiesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
   before_action :set_party, only: %i[show edit update destroy]
 
-
   def index
     @parties = policy_scope(Party).sample(4)
     @user = current_user
 
-    if !params[:query].nil?
+
+    if params[:lookalike] == 'recommendations'
+      # HERE WE PUT THE RIGHT QUERY !
+      # USER IN THE CLUSTER ATTENDINGS, Pour les gens du cluster c est dans Pages controller
+      @parties = Party.all
+      @parties = @parties.page params[:page]
+    elsif !params[:query].nil?
       artist_names = JSON.parse(params[:query])
       @parties = Party.joins(:artists).where("artists.name IN (?)", artist_names).where('start_date >= ?', Date.today).uniq
       @parties = Party.where(id: @parties.map(&:id))

@@ -9,7 +9,8 @@ class PreferencesController < ApplicationController
     @tracks = []
     @locations = ["Lille","Paris", "Berlin", "London", "Rome", "Amsterdam", "New York", "Tokyo"]
     @user = current_user
-    @artists = Artist.joins(:parties).where('start_date >= ?', Date.today).where('track_url IS NOT NULL').where('venue_location ILIKE :query', query: "%#{params[:location]}%").limit(10).order(:start_date)
+    # @artists = Artist.joins(:parties).where('start_date >= ?', Date.today).where('track_url IS NOT NULL').where('venue_location ILIKE :query', query: "%#{params[:location]}%").limit(10).order(:start_date)
+    @artists = Artist.joins(:parties).where.not(name: 'Unknown').where('start_date >= ?', Date.today).where('track_url IS NOT NULL').where('venue_location ILIKE :query', query: "%#{params[:location]}%").limit(10).order(:start_date)
     @artists.each do |artist|
       @tracks << artist.track_url
     end
@@ -29,6 +30,7 @@ class PreferencesController < ApplicationController
       authorize @preference
       @preference.save
     end
+    raise
     redirect_to(root_path)
   end
 
