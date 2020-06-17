@@ -23,7 +23,7 @@ if (document.querySelector('.model-performances')){
   function testFunction()
   {
     //A is a barchart, and uses default settings
-    a = getSpanChart("Numbers by month", "graphValues", "graphLabels", "axisTitles");
+    a = getSpanChart("PCCs vs K", "graphValues", "graphLabels", "axisTitles");
     a.init();
 
     a.makeCurveChart();  //Bar Chart!
