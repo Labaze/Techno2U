@@ -181,16 +181,9 @@ User.all.each do |user|
 
 
     # checking if the user isn't alreading attending the party we are randomly attributing him
-    x = 0
-    user.attendings.each do |f|
-      if f.id == attending.party.id
-        x += 1
-      end
-      if x == 0
-        attending.save!
-      end
+    unless  user.attendings.include?(attending)
+      attending.save!
     end
-
   }
 end
 
