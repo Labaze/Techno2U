@@ -173,16 +173,14 @@ puts 'Creating attendings'
 User.all.each do |user|
   party_number = rand(1..4)
   party_number.times {
-    attending = Attending.new
-    attending.user = user
-
     party_id = rand(Party.first.id..Party.last.id)
-    attending.party = Party.find(party_id)
 
-
-    # checking if the user isn't alreading attending the party we are randomly attributing him
-    unless  user.attendings.include?(attending)
-      attending.save!
+    if user.attendings.empty?
+      Attending.create(party_id: party_id, user_id: user.id)
+    elsif user.attendings.each { |attended_event| attended_event.party_id != party_id}
+      Attending.create(party_id: party_id, user_id: user.id)
+    else
+      puts 'already attended this party'
     end
   }
 end
