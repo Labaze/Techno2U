@@ -43,9 +43,9 @@ puts 'Genres created from wikipedia list (no scrapping). Type Genre.all in conso
 
 
 
-puts 'Creating Unknown artist'
-Artist.create!(name: 'Unknown')
-puts 'Unknown artist created'
+# puts 'Creating Unknown artist'
+# Artist.create!(name: 'Unknown')
+# puts 'Unknown artist created'
 
 # puts 'Creating Artists'
 
