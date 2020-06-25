@@ -169,12 +169,16 @@ puts 'Model users created'
 
 puts 'Creating attendings'
 
+
 User.all.each do |user|
-  attending = Attending.new
-  attending.user = user
-  party_id = rand(Party.first.id..Party.last.id)
-  attending.party = Party.find(party_id)
-  attending.save!
+  party_number = rand(1..4)
+  party_number.times {
+    attending = Attending.new
+    attending.user = user
+    party_id = rand(Party.first.id..Party.last.id)
+    attending.party = Party.find(party_id)
+    attending.save!
+  }
 end
 
 puts 'Attendings created'
