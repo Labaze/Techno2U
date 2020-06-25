@@ -175,9 +175,22 @@ User.all.each do |user|
   party_number.times {
     attending = Attending.new
     attending.user = user
+
     party_id = rand(Party.first.id..Party.last.id)
     attending.party = Party.find(party_id)
-    attending.save!
+
+
+    # checking if the user isn't alreading attending the party we are randomly attributing him
+    x = 0
+    user.attendings.each do |f|
+      if f.id == attending.party.id
+        x += 1
+      end
+      if x == 0
+        attending.save!
+      end
+    end
+
   }
 end
 
