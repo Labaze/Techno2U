@@ -197,8 +197,8 @@ User.all.each do |user|
   5.times do
     preference = Preference.new
     preference.user = user
-    artist_id = rand(Artist.first.id..Artist.last.id)
-    preference.artist = Artist.find(artist_id)
+    genre_id = rand(Genre.first.id..Genre.last.id)
+    preference.genre = Genre.find(genre_id)
     preference.save!
   end
 end
