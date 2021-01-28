@@ -9,7 +9,9 @@ class PreferencesController < ApplicationController
     @tracks = []
     @locations = ["Lille","Paris", "Berlin", "London", "Rome", "Amsterdam", "New York", "Tokyo"]
     @user = current_user
-    @artists = Artist.where.not(track_url: '').joins(:parties).where('start_date >= ?', Date.today).where('venue_location ILIKE :query', query: "%#{params[:location]}%").limit(10).order(:start_date)
+    # uncomment line bellow and delete line after to return only upcoming parties
+      # @artists = Artist.where.not(track_url: '').joins(:parties).where('start_date >= ?', Date.today).where('venue_location ILIKE :query', query: "%#{params[:location]}%").limit(10).order(:start_date)
+      @artists = Artist.where.not(track_url: '').joins(:parties).where('venue_location ILIKE :query', query: "%#{params[:location]}%").limit(10).order(:start_date)
     @artists.each do |artist|
       @tracks << artist.track_url
     end

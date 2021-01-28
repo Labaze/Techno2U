@@ -1,14 +1,6 @@
-<% if @non_existing_session %>
-  <div class="alert-messages first-session-animation-show">
-    <%= render 'shared/alert_for_audio_quizz' %>
-    <%= render 'shared/alert_for_card_event' %>
-    <%= render 'shared/alert_for_event_save' %>
-  </div>
-<% end %>
-
 <%= render 'shared/banner' %>
 
-<div class="container <%= "first-session-animation-hide" if @non_existing_session %>">
+<div class="container <%#= "first-session-animation-hide" if @non_existing_session %>">
   <p class="home-description"></p>
   <div class='home-cards'>
     <% Party.all.sample(3).each do |party| %>

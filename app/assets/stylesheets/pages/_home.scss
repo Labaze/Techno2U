@@ -1,41 +1,41 @@
 // Specific CSS for your home-page
-.alert-messages{
-  display:  flex;
-  position: relative;
-  z-index:  100;
-}
+// .alert-messages{
+//   display:  flex;
+//   position: relative;
+//   z-index:  100;
+// }
 
-.first-session-animation-show {
-  opacity:             0;
-  animation:           0.5s ease-in 1s show;
-  animation-fill-mode: forwards;
-}
+// .first-session-animation-show {
+//   opacity:             0;
+//   animation:           0.5s ease-in 1s show;
+//   animation-fill-mode: forwards;
+// }
 
-.first-session-animation-hide {
-  opacity:             0.5;
-  animation:           1s ease-in hide;
-  animation-fill-mode: forwards;
-}
+// .first-session-animation-hide {
+//   opacity:             0.5;
+//   animation:           1s ease-in hide;
+//   animation-fill-mode: forwards;
+// }
 
-@keyframes hide {
-  from {
-    opacity: 1;
-  }
+// @keyframes hide {
+//   from {
+//     opacity: 1;
+//   }
 
-  to {
-    opacity: 0;
-  }
-}
+//   to {
+//     opacity: 0;
+//   }
+// }
 
-@keyframes show {
-  from {
-    opacity: 0;
-  }
+// @keyframes show {
+//   from {
+//     opacity: 0;
+//   }
 
-  to {
-    opacity: 1;
-  }
-}
+//   to {
+//     opacity: 1;
+//   }
+// }
 
 
 .home-cards {

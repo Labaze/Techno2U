@@ -21,7 +21,9 @@ class PartiesController < ApplicationController
       @parties = @parties.page params[:page]
     elsif params[:search].nil? || params[:search][:location].empty? #params[:search].nil?
       location = "Paris"
-      @parties = Party.where("start_date >= ?", Date.today).where("venue_location ILIKE :query", query: "%#{location}%")
+      # uncomment line bellow and delete line after to return only upcoming parties
+        # @parties = Party.where("start_date >= ?", Date.today).where("venue_location ILIKE :query", query: "%#{location}%")
+        @parties = Party.where("venue_location ILIKE :query", query: "%#{location}%")
       @parties = @parties.page params[:page]
     elsif params[:search][:start_date] == "" && params[:search][:location].present?
       @parties = Party.where("start_date >= ?", Date.today).where("venue_location ILIKE :query", query: "%#{params[:search][:location]}%")
